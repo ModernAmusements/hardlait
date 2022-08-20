@@ -1,20 +1,3 @@
-# 🎉 Getting Started
-
-Use the deploy button to get your own copy of the repository.
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Knogobert/ntn-boilerplate&stack=cms)
-
-This will setup everything needed for running the CMS:
-
-- A new repository in your GitHub account with the code
-- Full Continuous Deployment to Netlify's global CDN network
-- Control users and access with Netlify Identity
-- Manage content with Netlify CMS and Nuxt-content
-
-Once the initial build finishes, you can invite yourself as a user. Go to the Identity tab in your new site, click "Invite" and send yourself an invite. Start with by registering a regular email-account (not OAuth yet!) with a [generated password](https://passwordwolf.com/).
-
-You should be up and running, ready for personalization!
-
 ### These extra steps are only necessary if you want to upload large media in Netlify CMS:
 
 This way it doesn't clutter up your repo with large unmanageable files. But _do know_ that it is easier to add later than undoing it later.
@@ -27,19 +10,19 @@ This way it doesn't clutter up your repo with large unmanageable files. But _do 
 
 ## Project commands
 
-1. 📦 Install dependencies.
+1. Install dependencies.
 
 ```bash
 npm install
 ```
 
-2. 🏗 Run the project for local dev. This will start a hot-reloading server at `localhost:3000`.
+2. Run the project for local dev. This will start a hot-reloading server at `localhost:3000`.
 
 ```bash
 npm run dev
 ```
 
-3. 🌌 Build the app for server-side rendered deployment. See more about **Universal SSR** in the [Nuxt.js docs](https://nuxtjs.org/guide#server-rendered-universal-ssr-).
+3. Build the app for server-side rendered deployment. See more about **Universal SSR** in the [Nuxt.js docs](https://nuxtjs.org/guide#server-rendered-universal-ssr-).
 
 ```bash
 npm run build
@@ -48,7 +31,7 @@ npm run build
 npm run start
 ```
 
-4. ⚡️ Generate a fully pre-rendered static site. See more [in the docs](https://nuxtjs.org/guide#static-generated-pre-rendering-).
+4. Generate a fully pre-rendered static site. See more [in the docs](https://nuxtjs.org/guide#static-generated-pre-rendering-).
 
 ```bash
 npm run generate
@@ -81,10 +64,6 @@ npm run generate
    2. Then append your font name in `tailwind.config.js` under `theme.extend.fontFamily.sans` (or other).
    3. Then if you've uncommented the included netlify plugin "[Subfont](https://github.com/Munter/netlify-plugin-subfont#readme)" in `netlify.toml`, it will automatically post-processes your web page to use an optimal font loading strategy.
 
-## More info
-
-> This project was bootstrapped with `create-nuxt-app`. There are more detailed explanations of how everything works in the [Nuxt.js docs](https://nuxtjs.org).
-
 ### Netlify Identity
 
 Make sure to set to "registration invite only" [here](https://app.netlify.com/sites/YOUR_NETLIFY_SITE_SLUG/settings/identity#registration-preferences) if you don't want spam.
@@ -92,12 +71,6 @@ Make sure to set to "registration invite only" [here](https://app.netlify.com/si
 When you create your first account, _don’t_ sign up using OAuth, generate a new password and sign in that way locally, otherwise a successful login will send you to the URL you typed in instead of keeping you on localhost.
 
 If you want the Netlify signup emails to work with this boilerplate, you need to either add the 'netlify-identity-widget' to `nuxt.config.js` under `head`, [Follow the advice here](https://answers.netlify.com/t/common-issue-netlify-cms-git-gateway-email-not-confirmed/10690). Or enable the fixed and included email-templates’ paths in Netlify, under [Site Settings > Identity > Emails](https://app.netlify.com/sites/YOUR_NETLIFY_SITE_SLUG/settings/identity) and there you can set `/static/emails/THE_TEMPLATE_NAME.html` for each template.
-
----
-
-Originally based on [Henry Desroches' nuxt-netlify-cms-starter](https://github.com/xdesro/nuxt-netlify-cms-starter).
-
----
 
 ## Troubleshooting
 
