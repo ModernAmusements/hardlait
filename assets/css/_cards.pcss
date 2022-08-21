@@ -2,19 +2,10 @@
   .cards {
     @apply w-full py-4 rounded-lg text-left;
     & .card {
-      @apply flex flex-col justify-between items-start max-w-5xl mx-auto px-4 py-4 rounded border border-solid border-primary;
+      @apply flex flex-col justify-between items-start max-w-5xl mx-auto px-4 py-4;
 
       & .cover-image {
         @apply mb-0 w-full rounded-sm;
-      }
-
-      &.card--clickable {
-        &:hover {
-          @apply border-primary-300 bg-primary-800 text-white;
-          & .card-title {
-            @apply text-white;
-          }
-        }
       }
     }
 
@@ -27,7 +18,7 @@
     @apply block w-full duration-100;
   }
   .card-title {
-    @apply font-bold;
+    font-family: 'MIU MIU';
   }
 
   .cover-image {
@@ -39,15 +30,6 @@
     & .cards {
       & .card {
         @apply border-primary-400;
-
-        &.card--clickable {
-          &:hover {
-            @apply border-primary bg-primary-200 text-primary-900;
-            & .card-title {
-              @apply text-primary-900;
-            }
-          }
-        }
       }
     }
   }

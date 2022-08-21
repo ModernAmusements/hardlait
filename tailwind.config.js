@@ -30,7 +30,7 @@ module.exports = {
           200: 'var(--color-primary-200)', // #C3CBDC
           300: 'var(--color-primary-300)', // #9BA8C2
           400: 'var(--color-primary-400)', // #7686A6
-          DEFAULT: 'var(--color-primary)', // #526488
+          DEFAULT: 'var(--color-primary)', // #fe5550
           600: 'var(--color-primary-600)', // #3E4F70
           700: 'var(--color-primary-700)', // #2C3A57
           800: 'var(--color-primary-800)', // #1C263B
