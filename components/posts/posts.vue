@@ -3,9 +3,9 @@
     <li v-for="(post, index) in posts" :key="index">
       <nuxt-link :to="`/${postType}/${post.slug}`" class="card card--clickable">
         <template v-if="postType === 'projects'">
-          <span class="flex flex-row">
+          <span class="flex flex-col md:flex-row">
             <h3 class="h-l-garamond">{{ post.title }}</h3>
-            <h6 class="inline-block py-1 px-2 mr-1 bg-gray text-white text-sm font-medium rounded-sm">
+            <h6 class="inline-block text-sm font-medium">
               {{ post.category }}
             </h6>
             <!-- <p class="mt-2 subtitle">{{ post.description }}</p> -->
