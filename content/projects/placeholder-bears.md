@@ -1,9 +1,7 @@
 ---
-category: commercial
+category: animals
 title: Converse x Comme des Garcons
-# description: Necessary to show how a project with the category Animals is used
-# cover: https://placebear.com/400/200
-# gallery: ['https://placebear.com/g/800/400', 'https://placebear.com/600/600']
+cover: /img/hl-p-1.jpg
 ---
 
 It is easy to write **markdown**-_enabled_ content like this placeholder text, with support for images.
