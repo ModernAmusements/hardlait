@@ -22,12 +22,6 @@ export default {
 
 <style lang="postcss" scoped>
 .nuxt-link-exact-active {
-  @apply text-gray-200 border-gray-400 bg-gray-800 bg-opacity-25 cursor-default;
-}
-
-.light {
-  & .nuxt-link-exact-active {
-    @apply text-primary-700 border-gray-600 bg-gray-100;
-  }
+  @apply text-primary;
 }
 </style>

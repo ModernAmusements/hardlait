@@ -7,7 +7,7 @@
 
 module.exports = {
   theme: {
-    darkMode: 'class',
+    darkMode: '',
     extend: {
       // fontFamily: {
       //   sans: ['MIU MIU'],
