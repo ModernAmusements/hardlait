@@ -8,7 +8,7 @@
         <nuxt-link class="btn block" to="/#">Blog</nuxt-link>
       </li>
       <li class="flex-1 ml-2">
-        <nuxt-link class="btn block" to="/#">Projects</nuxt-link>
+        <nuxt-link class="btn block" to="/projects">Projects</nuxt-link>
       </li>
     </ul>
   </nav>
