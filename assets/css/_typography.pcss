@@ -17,7 +17,6 @@
     & + h3,
     & + h4,
     & + h5,
-    & + h6,
     & + p {
       @apply mt-4;
     }
@@ -59,16 +58,16 @@
   }
 
   h6 {
+    font-family: 'MIU MIU';
     @apply font-light
       text-lg
       leading-tight
-      tracking-wide
-      uppercase;
+      tracking-wide;
   }
 
   p {
     color: var(--text);
-    @apply font-sans leading-normal transition-colors duration-200 ease-in-out;
+    @apply leading-normal transition-colors duration-200 ease-in-out;
 
     & + h1,
     & + h2,
@@ -237,17 +236,19 @@
 
 .h-l-garamond {
   font-family: 'Garamond Narrow';
-  font-weight: 400;
-  font-size: 10rem;
-  line-height: 105px;
+  font-size: 6vw;
+  line-height: 5rem;
+  font-weight: 100;
+  white-space: nowrap;
 }
 
 @media only screen and (max-width: 600px) {
   .h-l-garamond {
     font-family: 'Garamond Narrow';
-    font-weight: 400;
     font-size: 3rem;
-    line-height: 35px;
+    line-height: 2.5rem;
+    white-space: normal;
+    hyphens: auto;
   }
 }
 

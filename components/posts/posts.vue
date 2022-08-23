@@ -4,7 +4,7 @@
       <nuxt-link :to="`/${postType}/${post.slug}`" class="card card--clickable">
         <template v-if="postType === 'projects'">
           <span class="flex flex-col md:flex-row">
-            <h3 class="h-l-garamond">{{ post.title }}</h3>
+            <h3 class="h-l-garamond mr-0 md:mr-10">{{ post.title }}</h3>
             <h6 class="inline-block text-sm font-medium">
               {{ post.category }}
             </h6>

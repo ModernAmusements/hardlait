@@ -15,7 +15,7 @@ export default {
     url:
       process.env.NODE_ENV === 'production'
         ? process.env.URL || 'http://createADotEnvFileAndSetURL'
-        : 'http://localhost:3000',
+        : 'https://hardlait.netlify.app/',
     lang: SITE_INFO.sitelang || 'en-US',
   },
   /*
