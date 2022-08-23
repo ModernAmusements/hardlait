@@ -1,14 +1,15 @@
 <template>
   <nav class="fixed z-40 top-0 inset-x-0 pt-3 px-3" aria-label="Main Menu">
+    <nuxt-link class="btn block" to="/">HARDLAIT</nuxt-link>
     <ul class="flex">
       <li class="flex-1">
-        <nuxt-link class="btn block" to="/">Home</nuxt-link>
-      </li>
-      <li class="flex-1 ml-2">
-        <nuxt-link class="btn block" to="/#">Blog</nuxt-link>
-      </li>
-      <li class="flex-1 ml-2">
         <nuxt-link class="btn block" to="/projects">Projects</nuxt-link>
+      </li>
+      <li class="flex-1 ml-2">
+        <nuxt-link class="btn block" to="/#">Dump</nuxt-link>
+      </li>
+      <li class="flex-1 ml-2">
+        <nuxt-link class="btn block" to="/#">About</nuxt-link>
       </li>
     </ul>
   </nav>
@@ -21,6 +22,12 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+nav {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.5rem;
+}
+
 .nuxt-link-exact-active {
   @apply text-primary;
 }
