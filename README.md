@@ -1,12 +1,4 @@
-### These extra steps are only necessary if you want to upload large media in Netlify CMS:
-
-This way it doesn't clutter up your repo with large unmanageable files. But _do know_ that it is easier to add later than undoing it later.
-
-1. **[Install git-lfs](https://git-lfs.github.com/)** on your computer and remove the `#` in the project's `.gitattributes`
-
-2. **Setup Netlify LM** by following [these steps](https://docs.netlify.com/large-media/setup/). (In short: `netlify plugins:install netlify-lm-plugin` → `netlify lm:install` → `netlify login` → `netlify link` → `netlify lm:setup` → commit the `.lfsconfig` file.)
-
----
+# Hardlait Website 2.9
 
 ## Project commands
 
@@ -41,7 +33,7 @@ npm run generate
 
 1. Copy and change the .env-file
 
-   - `cp .env-example .env`
+   - `cp .example.env .env`
    - Then change the values
 
 2. Change the value on these lines
@@ -71,6 +63,12 @@ Make sure to set to "registration invite only" [here](https://app.netlify.com/si
 When you create your first account, _don’t_ sign up using OAuth, generate a new password and sign in that way locally, otherwise a successful login will send you to the URL you typed in instead of keeping you on localhost.
 
 If you want the Netlify signup emails to work with this boilerplate, you need to either add the 'netlify-identity-widget' to `nuxt.config.js` under `head`, [Follow the advice here](https://answers.netlify.com/t/common-issue-netlify-cms-git-gateway-email-not-confirmed/10690). Or enable the fixed and included email-templates’ paths in Netlify, under [Site Settings > Identity > Emails](https://app.netlify.com/sites/YOUR_NETLIFY_SITE_SLUG/settings/identity) and there you can set `/static/emails/THE_TEMPLATE_NAME.html` for each template.
+
+---
+
+1. **[Install git-lfs](https://git-lfs.github.com/)** on your computer and remove the `#` in the project's `.gitattributes`
+
+2. **Setup Netlify LM** by following [these steps](https://docs.netlify.com/large-media/setup/). (In short: `netlify plugins:install netlify-lm-plugin` → `netlify lm:install` → `netlify login` → `netlify link` → `netlify lm:setup` → commit the `.lfsconfig` file.)
 
 ## Troubleshooting
 
