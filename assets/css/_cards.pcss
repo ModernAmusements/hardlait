@@ -1,4 +1,129 @@
-@layer base {
+/* Cards Mobile Grid */
+/* Cards Wrapper */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-auto-rows: minmax(80px, auto);
+  grid-auto-flow: column;
+  grid-gap: 10px;
+  align-items: center;
+  & .card {
+    padding: 0rem 0;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(80px, auto);
+    grid-auto-flow: row;
+    grid-gap: 10px;
+    & span {
+      display: grid;
+      grid-auto-flow: column;
+      align-items: baseline;
+      justify-content: start;
+      grid-column: 1 / 4;
+      grid-row: 1;
+      z-index: 2;
+    }
+    & .cover-image {
+      display: none;
+    }
+  }
+  /* Cards Container */
+  & li {
+    grid-column: 1 / 12;
+    /* Cards Content */
+    & a {
+      & a {
+        & h3 {
+          line-height: 3rem;
+        }
+      }
+    }
+    & a:hover {
+      & span {
+        display: grid;
+        grid-column: 1 / 4;
+        grid-row: 1;
+        z-index: 2;
+        grid-auto-flow: row;
+        align-items: self-end;
+        justify-content: start;
+      }
+      & a {
+        & h3 {
+          line-height: 4rem;
+        }
+        & .cover-image {
+          grid-column: 2 / 4;
+          grid-row: 1;
+          z-index: 1;
+          display: grid;
+          @apply mb-0 w-full rounded-sm;
+        }
+      }
+    }
+  }
+}
+.cards {
+  & a:hover {
+    @apply uppercase;
+    & span {
+      display: grid;
+      grid-column: 1 / 4;
+      grid-row: 1;
+      z-index: 2;
+    }
+    & a {
+      & h3 {
+        line-height: 4rem;
+      }
+    }
+    & .cover-image {
+      grid-column: 2 / 4;
+      grid-row: 1;
+      z-index: 1;
+      display: grid;
+      @apply mb-0 w-full rounded-sm;
+    }
+    & h3 {
+      color: var(--color-primary);
+      font-family: 'MIU MIU';
+      white-space: normal;
+      hyphens: auto;
+    }
+  }
+}
+
+.cover-image {
+  max-height: 500px;
+  grid-column: 1 / 4;
+  grid-row: 2;
+  @apply w-full object-cover rounded my-4;
+}
+.light {
+  & .cards {
+    & .card {
+      @apply border-primary-400;
+    }
+  }
+}
+
+.vue-content-placeholders-heading__content {
+  @apply opacity-75;
+  & .vue-content-placeholders-heading__title {
+    @apply h-6 mb-5 mt-1;
+  }
+}
+.dark {
+  & .vue-content-placeholders-heading__title {
+    @apply bg-primary;
+  }
+  & .vue-content-placeholders-heading__subtitle {
+    @apply bg-primary-400;
+  }
+}
+
+@media only screen and (max-width: 768px) {
   .cards {
     display: grid;
     align-items: start;
@@ -8,6 +133,28 @@
     grid-auto-flow: row;
     grid-gap: 2rem;
     @apply w-full text-left;
+    & .card {
+      padding: 0rem 0;
+      display: grid;
+      align-items: center;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: minmax(80px, auto);
+      grid-auto-flow: row;
+      grid-gap: 10px;
+      & span {
+        display: grid;
+        grid-auto-flow: row;
+        align-items: self-end;
+        justify-content: start;
+        grid-column: 1 / 4;
+        grid-row: 1;
+        z-index: 2;
+      }
+      & .cover-image {
+        display: grid;
+      }
+    }
+    /* Title and Cat. */
     & li {
       grid-column: 1 / 4;
       & a {
@@ -17,104 +164,61 @@
         }
       }
     }
-    & li + li,
-    & .card + .card {
-      @apply mt-4;
+    & li {
+      & a:hover {
+        & span {
+          display: grid;
+          grid-column: 1 / 4;
+          grid-row: 1;
+          z-index: 2;
+          grid-auto-flow: row;
+          align-items: self-end;
+          justify-content: start;
+        }
+        & a {
+          & h3 {
+            line-height: 4rem;
+          }
+          & .cover-image {
+            grid-column: 2 / 4;
+            grid-row: 1;
+            z-index: 1;
+            display: grid;
+            @apply mb-0 w-full rounded-sm;
+          }
+        }
+      }
     }
   }
   .card {
     @apply block w-full duration-100;
   }
-  .card-title {
-    font-family: 'MIU MIU';
-  }
 
-  .cover-image {
-    max-height: 500px;
-    @apply w-full object-cover rounded my-4;
-  }
-
-  .light {
-    & .cards {
-      & .card {
-        @apply border-primary-400;
+  & a:hover {
+    @apply uppercase;
+    & span {
+      display: grid;
+      grid-column: 1 / 4;
+      grid-row: 1;
+      z-index: 2;
+    }
+    & a {
+      & h3 {
+        line-height: 4rem;
       }
     }
-  }
-
-  .vue-content-placeholders-heading__content {
-    @apply opacity-75;
-    & .vue-content-placeholders-heading__title {
-      @apply h-6 mb-5 mt-1;
+    & .cover-image {
+      grid-column: 2 / 4;
+      grid-row: 1;
+      z-index: 1;
+      display: grid;
+      @apply mb-0 w-full rounded-sm;
     }
-  }
-  .dark {
-    & .vue-content-placeholders-heading__title {
-      @apply bg-primary;
-    }
-    & .vue-content-placeholders-heading__subtitle {
-      @apply bg-primary-400;
-    }
-  }
-
-  @screen sm {
-    .cards {
-      & .card {
-        padding: 0rem 0;
-        display: grid;
-        align-items: center;
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: minmax(80px, auto);
-        grid-auto-flow: row;
-        grid-gap: 10px;
-        & span {
-          display: flex;
-          align-items: self-end;
-        }
-        & .cover-image {
-          grid-column: 2 / 4;
-          grid-row: 1;
-          z-index: 1;
-          display: none;
-          @apply mb-0 w-full rounded-sm;
-        }
-      }
-    }
-    @screen md {
-      .cards {
-        display: grid;
-        grid-template-columns: repeat(11, 1fr);
-        grid-auto-rows: minmax(80px, auto);
-        grid-auto-flow: column;
-        grid-gap: 10px;
-        align-items: center;
-        & li {
-          grid-column: 1 / 12;
-          & a:hover {
-            & span {
-              display: grid;
-              grid-column: 1 / 4;
-              grid-row: 1;
-              z-index: 2;
-            }
-            & a {
-              & h3 {
-                line-height: 4rem;
-              }
-            }
-            & .cover-image {
-              display: grid;
-            }
-            @apply uppercase;
-            & h3 {
-              color: var(--color-primary);
-              font-family: 'MIU MIU';
-              white-space: normal;
-              hyphens: auto;
-            }
-          }
-        }
-      }
+    & h3 {
+      color: var(--color-primary);
+      font-family: 'MIU MIU';
+      white-space: normal;
+      hyphens: auto;
     }
   }
 }

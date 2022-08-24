@@ -2,7 +2,7 @@
   <main>
     <section class="self-center flex flex-col flex-1 items-center justify-center">
       <div class="homepage-hero">
-        <h1 class="title text-center">Hardlait</h1>
+        <h1 class="title text-center uppercase">Hardlait</h1>
         <h2 class="subtitle text-center">In Production</h2>
       </div>
     </section>
