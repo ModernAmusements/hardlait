@@ -3,14 +3,14 @@
     <li v-for="(post, index) in posts" :key="index">
       <nuxt-link :to="`/${postType}/${post.slug}`" class="card card--clickable">
         <template v-if="postType === 'projects'">
-          <span class="flex flex-col md:flex-row">
+          <span class="">
             <h3 class="h-l-garamond mr-0 md:mr-10">{{ post.title }}</h3>
-            <h6 class="inline-block text-sm font-medium">
+            <h6 class="inline-block uppercase mui-subtitle">
               {{ post.category }}
             </h6>
             <!-- <p class="mt-2 subtitle">{{ post.description }}</p> -->
           </span>
-          <!-- <img v-if="post.cover" class="cover-image" :src="post.cover"> -->
+          <img v-if="post.cover" class="cover-image" :src="post.cover">
         </template>
         <!-- blog -->
         <template v-else>

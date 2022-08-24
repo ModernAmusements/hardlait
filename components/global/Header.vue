@@ -3,13 +3,13 @@
     <nuxt-link class="btn block" to="/">HARDLAIT</nuxt-link>
     <ul class="flex">
       <li class="flex-1">
-        <nuxt-link class="btn block" to="/projects">Projects</nuxt-link>
+        <nuxt-link class="btn block uppercase" to="/projects">Projects</nuxt-link>
       </li>
       <li class="flex-1 ml-2">
-        <nuxt-link class="btn block" to="/#">Dump</nuxt-link>
+        <nuxt-link class="btn block uppercase" to="/#">Dump</nuxt-link>
       </li>
       <li class="flex-1 ml-2">
-        <nuxt-link class="btn block" to="/#">About</nuxt-link>
+        <nuxt-link class="btn block uppercase" to="/#">About</nuxt-link>
       </li>
     </ul>
   </nav>
@@ -30,5 +30,12 @@ nav {
 
 .nuxt-link-exact-active {
   @apply text-primary;
+}
+
+@media only screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: start;
+  }
 }
 </style>
