@@ -1,16 +1,22 @@
 <template>
+  <!-- Grid Toplevel -->
   <ul v-if="posts.length > 0" class="cards">
     <li v-for="(post, index) in posts" :key="index">
+      <!-- Same for pro and cards  -->
       <nuxt-link :to="`/${postType}/${post.slug}`" class="card card--clickable">
         <template v-if="postType === 'projects'">
-          <span class="">
+          <!-- Info  -->
+          <span>
             <h3 class="h-l-garamond mr-0 md:mr-5">{{ post.title }}</h3>
             <h6 class="inline-block uppercase mui-subtitle">
               {{ post.category }}
             </h6>
             <!-- <p class="mt-2 subtitle">{{ post.description }}</p> -->
           </span>
+          <!-- Info  -->
+          <!-- IMG  -->
           <img v-if="post.cover" class="cover-image" :src="post.cover">
+          <!-- IMG  -->
         </template>
         <!-- blog -->
         <template v-else>
