@@ -1,7 +1,7 @@
 <template>
   <!-- Grid Toplevel -->
   <ul v-if="posts.length > 0" class="cards">
-    <li v-for="(post, index) in posts" :key="index">
+    <li class="grid-item" v-for="(post, index) in posts" :key="index">
       <!-- Same for pro and cards  -->
       <nuxt-link :to="`/${postType}/${post.slug}`" class="card card--clickable">
         <template v-if="postType === 'projects'">
