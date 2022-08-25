@@ -1,6 +1,14 @@
 @keyframes img-trans-in {
   from {
-    transform: translateX(125px);
+    transform: translateX(1250px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+@keyframes img-trans-out {
+  from {
+    transform: translateX(1250px);
   }
   to {
     transform: translateX(0px);
@@ -35,6 +43,12 @@
     max-height: 500px;
     grid-column: 1 / 12;
     grid-row: 2;
+    transform: translateX(1250px);
+    transition-timing-function: cubic-bezier(0.29, 1.01, 1, -0.68);
+    animation-duration: 1ms;
+    animation-name: img-trans-in;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
     @apply w-full object-cover rounded my-4;
   }
   & li {
@@ -79,8 +93,9 @@
           grid-row: 1;
           z-index: 1;
           display: grid;
+          transform: translateX(0px);
           transition-timing-function: cubic-bezier(0.29, 1.01, 1, -0.68);
-          animation-duration: 500ms;
+          animation-duration: 1s;
           animation-name: img-trans-in;
           animation-iteration-count: 1;
           animation-direction: alternate;
@@ -174,7 +189,7 @@
     grid-gap: 10px;
     align-items: center;
     & .cover-image {
-      max-height: 500px;
+      max-height: 100px;
       grid-column: 2 / 12;
       grid-row: 1;
       z-index: 1;
