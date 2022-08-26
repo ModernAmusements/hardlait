@@ -11,9 +11,7 @@
             <h6 class="inline-block uppercase mui-subtitle">
               {{ post.category }}
             </h6>
-            <div class="post-description">
-              <p class="mt-2 subtitle">{{ post.description }}</p>
-            </div>
+            <!-- <p class="mt-2 subtitle">{{ post.description }}</p> -->
           </span>
           <!-- Info  -->
           <!-- IMG  -->
