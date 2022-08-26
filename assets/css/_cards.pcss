@@ -1,3 +1,4 @@
+/* Img Animation */
 @keyframes img-trans-in {
   from {
     transform: translateX(1250px);
@@ -6,14 +7,7 @@
     transform: translateX(0px);
   }
 }
-@keyframes img-trans-out {
-  from {
-    transform: translateX(1250px);
-  }
-  to {
-    transform: translateX(0px);
-  }
-}
+/* Title Animimation */
 @keyframes title-trans-in {
   from {
     transform: translateX(-125px);
@@ -32,7 +26,7 @@
     transform: translateX(0px);
   }
 }
-
+/* BaseStyling */
 .cards {
   /* Cards TopLebel */
   display: grid;
@@ -44,11 +38,6 @@
     grid-column: 1 / 12;
     grid-row: 2;
     transform: translateX(1250px);
-    transition-timing-function: cubic-bezier(0.29, 1.01, 1, -0.68);
-    animation-duration: 1ms;
-    animation-name: img-trans-in;
-    animation-iteration-count: 1;
-    animation-direction: alternate;
     @apply w-full object-cover rounded my-4;
   }
   & li {
@@ -58,7 +47,7 @@
         /* animation */
         transform: translateX(0px);
         transition-timing-function: cubic-bezier(0.29, 1.01, 1, -0.68);
-        animation-duration: 1s;
+        animation-duration: 500ms;
         animation-name: title-trans-out;
         animation-iteration-count: 1;
         animation-direction: alternate;
@@ -93,12 +82,6 @@
           grid-row: 1;
           z-index: 1;
           display: grid;
-          transform: translateX(0px);
-          transition-timing-function: cubic-bezier(0.29, 1.01, 1, -0.68);
-          animation-duration: 1s;
-          animation-name: img-trans-in;
-          animation-iteration-count: 1;
-          animation-direction: alternate;
           @apply mb-0 w-full rounded-sm;
         }
       }
@@ -144,6 +127,12 @@
         grid-row: 1;
         z-index: 1;
         display: grid;
+        transform: translateX(0px);
+        transition-timing-function: cubic-bezier(0.29, 1.01, 1, -0.68);
+        animation-duration: 500ms;
+        animation-name: img-trans-in;
+        animation-iteration-count: 1;
+        animation-direction: alternate;
         @apply mb-0 w-full rounded-sm;
       }
       & h3 {
@@ -156,26 +145,10 @@
   }
 }
 
-.light {
-  & .cards {
-    & .card {
-      @apply border-primary-400;
-    }
-  }
-}
-
 .vue-content-placeholders-heading__content {
   @apply opacity-75;
   & .vue-content-placeholders-heading__title {
     @apply h-6 mb-5 mt-1;
-  }
-}
-.dark {
-  & .vue-content-placeholders-heading__title {
-    @apply bg-primary;
-  }
-  & .vue-content-placeholders-heading__subtitle {
-    @apply bg-primary-400;
   }
 }
 
