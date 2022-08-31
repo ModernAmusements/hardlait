@@ -27,7 +27,7 @@ export default {
         height: '100%'
       },
       tvScreenStyle: {
-        backgroundColor: '#181818',
+        backgroundColor: '#fafafa',
         width: `${TV_SCREEN_WIDTH}px`,
         height: `${TV_SCREEN_HEIGHT}px`
       },

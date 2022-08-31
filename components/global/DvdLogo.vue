@@ -12,9 +12,7 @@ var rand = (max) => {
   return Math.floor(Math.random() * max)
 }
 
-var randColor = () => {
-  return `rgb(${rand(256)}, ${rand(256)}, ${rand(256)})`
-}
+
 
 export default {
   name: 'DvdLogo',
@@ -27,7 +25,7 @@ export default {
         alignItems: 'center',
         width: `${DVD_LOGO_WIDTH}px`,
         height: `${DVD_LOGO_HEIGHT}px`,
-        backgroundColor: `rgb(0, 0, 255)`,
+        backgroundColor: `rgb(255, 255, 255,0)`,
         transform: 'translate(0px, 0px)'
       },
       dvdLogoImageStyle: {
@@ -61,11 +59,11 @@ export default {
       }
       if (isHorizontalBoundary) {
         changeX *= -1
-        this.dvdLogoStyle.backgroundColor = randColor()
+
       }
       if (isVerticalBounday) {
         changeY *= -1
-        this.dvdLogoStyle.backgroundColor = randColor()
+
       }
 
       this.dvdLogoStyle.transform = `translate(${this.posX}px, ${this.posY}px)`
