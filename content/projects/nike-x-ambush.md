@@ -1,6 +1,6 @@
 ---
 category: personalOnGoing
-title: Dior FW21
-description: Dior FW21
+title: Nike Tokyo x Ambush
+description: Nike Tokyo x Ambush
 cover: /img/hl-p-1.jpg
 ---
