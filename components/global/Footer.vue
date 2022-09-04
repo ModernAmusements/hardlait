@@ -25,7 +25,6 @@
   footer {
   	display: flex;
   	justify-content: flex-center;
-  	font-size: 0.5rem;
   
   	& .footer-menu {
   		width: 100%;

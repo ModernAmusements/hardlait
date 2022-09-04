@@ -32,12 +32,13 @@ export default {
         content: SITE_INFO.sitedescription || process.env.npm_package_description || '',
       },
     ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon/favicon.ico' }],
     __dangerouslyDisableSanitizers: ['noscript'],
   },
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#526488' },
+  loading: { color: '#F43425' },
   /*
    ** Global CSS
    */
