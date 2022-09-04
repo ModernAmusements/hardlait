@@ -20,7 +20,6 @@ export default {
         <h2 class="subtitle text-center">In Production</h2>
       </div>
     </section> -->
-
     <posts post-type="projects" :amount="10" />
   </main>
 </template>
