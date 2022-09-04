@@ -45,6 +45,6 @@ export default {
 <style>
 .hl-dvd-toggle {
   position: relative;
-  top: -10vh;
+  top: -15vh;
 }
 </style>

@@ -3,17 +3,6 @@
     <nuxt-link class="" to="/">
       <img src="~/assets/hl-wordmark.svg" />
     </nuxt-link>
-    <ul class="flex">
-      <li class="flex-1">
-        <nuxt-link class="btn block uppercase" to="/projects">Projects</nuxt-link>
-      </li>
-      <li class="flex-1 ml-2">
-        <nuxt-link class="btn block uppercase" to="/#">Dump</nuxt-link>
-      </li>
-      <li class="flex-1 ml-2">
-        <nuxt-link class="btn block uppercase" to="/#">About</nuxt-link>
-      </li>
-    </ul>
   </nav>
 </template>
 
