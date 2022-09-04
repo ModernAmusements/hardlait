@@ -1,6 +1,6 @@
 <template>
-  <div v-bind:style="dvdLogoStyle">
-    <img src="~/assets/dvd_logo.png" v-bind:style="dvdLogoImageStyle" />
+  <div v-bind:style="dvdStyle">
+    <img src="~/assets/dvd_logo.png" v-bind:style="dvdImageStyle" />
   </div>
 </template>
 
@@ -15,11 +15,11 @@ var rand = (max) => {
 
 
 export default {
-  name: 'DvdLogo',
-  props: ['dvdLogoProps'],
+  name: 'Dvd',
+  props: ['dvdProps'],
   data() {
     return {
-      dvdLogoStyle: {
+      dvdStyle: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -28,7 +28,7 @@ export default {
         backgroundColor: `rgb(255, 255, 255,0)`,
         transform: 'translate(0px, 0px)'
       },
-      dvdLogoImageStyle: {
+      dvdImageStyle: {
         width: `${DVD_LOGO_WIDTH - 20}px`,
         height: `${DVD_LOGO_HEIGHT - 20}px`
       }
@@ -46,10 +46,10 @@ export default {
       this.posX += changeX
       this.posY += changeY
 
-      var isRight = this.posX >= this.dvdLogoProps.tvScreenWidth - DVD_LOGO_WIDTH
+      var isRight = this.posX >= this.dvdProps.ScreenWidth - DVD_LOGO_WIDTH
       var isLeft = this.posX <= 0
       var isTop = this.posY <= 0
-      var isBottom = this.posY >= this.dvdLogoProps.tvScreenHeight - DVD_LOGO_HEIGHT
+      var isBottom = this.posY >= this.dvdProps.ScreenHeight - DVD_LOGO_HEIGHT
 
       var isHorizontalBoundary = isLeft || isRight
       var isVerticalBounday = isTop || isBottom
@@ -66,7 +66,7 @@ export default {
 
       }
 
-      this.dvdLogoStyle.transform = `translate(${this.posX}px, ${this.posY}px)`
+      this.dvdStyle.transform = `translate(${this.posX}px, ${this.posY}px)`
     }, 10)
   }
 }
