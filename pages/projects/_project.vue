@@ -71,7 +71,6 @@ export default {
 
     & h1 {
       color: var(--color-primary);
-      font-family: 'MIU MIU';
       white-space: normal;
       hyphens: auto;
       line-height: 6rem;

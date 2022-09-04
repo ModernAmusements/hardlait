@@ -9,9 +9,9 @@ module.exports = {
   theme: {
     darkMode: '',
     extend: {
-      // fontFamily: {
-      //   sans: ['MIU MIU'],
-      // },
+      fontFamily: {
+        sans: ['On Diatype Standard'],
+      },
       colors: {
         gray: {
           50: 'var(--color-gray-50)', // #F9FAFB

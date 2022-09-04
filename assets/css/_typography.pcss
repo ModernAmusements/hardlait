@@ -55,7 +55,6 @@
   }
 
   h6 {
-    font-family: 'MIU MIU';
     @apply font-light
       text-lg
       leading-tight
@@ -89,13 +88,11 @@
 
   .title {
     color: var(--text);
-    font-family: 'MIU MIU';
     @apply block text-2xl transition-colors duration-200 ease-in-out;
   }
 
   .subtitle {
     color: var(--text);
-    font-family: 'Garamond Narrow';
     text-transform: none;
     @apply block text-xl transition-colors duration-200 ease-in-out;
   }
@@ -232,20 +229,20 @@
 }
 
 .h-l-garamond {
-  font-family: 'Garamond Narrow';
+  font-family: 'On Diatype Standard';
   font-size: 6vw;
   line-height: 5rem;
   font-weight: 100;
   white-space: nowrap;
 }
 .mui-subtitle {
-  font-family: 'MIU MIU';
+  font-family: 'On Diatype Standard';
   font-size: 1vw;
 }
 
 @media only screen and (max-width: 768px) {
   .h-l-garamond {
-    font-family: 'Garamond Narrow';
+    font-family: 'On Diatype Standard';
     font-size: 3rem;
     line-height: 2.5rem;
     white-space: normal;
@@ -255,22 +252,11 @@
     font-size: 0.5rem;
   }
 }
-
 @font-face {
-  font-family: 'Garamond Narrow';
-  src: url('assets/fonts/GaramondNarrowPlain.woff2') format('woff2'),
-    url('assets/fonts/GaramondNarrowPlain.woff') format('woff'),
-    url('assets/fonts/GaramondNarrowPlain.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'MIU MIU';
-  src: url('assets/fonts/MIUMIUHEAVY.woff2') format('woff2'), url('assets/fonts/MIUMIUHEAVY.woff') format('woff'),
-    url('assets/fonts/MIUMIUHEAVY.svg') format('svg');
-  font-weight: 900;
+  font-family: 'On Diatype Standard';
+  src: url('assets/fonts/OnDiatypeStd-Bold.woff2') format('woff2'),
+    url('assets/fonts/OnDiatypeStd-Bold.woff') format('woff');
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
