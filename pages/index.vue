@@ -11,7 +11,6 @@ export default {
   <main class="homepage">
     <section class="w-full h-screen">
       <Screen />
-      <p class="hl-dvd-toggle text-center">DVD Mode (On)<br></p>
     </section>
 
     <!-- <section class="self-center flex flex-col flex-1 items-center justify-center">
@@ -20,7 +19,7 @@ export default {
         <h2 class="subtitle text-center">In Production</h2>
       </div>
     </section> -->
-    <posts post-type="projects" :amount="10" />
+    <!-- <posts post-type="projects" :amount="10" /> -->
   </main>
 </template>
 <style lang="postcss">

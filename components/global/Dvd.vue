@@ -12,8 +12,6 @@ var rand = (max) => {
   return Math.floor(Math.random() * max)
 }
 
-
-
 export default {
   name: 'Dvd',
   props: ['dvdProps'],
@@ -63,9 +61,7 @@ export default {
       }
       if (isVerticalBounday) {
         changeY *= -1
-
       }
-
       this.dvdStyle.transform = `translate(${this.posX}px, ${this.posY}px)`
     }, 10)
   }

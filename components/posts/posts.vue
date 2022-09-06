@@ -7,15 +7,15 @@
         <template v-if="postType === 'projects'">
           <!-- Info  -->
           <span>
-            <h3 class="h-l-garamond mr-0 md:mr-5">{{ post.title }}</h3>
-            <h6 class="inline-block uppercase mui-subtitle">
+            <h3 class="mr-0 md:mr-5">{{ post.title }}</h3>
+            <!-- <h6 class="inline-block uppercase mui-subtitle">
               {{ post.category }}
-            </h6>
+            </h6> -->
             <!-- <p class="mt-2 subtitle">{{ post.description }}</p> -->
           </span>
           <!-- Info  -->
           <!-- IMG  -->
-          <img v-if="post.cover" class="cover-image" :src="post.cover">
+          <!-- <img v-if="post.cover" class="cover-image" :src="post.cover"> -->
           <!-- IMG  -->
         </template>
         <!-- blog -->
