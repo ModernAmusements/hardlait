@@ -24,7 +24,7 @@ export default {
         width: `${DVD_LOGO_WIDTH}px`,
         height: `${DVD_LOGO_HEIGHT}px`,
         backgroundColor: `rgb(255, 255, 255,0)`,
-        transform: 'translate(0px, 0px)'
+        transform: 'translate(45vw, 75vh)'
       },
       dvdImageStyle: {
         width: `${DVD_LOGO_WIDTH - 20}px`,
@@ -33,41 +33,50 @@ export default {
     }
   },
   mounted() {
-    this.posX = 0
-    this.posY = 0
+    var button = document.getElementById('dvdToggle')
+
+    this.posX = this.dvdProps.ScreenWidth / 2
+    this.posY = this.dvdProps.ScreenHeight / 2
     var changeXMag = 1
     var changeYMag = 1
     var changeX = changeXMag
     var changeY = changeYMag
 
-    var interval = setInterval(() => {
-      this.posX += changeX
-      this.posY += changeY
+    button.addEventListener('click', (event) => {
 
-      var isRight = this.posX >= this.dvdProps.ScreenWidth - DVD_LOGO_WIDTH
-      var isLeft = this.posX <= 0
-      var isTop = this.posY <= 0
-      var isBottom = this.posY >= this.dvdProps.ScreenHeight - DVD_LOGO_HEIGHT
+      button.textContent = 'DVD MODE (ON)'
 
-      var isHorizontalBoundary = isLeft || isRight
-      var isVerticalBounday = isTop || isBottom
+      var interval = setInterval(() => {
+        this.posX += changeX
+        this.posY += changeY
 
-      if (isHorizontalBoundary && isVerticalBounday) {
-        clearInterval(interval)
-      }
-      if (isHorizontalBoundary) {
-        changeX *= -1
+        var isRight = this.posX >= this.dvdProps.ScreenWidth - DVD_LOGO_WIDTH
+        var isLeft = this.posX <= 0
+        var isTop = this.posY <= 0
+        var isBottom = this.posY >= this.dvdProps.ScreenHeight - DVD_LOGO_HEIGHT
 
-      }
-      if (isVerticalBounday) {
-        changeY *= -1
-      }
-      this.dvdStyle.transform = `translate(${this.posX}px, ${this.posY}px)`
-    }, 10)
+        var isHorizontalBoundary = isLeft || isRight
+        var isVerticalBounday = isTop || isBottom
+
+        if (isHorizontalBoundary && isVerticalBounday) {
+          clearInterval(interval)
+        }
+        if (isHorizontalBoundary) {
+          changeX *= -1
+        }
+        if (isVerticalBounday) {
+          changeY *= -1
+        }
+        this.dvdStyle.transform = `translate(${this.posX}px, ${this.posY}px)`
+      }, 10)
+
+    })
+
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 </style>
