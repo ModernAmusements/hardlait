@@ -1,11 +1,12 @@
 <template>
-  <div v-bind:style="ScreenContainerStyle">
+  <div class="hl-dvd" v-bind:style="ScreenContainerStyle">
     <div v-bind:style="ScreenStyle">
       <dvd v-bind:dvdProps="dvdProps"></dvd>
-    </div>
-    <div class="text-center hl-dvd-toggle">
-      <p id="dvdToggle">DVD MODE (ON)</p>
-      <p id="dvdToggleOff">DVD MODE (OFF)</p>
+      <div class="text-center hl-dvd-toggle">
+        <span id="dvdToggle">DVD MODE (ON)</span>
+        <span id="dvdToggleOff">DVD MODE (OFF)</span>
+        <p class="info">click to interact</p>
+      </div>
     </div>
   </div>
 </template>
@@ -30,7 +31,8 @@ export default {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100%'
+        height: '100%',
+        position: 'absolute'
       },
       ScreenStyle: {
         backgroundColor: '#fafafa',
@@ -48,8 +50,20 @@ export default {
 
 <style>
 .hl-dvd-toggle {
-  position: relative;
-  top: -12vh;
+  position: absolute;
   cursor: pointer;
+  top: 84vh;
+  left: 47.2vw;
+  font-size: 12px;
+}
+
+.info {
+  font-size: 9px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .hl-dvd {
+    display: none !important;
+  }
 }
 </style>

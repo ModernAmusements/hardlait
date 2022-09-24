@@ -18,13 +18,10 @@ export default {
   data() {
     return {
       dvdStyle: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
         width: `${DVD_LOGO_WIDTH}px`,
         height: `${DVD_LOGO_HEIGHT}px`,
         backgroundColor: `rgb(255, 255, 255,0)`,
-        transform: 'translate(43vw, 75vh)'
+        transform: 'translate(46.4vw, 75vh)'
       },
       dvdImageStyle: {
         width: `${DVD_LOGO_WIDTH - 20}px`,
@@ -44,10 +41,15 @@ export default {
 
 
     var button = document.getElementById('dvdToggle')
+    var buttonOff = document.getElementById('dvdToggleOff')
+
 
     button.onclick = () => {
       var interval = setInterval(() => {
-        var buttonOff = document.getElementById('dvdToggleOff')
+
+        button.classList.add('hidden')
+        buttonOff.classList.add('visible')
+
         this.posX += changeX
         this.posY += changeY
         var isRight = this.posX >= this.dvdProps.ScreenWidth - DVD_LOGO_WIDTH
@@ -69,9 +71,14 @@ export default {
         }
         buttonOff.onclick = () => {
           clearInterval(interval)
-          this.dvdStyle.transform = `translate(43vw, 75vh)`
+          this.dvdStyle.transform = `translate(46.4vw, 75vh)`
+          button.classList.remove('hidden')
+          buttonOff.classList.add('hidden')
+          buttonOff.classList.remove('visible')
+
         }
         this.dvdStyle.transform = `translate(${this.posX}px, ${this.posY}px)`
+
       }, 10)
     }
 
@@ -80,6 +87,12 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
+#dvdToggleOff {
+  display: none;
+}
 
+#dvdToggleOff.visible {
+  display: block !important;
+}
 </style>
