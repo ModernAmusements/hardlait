@@ -4,7 +4,8 @@
       <dvd v-bind:dvdProps="dvdProps"></dvd>
     </div>
     <div class="text-center hl-dvd-toggle">
-      <p id="dvdToggle">DVD MODE (OFF)</p>
+      <p id="dvdToggle">DVD MODE (ON)</p>
+      <p id="dvdToggleOff">DVD MODE (OFF)</p>
     </div>
   </div>
 </template>

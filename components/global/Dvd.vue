@@ -24,7 +24,7 @@ export default {
         width: `${DVD_LOGO_WIDTH}px`,
         height: `${DVD_LOGO_HEIGHT}px`,
         backgroundColor: `rgb(255, 255, 255,0)`,
-        transform: 'translate(45vw, 75vh)'
+        transform: 'translate(43vw, 75vh)'
       },
       dvdImageStyle: {
         width: `${DVD_LOGO_WIDTH - 20}px`,
@@ -33,7 +33,7 @@ export default {
     }
   },
   mounted() {
-    var button = document.getElementById('dvdToggle')
+
 
     this.posX = this.dvdProps.ScreenWidth / 2
     this.posY = this.dvdProps.ScreenHeight / 2
@@ -42,14 +42,14 @@ export default {
     var changeX = changeXMag
     var changeY = changeYMag
 
-    button.addEventListener('click', (event) => {
 
-      button.textContent = 'DVD MODE (ON)'
+    var button = document.getElementById('dvdToggle')
 
+    button.onclick = () => {
       var interval = setInterval(() => {
+        var buttonOff = document.getElementById('dvdToggleOff')
         this.posX += changeX
         this.posY += changeY
-
         var isRight = this.posX >= this.dvdProps.ScreenWidth - DVD_LOGO_WIDTH
         var isLeft = this.posX <= 0
         var isTop = this.posY <= 0
@@ -67,10 +67,13 @@ export default {
         if (isVerticalBounday) {
           changeY *= -1
         }
+        buttonOff.onclick = () => {
+          clearInterval(interval)
+          this.dvdStyle.transform = `translate(43vw, 75vh)`
+        }
         this.dvdStyle.transform = `translate(${this.posX}px, ${this.posY}px)`
       }, 10)
-
-    })
+    }
 
   }
 }
