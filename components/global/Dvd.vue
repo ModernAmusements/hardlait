@@ -21,7 +21,7 @@ export default {
         width: `${DVD_LOGO_WIDTH}px`,
         height: `${DVD_LOGO_HEIGHT}px`,
         backgroundColor: `rgb(255, 255, 255,0)`,
-        transform: 'translate(46.4vw, 75vh)'
+        transform: 'translate(45.4vw, 85vh)'
       },
       dvdImageStyle: {
         width: `${DVD_LOGO_WIDTH - 20}px`,
@@ -71,7 +71,7 @@ export default {
         }
         buttonOff.onclick = () => {
           clearInterval(interval)
-          this.dvdStyle.transform = `translate(46.4vw, 75vh)`
+          this.dvdStyle.transform = `translate(45.4vw, 85vh)`
           button.classList.remove('hidden')
           buttonOff.classList.add('hidden')
           buttonOff.classList.remove('visible')
