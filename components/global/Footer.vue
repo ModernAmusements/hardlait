@@ -17,7 +17,7 @@
 				</div>
 			</li>
 			<li class="trademark">
-				<nuxt-link class="uppercase" to="/#">Hardlait™ <span class="hidden md:inline-block">2022</span>
+				<nuxt-link class="uppercase" to="/#">Hardlait© <span class="hidden md:inline-block"> {{ date }}</span>
 				</nuxt-link>
 			</li>
 		</ul>
@@ -27,7 +27,12 @@
 <script>
 
 export default {
-	name: 'Footer'
+	name: 'Footer',
+	data() {
+		return {
+			date: new Date().getFullYear(),
+		};
+	},
 }
 </script>
   
@@ -97,9 +102,8 @@ footer {
 				padding-top: 0.5rem;
 				transform: rotate(180deg);
 				font-size: 9px;
-				position: absolute;
 				width: 25px;
-				height: 50px;
+				height: 20px;
 			}
 		}
 	}
