@@ -44,9 +44,5 @@ export default {
 </script>
 
 <style>
-@media only screen and (max-width: 1024px) {
-  .hl-dvd {
-    display: none !important;
-  }
-}
+
 </style>

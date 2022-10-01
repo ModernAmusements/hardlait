@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed z-40 top-0 inset-x-0 pt-3 px-3" aria-label="Main Menu">
+  <nav class="fixed z-40 top-0 inset-x-0" aria-label="Main Menu">
     <nuxt-link class="" to="/">
       <img src="~/assets/hl-wordmark.svg" />
     </nuxt-link>
@@ -17,6 +17,7 @@ nav {
   display: flex;
   justify-content: space-between;
   font-size: 0.5rem;
+  padding: 0.5rem;
 }
 
 .nuxt-link-exact-active {
