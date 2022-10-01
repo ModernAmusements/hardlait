@@ -9,7 +9,7 @@ export default {
 </script>
 <template>
   <main class="homepage">
-    <section class="w-full h-screen">
+    <section class="">
       <Screen />
     </section>
 

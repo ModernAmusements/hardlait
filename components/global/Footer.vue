@@ -1,6 +1,6 @@
 
 <template>
-	<footer class="w-full h-16 fixed left-0 bottom-0 text-white text-2xl px-3">
+	<footer class="w-full fixed left-0 bottom-0 text-white text-2xl px-3">
 		<ul class="footer-menu">
 			<li>
 				<nuxt-link class="uppercase" to="/projects">Projects</nuxt-link>
@@ -10,6 +10,7 @@
 			</li>
 			<li>
 				<div class="text-center hl-dvd-toggle">
+					<img class="dvd-placeholder" src="~/assets/dvd_logo.png" />
 					<span id="dvdToggle">DVD MODE (ON)</span>
 					<span id="dvdToggleOff">DVD MODE (OFF)</span>
 					<p class="info">click to interact</p>
@@ -23,6 +24,7 @@
 </template>
   
 <script>
+
 export default {
 	name: 'Footer'
 }
@@ -34,6 +36,7 @@ footer {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
 		font-size: 1rem;
+		align-items: flex-end;
 
 		& li.trademark {
 			grid-column: 5 / 6;
@@ -42,7 +45,16 @@ footer {
 	}
 }
 
+.dvd-placeholder {
+	width: 10%;
+	height: auto;
+}
+
 .hl-dvd-toggle {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	font-size: 1rem;
 	color: var(--text);
 	cursor: crosshair;

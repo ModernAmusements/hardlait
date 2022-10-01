@@ -1,6 +1,6 @@
 <template>
   <div v-bind:style="dvdStyle">
-    <img src="~/assets/dvd_logo.png" v-bind:style="dvdImageStyle" />
+    <img id="dvd-img" src="~/assets/dvd_logo.png" v-bind:style="dvdImageStyle" />
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
         width: `${DVD_LOGO_WIDTH}px`,
         height: `${DVD_LOGO_HEIGHT}px`,
         backgroundColor: `rgb(255, 255, 255,0)`,
-        transform: 'translate(45.4vw, 85vh)'
+        transform: 'translate(0, 0)'
       },
       dvdImageStyle: {
         width: `${DVD_LOGO_WIDTH - 20}px`,
@@ -40,8 +40,12 @@ export default {
     var changeY = changeYMag
 
 
+    var dvd = document.getElementById('dvd-img')
+
     var button = document.getElementById('dvdToggle')
     var buttonOff = document.getElementById('dvdToggleOff')
+
+    dvd.classList.add('hidden')
 
 
     button.onclick = () => {
@@ -49,6 +53,7 @@ export default {
 
         button.classList.add('hidden')
         buttonOff.classList.add('visible')
+        dvd.classList.remove('hidden')
 
         this.posX += changeX
         this.posY += changeY
@@ -75,6 +80,7 @@ export default {
           button.classList.remove('hidden')
           buttonOff.classList.add('hidden')
           buttonOff.classList.remove('visible')
+          dvd.classList.add('hidden')
 
         }
         this.dvdStyle.transform = `translate(${this.posX}px, ${this.posY}px)`
@@ -88,11 +94,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-#dvdToggleOff {
+#dvdToggleOff,
+.dvd-img {
   display: none;
 }
 
-#dvdToggleOff.visible {
-  display: block !important;
+#dvdToggleOff.visible,
+.dvd-img {
+  display: block;
 }
 </style>
