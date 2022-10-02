@@ -1,13 +1,13 @@
 <template>
   <!-- Grid Toplevel -->
-  <ul v-if="posts.length > 0" class="cards">
-    <li class="grid-item" v-for="(post, index) in posts" :key="index">
+  <div v-if="posts.length > 0" class="">
+    <div class="" v-for="(post, index) in posts" :key="index">
       <!-- Same for pro and cards  -->
-      <nuxt-link :to="`/${postType}/${post.slug}`" class="card card--clickable">
+      <nuxt-link :to="`/${postType}/${post.slug}`" class="">
         <template v-if="postType === 'projects'">
           <!-- Info  -->
           <span>
-            <h3 class="mr-0 md:mr-5">{{ post.title }}</h3>
+            <h4 class="mr-0 md:mr-5">{{ post.title }}</h4>
             <!-- <h6 class="inline-block uppercase mui-subtitle">
               {{ post.category }}
             </h6> -->
@@ -32,8 +32,8 @@
         </template>
         <!-- blog -->
       </nuxt-link>
-    </li>
-  </ul>
+    </div>
+  </div>
   <div v-else-if="loading" class="cards">
     <div v-for="placeholder in placeholderClasses" :key="placeholder.id" class="card">
       <content-placeholders :rounded="true" :class="placeholder">
@@ -105,3 +105,6 @@ export default {
   },
 }
 </script>
+<style lang="postcss">
+
+</style>

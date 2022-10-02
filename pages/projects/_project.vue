@@ -4,7 +4,7 @@
       <!-- <nav class="mb-8" aria-label="go back">
         <router-back class="block" />
       </nav> -->
-
+      <!-- 
       <article class="work-subpage">
         <div class="post-category">
           <h6 class="inline py-1 px-2 mr-1 bg-gray text-white text-sm font-medium rounded-sm">{{ post.category }}</h6>
@@ -17,14 +17,14 @@
         </div>
         <div class="work-subpage-img">
           <img v-if="post.cover" class="cover-image" :src="post.cover">
-        </div>
-        <!-- Gallery -->
-        <nuxt-content :document="post" />
+        </div> -->
+      <!-- Gallery -->
+      <!-- <nuxt-content :document="post" />
         <div v-if="post.gallery" class="nuxt-content">
           <img v-for="image in post.gallery" class="image" :key="image.id" :src="image">
-        </div>
-        <!-- Gallery -->
-      </article>
+        </div> -->
+      <!-- Gallery -->
+      <!-- </article> -->
     </section>
   </main>
 </template>

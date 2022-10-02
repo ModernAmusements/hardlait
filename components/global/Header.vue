@@ -1,7 +1,7 @@
 <template>
-  <nav class="fixed z-40 top-0 inset-x-0" aria-label="Main Menu">
+  <nav class="fixed z-10 top-0 inset-x-0" aria-label="Main Menu">
     <nuxt-link class="" to="/">
-      <img src="~/assets/hl-wordmark.svg" />
+      <img class="hl-logo" src="~/assets/hl-wordmark.svg" />
     </nuxt-link>
   </nav>
 </template>
@@ -28,6 +28,10 @@ nav {
   nav {
     flex-direction: column;
     align-items: start;
+  }
+
+  .hl-logo {
+    width: 100vw;
   }
 }
 </style>
