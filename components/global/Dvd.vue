@@ -21,7 +21,7 @@ export default {
         width: `${DVD_LOGO_WIDTH}px`,
         height: `${DVD_LOGO_HEIGHT}px`,
         backgroundColor: `rgb(255, 255, 255,0)`,
-        transform: 'translate(0, 0)'
+        transform: `translate(0px, 0px)`
       },
       dvdImageStyle: {
         width: `${DVD_LOGO_WIDTH - 20}px`,
@@ -31,9 +31,8 @@ export default {
   },
   mounted() {
 
-
-    this.posX = this.dvdProps.ScreenWidth / 2
-    this.posY = this.dvdProps.ScreenHeight / 2
+    this.posX = 0
+    this.posY = 0
     var changeXMag = 1
     var changeYMag = 1
     var changeX = changeXMag
@@ -76,7 +75,7 @@ export default {
         }
         buttonOff.onclick = () => {
           clearInterval(interval)
-          this.dvdStyle.transform = `translate(45.4vw, 85vh)`
+          this.dvdStyle.transform = `translate(0px, 0px)`
           button.classList.remove('hidden')
           buttonOff.classList.add('hidden')
           buttonOff.classList.remove('visible')
