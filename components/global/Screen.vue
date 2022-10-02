@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import Z from 'postcss-logical'
 import dvd from './Dvd.vue'
 
 const TV_SCREEN_WIDTH = window.innerWidth
@@ -27,7 +28,7 @@ export default {
         justifyContent: 'center',
         alignItems: 'center',
         height: '100%',
-        position: 'absolute'
+        position: 'absolute',
       },
       ScreenStyle: {
         backgroundColor: '#fafafa',
