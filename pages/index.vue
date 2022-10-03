@@ -13,7 +13,7 @@ export default {
       <Screen />
     </section>
     <section class="projects">
-      <posts class="projects-layout" post-type="projects" :amount="100" />
+      <posts class="projects-layout" post-type="projects" :amount="10" />
     </section>
     <section class="homepage-hero self-start flex flex-col flex-1 items-between">
       <div class="homepage-about">
@@ -68,7 +68,7 @@ h1 {
 
 @media only screen and (max-width: 768px) {
   .homepage-hero {
-    justify-content: center;
+    justify-content: end;
   }
 
   .projects-layout {

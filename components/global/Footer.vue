@@ -39,6 +39,7 @@ export default {
 <style lang="postcss">
 footer {
 	padding: 0.5rem;
+	z-index: 20;
 
 	& .footer-menu {
 		display: grid;
@@ -66,6 +67,7 @@ footer {
 	font-size: 1rem;
 	color: var(--text);
 	cursor: crosshair;
+	z-index: 100;
 
 	& .info {
 		font-size: 9px;
