@@ -49,7 +49,7 @@ footer {
 
 		& li.trademark {
 			grid-column: 5 / 6;
-			justify-self: end;
+			justify-self: flex-end;
 		}
 	}
 }
@@ -89,7 +89,7 @@ footer {
 	footer {
 		& .footer-menu {
 			display: grid;
-			grid-template-rows: repeat(3, 1rem);
+			grid-template-rows: repeat(3, 1.5rem);
 			grid-template-columns: auto;
 			font-size: 1rem;
 			align-items: flex-end;
@@ -99,13 +99,13 @@ footer {
 				justify-self: end;
 				align-content: center;
 				writing-mode: vertical-rl;
-				align-self: start;
+				align-self: end;
 				grid-row: 3;
 				padding-top: 0.5rem;
 				transform: rotate(180deg);
 				font-size: 9px;
 				width: 25px;
-				height: 20px;
+				height: 90px;
 			}
 		}
 	}

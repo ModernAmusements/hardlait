@@ -74,6 +74,5 @@ h1 {
   .projects-layout {
     flex-direction: column;
   }
-
 }
 </style>
