@@ -3,7 +3,7 @@
   <div v-if="posts.length > 0" class="">
     <div class="project" v-for="(post, index) in posts" :key="index">
       <div class="headline-date">
-        <h4 class="headline mr-0 md:mr-2">{{ post.title }}</h4>
+        <h4 :style="{ color: `${post.color}` }" class="headline mr-0 md:mr-2">{{ post.title }}</h4>
         <h6 v-if="post.createdAt" class="date">
           {{ formatDate(post.createdAt) }}</h6>
       </div>
@@ -114,6 +114,10 @@ export default {
   justify-content: space-between;
 }
 
+.headline {
+  color: var(--text);
+}
+
 .date {
   display: none;
 }
@@ -123,20 +127,14 @@ export default {
   flex-direction: column;
 }
 
-.project .headline-date:hover {
+.project:hover {
   & .headline {
     transition: all 0.5s ease;
-    color: var(--color-primary);
     cursor: pointer;
   }
 
   & .date {
     display: block;
-  }
-
-  & .post-info {
-    display: flex;
-    flex-direction: column;
   }
 }
 
