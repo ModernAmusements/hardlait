@@ -18,13 +18,14 @@ nav {
   justify-content: space-between;
   font-size: 0.5rem;
   padding: 0.5rem;
+  flex-direction: row-reverse;
 }
 
 
 @media only screen and (max-width: 768px) {
   nav {
     flex-direction: column;
-    align-items: start;
+    align-items: end;
   }
 }
 </style>
