@@ -90,7 +90,8 @@ export default {
   methods: {
     formatDate(dateString) {
       const date = new Date(dateString)
-      return date.toLocaleDateString(process.env.lang) || ''
+      const options = { year: 'numeric' }
+      return date.toLocaleDateString('en', options)
     },
     async fetchPosts(
       postType = this.postType,
