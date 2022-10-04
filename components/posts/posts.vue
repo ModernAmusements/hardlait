@@ -1,8 +1,9 @@
 <template>
+  <!-- POSTS -->
   <div v-if="posts.length > 0" class="">
-    <div class="projects" v-for="(post, index) in posts" :key="index">
-      <div @mouseover="hover = true" @mouseleave="hover = false" class="headline-date">
-        <h4 class="mr-0 md:mr-2">{{ post.title }}</h4>
+    <div class="project" v-for="(post, index) in posts" :key="index">
+      <div class="headline-date">
+        <h4 class="headline mr-0 md:mr-2">{{ post.title }}</h4>
         <h6 v-if="post.createdAt" class="date">
           {{ formatDate(post.createdAt) }}</h6>
       </div>
@@ -11,7 +12,7 @@
           <!-- Info  -->
           <div class="bg-img" :style="{ backgroundImage: `url(${post.cover})` }">
           </div>
-          <div v-if="hover" class="post-info">
+          <div class="post-info">
             <p class="">{{ post.description }}</p>
             <p class="inline-block category mt-0">
               {{ post.category }}
@@ -29,9 +30,11 @@
           </div>
           <p class="mt-2 subtitle">{{ post.description }}</p>
         </template>
+        <!-- blog -->
       </nuxt-link>
     </div>
   </div>
+  <!-- POSTS -->
   <div v-else-if="loading" class="cards">
     <div v-for="placeholder in placeholderClasses" :key="placeholder.id" class="card">
       <content-placeholders :rounded="true" :class="placeholder">
@@ -45,7 +48,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'Posts',
   props: {
@@ -72,7 +74,6 @@ export default {
     return {
       posts: [],
       loading: true,
-      hover: false,
     }
   },
   computed: {
@@ -105,36 +106,48 @@ export default {
   },
 }
 </script>
-<style lang="postcss">
-.cover-image,
-.category,
-.date,
-.subtitle {}
-
+<style lang="postcss" scoped>
 .headline-date {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.headline-date:hover {
-  & .post-info {
-    color: var(--color-primary);
-  }
+.date {
+  display: none;
 }
 
 .post-info {
-  display: flex;
+  display: none;
   flex-direction: column;
-
 }
 
-.projects:hover {
-  & h4 {
-    cursor: pointer;
+.project .headline-date:hover {
+  & .headline {
+    transition: all 0.5s ease;
     color: var(--color-primary);
+    cursor: pointer;
+  }
+
+  & .date {
+    display: block;
+  }
+
+  & .post-info {
+    display: flex;
+    flex-direction: column;
   }
 }
+
+.project:hover {
+
+  & .post-info {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
 
 .bg-img {
   background-position: 50%;

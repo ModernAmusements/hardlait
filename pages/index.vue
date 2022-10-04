@@ -9,12 +9,16 @@ export default {
 </script>
 <template>
   <main class="homepage">
+    <!-- DVD -->
     <section class="">
       <Screen />
     </section>
-    <section class="projects">
+    <!-- DVD -->
+    <!-- Works -->
+    <section class="projects-homepage">
       <posts class="projects-layout" post-type="projects" :amount="10" />
     </section>
+    <!-- Works -->
     <section class="homepage-hero self-start flex flex-col flex-1 items-between">
       <div class="homepage-about">
         <h1 class="title text-center uppercase">ART</h1>
@@ -37,12 +41,12 @@ export default {
     </section>
   </main>
 </template>
-<style lang="postcss">
+<style lang="postcss" scoped>
 h1 {
   margin-top: 0;
 }
 
-.projects {
+.projects-homepage {
   z-index: 10;
   padding: 0.5rem;
 }
