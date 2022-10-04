@@ -1,36 +1,34 @@
 <template>
-  <!-- Grid Toplevel -->
   <div v-if="posts.length > 0" class="">
-    <div class="" v-for="(post, index) in posts" :key="index">
-      <!-- Same for pro and cards  -->
+    <div class="projects" v-for="(post, index) in posts" :key="index">
+      <div @mouseover="hover = true" @mouseleave="hover = false" class="headline-date">
+        <h4 class="mr-0 md:mr-2">{{ post.title }}</h4>
+        <h6 v-if="post.createdAt" class="date">
+          {{ formatDate(post.createdAt) }}</h6>
+      </div>
       <nuxt-link :to="`/${postType}/${post.slug}`" class="">
         <template v-if="postType === 'projects'">
           <!-- Info  -->
-          <span>
-            <h4 class="mr-0 md:mr-5">{{ post.title }}</h4>
-            <!-- <h6 class="inline-block uppercase mui-subtitle">
+          <div class="bg-img" :style="{ backgroundImage: `url(${post.cover})` }">
+          </div>
+          <div v-if="hover" class="post-info">
+            <p class="">{{ post.description }}</p>
+            <p class="inline-block category mt-0">
               {{ post.category }}
-            </h6> -->
-            <!-- <p class="mt-2 subtitle">{{ post.description }}</p> -->
-          </span>
-          <!-- Info  -->
-          <!-- IMG  -->
-          <!-- <img v-if="post.cover" class="cover-image" :src="post.cover"> -->
-          <!-- IMG  -->
+            </p>
+            <p class="mt-0">- More</p>
+          </div>
         </template>
         <!-- blog -->
-        <template v-else>
-          <span class="w-full">
-            <span class="flex justify-between align-baseline">
-              <h3 class="card-title">{{ post.title }}</h3>
-              <!-- <h6 v-if="post.createdAt"
-                class="self-start inline-block mt-0 py-1 px-2 bg-gray text-white text-base font-medium rounded-sm whitespace-no-wrap">
-                {{ formatDate(post.createdAt) }}</h6> -->
-            </span>
-            <p class="mt-2 subtitle">{{ post.description }}</p>
-          </span>
+        <template v-else class="bg-img" :style="{ backgroundImage: `url(${post.cover})` }">
+          <div class="flex justify-between align-baseline">
+            <h3 class="">{{ post.title }}</h3>
+            <h6 v-if="post.createdAt"
+              class="date self-start inline-block mt-0 py-1 px-2 bg-gray text-white text-base font-medium rounded-sm whitespace-no-wrap">
+              {{ formatDate(post.createdAt) }}</h6>
+          </div>
+          <p class="mt-2 subtitle">{{ post.description }}</p>
         </template>
-        <!-- blog -->
       </nuxt-link>
     </div>
   </div>
@@ -47,6 +45,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'Posts',
   props: {
@@ -73,6 +72,7 @@ export default {
     return {
       posts: [],
       loading: true,
+      hover: false,
     }
   },
   computed: {
@@ -106,5 +106,44 @@ export default {
 }
 </script>
 <style lang="postcss">
+.cover-image,
+.category,
+.date,
+.subtitle {}
 
+.headline-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.headline-date:hover {
+  & .post-info {
+    color: var(--color-primary);
+  }
+}
+
+.post-info {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.projects:hover {
+  & h4 {
+    cursor: pointer;
+    color: var(--color-primary);
+  }
+}
+
+.bg-img {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin-top: 0;
+  width: 100vw;
+  position: relative;
+  display: none;
+}
 </style>

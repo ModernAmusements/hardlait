@@ -20,18 +20,11 @@ nav {
   padding: 0.5rem;
 }
 
-.nuxt-link-exact-active {
-  @apply text-primary;
-}
 
 @media only screen and (max-width: 768px) {
   nav {
     flex-direction: column;
     align-items: start;
-  }
-
-  .hl-logo {
-    width: 100vw;
   }
 }
 </style>

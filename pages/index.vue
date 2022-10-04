@@ -37,20 +37,20 @@ export default {
     </section>
   </main>
 </template>
-<style lang="postcss" scoped>
+<style lang="postcss">
 h1 {
   margin-top: 0;
 }
 
 .projects {
   z-index: 10;
+  padding: 0.5rem;
 }
 
 .projects-layout {
   display: flex;
   align-items: baseline;
   justify-content: flex-start;
-  padding: 0.5rem;
 }
 
 .homepage-hero {
