@@ -69,6 +69,15 @@ collections:
     preview_path: 'projects/{{slug}}'
     fields:
       - {
+          label: 'Created Date',
+          name: 'createdAt',
+          widget: 'datetime',
+          format: 'YYYY',
+          date_format: 'YYYY',
+          time_format: false,
+        }
+
+      - {
           label: 'Project Category',
           name: 'category',
           widget: 'select',
