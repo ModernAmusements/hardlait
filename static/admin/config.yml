@@ -56,6 +56,14 @@ collections:
           date_format: 'YYYY',
           time_format: false,
         }
+      - label: 'Work Count'
+        name: 'workCount'
+        widget: 'number'
+        default: 2
+        value_type: 'int'
+        min: 1
+        max: 101
+        step: 2
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Description', name: 'description', widget: 'string', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown', required: false }
@@ -68,6 +76,7 @@ collections:
     slug: '{{slug}}'
     preview_path: 'projects/{{slug}}'
     fields:
+      - { label: 'Contributors', name: 'contributors', widget: 'string' }
       - {
           label: 'Created Date',
           name: 'createdAt',
@@ -76,6 +85,7 @@ collections:
           date_format: 'YYYY',
           time_format: false,
         }
+      - { label: 'Color', name: 'color', widget: 'color', enableAlpha: true, allowInput: true }
 
       - {
           label: 'Project Category',
