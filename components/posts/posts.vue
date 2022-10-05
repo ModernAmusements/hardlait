@@ -2,18 +2,14 @@
   <!-- POSTS -->
   <div v-if="posts.length > 0" class="z-20">
     <div class="project" v-for="(post, index) in posts" :key="index">
-
       <div class="headline-date">
-
         <h4 class="headline mr-0 md:mr-2">
           {{ post.title }}
         </h4>
         <h4 :style="{ color: `${post.color}` }" v-if="post.createdAt" class="date mt-0 mr-0 md:mr-2">
           {{ formatDate(post.createdAt) }}
         </h4>
-
       </div>
-
       <nuxt-link :to="`/${postType}/${post.slug}`" class="">
         <template v-if="postType === 'projects'">
           <!-- Info  -->
@@ -37,6 +33,7 @@
         </template>
         <!-- blog -->
       </nuxt-link>
+      <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }"></div>
     </div>
   </div>
   <!-- POSTS -->
@@ -92,6 +89,7 @@ export default {
     this.posts = await this.fetchPosts();
     this.loading = false;
   },
+
   methods: {
     formatDate(dateString) {
       const date = new Date(dateString)
@@ -114,7 +112,19 @@ export default {
 </script>
 <style lang="postcss" scoped>
 .project {
-  padding: 0 0.5rem;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+}
+
+.project-bg {
+  display: none;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  inset: 0;
 }
 
 .headline-date {
@@ -126,25 +136,33 @@ export default {
 
 .headline {
   color: var(--text);
+  z-index: 20;
 }
 
 .date {
   display: none;
+  z-index: 20;
 }
 
 .post-info {
   display: none;
   flex-direction: column;
+  z-index: 20;
 }
 
 .project:hover {
   & .headline {
-    transition: all 0.5s ease;
     cursor: pointer;
+    color: white;
   }
 
   & .date {
     display: block;
+  }
+
+  & .project-bg {
+    transition: all 0.5s ease;
+    display: flex;
   }
 }
 

@@ -3,10 +3,10 @@
 	<footer class="w-full fixed left-0 bottom-0 text-white text-2xl">
 		<ul class="footer-menu">
 			<li class="footer-link-1">
-				<nuxt-link class="uppercase" to="/#">Projects</nuxt-link>
+				<nuxt-link to="/#">Projects</nuxt-link>
 			</li>
 			<li class="footer-link-2">
-				<nuxt-link class="uppercase" to="/#">About</nuxt-link>
+				<nuxt-link to="/#">About</nuxt-link>
 			</li>
 			<li class="footer-link-3">
 				<div class="text-center hl-dvd-toggle">
@@ -17,7 +17,7 @@
 				</div>
 			</li>
 			<li class="trademark">
-				<nuxt-link class="uppercase" to="/#">Hardlait© <span class="hidden md:inline-block"> {{ date }}</span>
+				<nuxt-link to="/#">Hardlait© <span class="hidden md:inline-block"> {{ date }}</span>
 				</nuxt-link>
 			</li>
 		</ul>
@@ -46,6 +46,7 @@ footer {
 		grid-template-columns: repeat(5, 1fr);
 		font-size: 1rem;
 		align-items: flex-end;
+
 
 		& li.trademark {
 			grid-column: 5 / 6;
@@ -81,8 +82,10 @@ footer {
 	}
 }
 
+
 .nuxt-link-exact-active {
 	@apply text-primary;
+
 }
 
 @media only screen and (max-width: 768px) {
