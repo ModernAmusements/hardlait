@@ -48,7 +48,6 @@ h1 {
 
 .projects-homepage {
   z-index: 10;
-  padding: 0.5rem;
 }
 
 .projects-layout {

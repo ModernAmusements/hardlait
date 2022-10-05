@@ -1,23 +1,28 @@
 <template>
   <!-- POSTS -->
-  <div v-if="posts.length > 0" class="">
+  <div v-if="posts.length > 0" class="z-20">
     <div class="project" v-for="(post, index) in posts" :key="index">
+
       <div class="headline-date">
-        <h4 :style="{ color: `${post.color}` }" class="headline mr-0 md:mr-2">{{ post.title }}</h4>
-        <h6 v-if="post.createdAt" class="date">
-          {{ formatDate(post.createdAt) }}</h6>
+
+        <h4 class="headline mr-0 md:mr-2">
+          {{ post.title }}
+        </h4>
+        <h4 :style="{ color: `${post.color}` }" v-if="post.createdAt" class="date mt-0 mr-0 md:mr-2">
+          {{ formatDate(post.createdAt) }}
+        </h4>
+
       </div>
+
       <nuxt-link :to="`/${postType}/${post.slug}`" class="">
         <template v-if="postType === 'projects'">
           <!-- Info  -->
-          <div class="bg-img" :style="{ backgroundImage: `url(${post.cover})` }">
-          </div>
           <div class="post-info">
-            <p class="">{{ post.description }}</p>
-            <p class="inline-block category mt-0">
+            <p :style="{ color: `${post.color}` }" class="">{{ post.description }}</p>
+            <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
               {{ post.category }}
             </p>
-            <p class="mt-0">- More</p>
+            <p :style="{ color: `${post.color}` }" class="mt-0">- More</p>
           </div>
         </template>
         <!-- blog -->
@@ -108,10 +113,15 @@ export default {
 }
 </script>
 <style lang="postcss" scoped>
+.project {
+  padding: 0 0.5rem;
+}
+
 .headline-date {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: baseline;
 }
 
 .headline {
@@ -142,20 +152,6 @@ export default {
 
   & .post-info {
     display: flex;
-    flex-direction: column;
   }
-}
-
-
-
-.bg-img {
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  margin-top: 0;
-  width: 100vw;
-  position: relative;
-  display: none;
 }
 </style>
