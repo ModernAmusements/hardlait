@@ -1,7 +1,7 @@
 
 <template>
-	<footer class="w-full fixed left-0 bottom-0 text-white text-2xl">
-		<ul class="footer-menu" :class="{ projectActive: hover }">
+	<footer class="w-full fixed left-0 bottom-0 text-white text-2xl" :class="{ projectActive: hover }">
+		<ul class="footer-menu">
 			<li class="footer-link-1">
 				<nuxt-link to="/#">Projects</nuxt-link>
 			</li>
@@ -55,15 +55,7 @@ footer {
 	}
 }
 
-footer.projectActive {
-	& .footer-menu {
-		& li {
-			& a {
-				color: var(--bg)
-			}
-		}
-	}
-}
+
 
 .dvd-placeholder {
 	width: 10%;
@@ -78,7 +70,7 @@ footer.projectActive {
 	font-size: 1rem;
 	cursor: crosshair;
 	z-index: 100;
-	color: inherit;
+	color: var(--text);
 
 	& .info {
 		font-size: 9px;
@@ -96,6 +88,26 @@ footer.projectActive {
 .nuxt-link-exact-active {
 	@apply text-primary;
 
+}
+
+footer.projectActive {
+	& .footer-menu {
+		& li {
+			& a {
+				color: var(--bg)
+			}
+		}
+	}
+}
+
+footer.projectActive {
+	& .footer-menu {
+		& li {
+			& .hl-dvd-toggle {
+				color: var(--bg)
+			}
+		}
+	}
 }
 
 @media only screen and (max-width: 768px) {
