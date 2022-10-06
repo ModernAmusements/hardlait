@@ -3,7 +3,7 @@
   <div v-if="posts.length > 0" class="z-20">
     <div class="project" v-for="(post, index) in posts" :key="index">
       <div class="headline-date">
-        <h4 class="headline mr-0 md:mr-2">
+        <h4 class="headline mr-0 md:mr-2" :class="{ projectActive: hover }">
           {{ post.title }}
         </h4>
         <h4 :style="{ color: `${post.color}` }" v-if="post.createdAt" class="date mt-0 mr-0 md:mr-2">
@@ -113,6 +113,10 @@ export default {
 <style lang="postcss" scoped>
 .project {
   padding: 0.5rem 0.5rem 0 0.5rem;
+}
+
+h4.headline.projectActive {
+  color: var(--bg)
 }
 
 .project-bg {

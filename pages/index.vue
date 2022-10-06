@@ -5,10 +5,15 @@ export default {
   components: {
     Screen
   },
+  data() {
+    return {
+      hover: false,
+    };
+  }
 }
 </script>
 <template>
-  <main class="homepage">
+  <main class="homepage" :class="{ projectActive: hover }">
     <!-- DVD -->
     <section class="">
       <Screen />
@@ -16,29 +21,31 @@ export default {
     <!-- DVD -->
     <!-- Works -->
     <section class="projects-homepage">
-      <posts class="projects-layout" post-type="projects" :amount="10" />
+      <posts class="projects-layout" post-type="projects" :amount="10" @mouseover.native="hover = true"
+        @mouseleave.native="hover = false" />
     </section>
     <!-- Works -->
     <section class="homepage-hero self-start flex flex-col flex-1 items-between">
-      <div class="homepage-about">
-        <h1 class="title text-center uppercase">ART</h1>
-        <h1 class="title text-center uppercase">DIRECTOR</h1>
-        <h1 class="title text-center uppercase">/</h1>
-        <h1 class="title text-center uppercase">DESIGNER</h1>
+      <div class="homepage-about" :class="{ projectActive: hover }">
+        <h1 class="text-center uppercase">ART</h1>
+        <h1 class="text-center uppercase">DIRECTOR</h1>
+        <h1 class="text-center uppercase">/</h1>
+        <h1 class="text-center uppercase">DESIGNER</h1>
       </div>
-      <div class="homepage-about">
-        <h1 class="title text-center uppercase">CURRENTLY</h1>
-        <h1 class="title text-center uppercase">BASED</h1>
-        <h1 class="title text-center uppercase">IN</h1>
-        <h1 class="title text-center uppercase">PARIS</h1>
+      <div class="homepage-about" :class="{ projectActive: hover }">
+        <h1 class="text-center uppercase">CURRENTLY</h1>
+        <h1 class="text-center uppercase">BASED</h1>
+        <h1 class="text-center uppercase">IN</h1>
+        <h1 class="text-center uppercase">PARIS</h1>
       </div>
-      <div class="homepage-about">
-        <h1 class="title text-center uppercase">READY</h1>
-        <h1 class="title text-center uppercase">TO</h1>
-        <h1 class="title text-center uppercase">FROMAGE</h1>
-        <h1 class="title text-center uppercase">UWU</h1>
+      <div class="homepage-about" :class="{ projectActive: hover }">
+        <h1 class="text-center uppercase">READY</h1>
+        <h1 class="text-center uppercase">TO</h1>
+        <h1 class="text-center uppercase">FROMAGE</h1>
+        <h1 class="text-center uppercase">UWU</h1>
       </div>
     </section>
+    <Footer :class="{ projectActive: hover }" />
   </main>
 </template>
 <style lang="postcss" scoped>
@@ -56,17 +63,27 @@ h1 {
   justify-content: flex-start;
 }
 
+
+
 .homepage-hero {
   z-index: 1;
   width: 100%;
   padding: 0.5rem;
   justify-content: flex-end;
+  z-index: 20;
 }
 
 .homepage-about {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+}
+
+.homepage-about.projectActive {
+  & h1 {
+    color: var(--bg)
+  }
+
 }
 
 @media only screen and (max-width: 768px) {

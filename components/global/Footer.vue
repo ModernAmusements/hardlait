@@ -1,7 +1,7 @@
 
 <template>
 	<footer class="w-full fixed left-0 bottom-0 text-white text-2xl">
-		<ul class="footer-menu">
+		<ul class="footer-menu" :class="{ projectActive: hover }">
 			<li class="footer-link-1">
 				<nuxt-link to="/#">Projects</nuxt-link>
 			</li>
@@ -55,6 +55,16 @@ footer {
 	}
 }
 
+footer.projectActive {
+	& .footer-menu {
+		& li {
+			& a {
+				color: var(--bg)
+			}
+		}
+	}
+}
+
 .dvd-placeholder {
 	width: 10%;
 	height: auto;
@@ -66,9 +76,9 @@ footer {
 	align-items: center;
 	justify-content: center;
 	font-size: 1rem;
-	color: var(--text);
 	cursor: crosshair;
 	z-index: 100;
+	color: inherit;
 
 	& .info {
 		font-size: 9px;
