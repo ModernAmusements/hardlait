@@ -5,5 +5,5 @@ color: "#f97dcd"
 category: personal
 title: Nike Tokyo X Ambush
 description: Launch of Hi-tops
-cover: /img/hl-p-1.jpg
+cover: /img/hl_devialet_gemini.jpg
 ---
