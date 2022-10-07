@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import Z from 'postcss-logical'
 import dvd from './Dvd.vue'
 
 const TV_SCREEN_WIDTH = window.innerWidth

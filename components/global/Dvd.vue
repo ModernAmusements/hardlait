@@ -1,6 +1,9 @@
 <template>
-  <div v-bind:style="dvdStyle">
-    <img id="dvd-img" src="~/assets/dvd_logo.png" v-bind:style="dvdImageStyle" />
+  <div class="z-20" v-bind:style="dvdStyle">
+    <!-- <img id="dvd-img" src="~/assets/dvd_logo.png" v-bind:style="dvdImageStyle" /> -->
+    <DvdComponent id="dvd-img" v-bind:style="dvdImageStyle" role="img">
+      <path />
+    </DvdComponent>
   </div>
 </template>
 
@@ -11,7 +14,9 @@ const DVD_LOGO_HEIGHT = 100
 var rand = (max) => {
   return Math.floor(Math.random() * max)
 }
-
+var randColor = () => {
+  return `rgb(${rand(256)}, ${rand(256)}, ${rand(256)})`
+}
 export default {
   name: 'Dvd',
   props: ['dvdProps'],
@@ -20,8 +25,8 @@ export default {
       dvdStyle: {
         width: `${DVD_LOGO_WIDTH}px`,
         height: `${DVD_LOGO_HEIGHT}px`,
-        backgroundColor: `rgb(255, 255, 255,0)`,
-        transform: `translate(0px, 0px)`
+        fill: `rgb(0, 0, 0)`,
+        transform: 'translate(0px, 0px)'
       },
       dvdImageStyle: {
         width: `${DVD_LOGO_WIDTH - 20}px`,
@@ -69,9 +74,11 @@ export default {
         }
         if (isHorizontalBoundary) {
           changeX *= -1
+          this.dvdStyle.fill = randColor()
         }
         if (isVerticalBounday) {
           changeY *= -1
+          this.dvdStyle.fill = randColor()
         }
         buttonOff.onclick = () => {
           clearInterval(interval)
