@@ -1,6 +1,5 @@
 <template>
   <div class="z-20" v-bind:style="dvdStyle">
-    <!-- <img id="dvd-img" src="~/assets/dvd_logo.png" v-bind:style="dvdImageStyle" /> -->
     <DvdComponent id="dvd-img" v-bind:style="dvdImageStyle" role="img">
       <path />
     </DvdComponent>

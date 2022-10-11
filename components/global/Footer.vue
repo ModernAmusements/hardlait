@@ -1,6 +1,6 @@
 
 <template>
-	<footer class="w-full fixed left-0 bottom-0 text-white text-2xl" :class="{ projectActive: hover }">
+	<footer class="w-full fixed left-0 bottom-0 text-white text-2xl">
 		<ul class="footer-menu">
 			<li class="footer-link-1">
 				<nuxt-link to="/#">Projects</nuxt-link>
@@ -10,7 +10,9 @@
 			</li>
 			<li class="footer-link-3">
 				<div class="text-center hl-dvd-toggle">
-					<img class="dvd-placeholder" src="~/assets/dvd_logo.png" />
+					<DvdComponent class="dvd-placeholder" role="img">
+						<path />
+					</DvdComponent>
 					<span id="dvdToggle">DVD MODE (ON)</span>
 					<span id="dvdToggleOff">DVD MODE (OFF)</span>
 					<p class="info">click to interact</p>
@@ -31,6 +33,7 @@ export default {
 	data() {
 		return {
 			date: new Date().getFullYear(),
+			hover: false,
 		};
 	},
 }
@@ -58,8 +61,9 @@ footer {
 
 
 .dvd-placeholder {
-	width: 10%;
-	height: auto;
+	width: 50px;
+	position: relative;
+	bottom: -50px;
 }
 
 .hl-dvd-toggle {
@@ -97,18 +101,19 @@ footer.projectActive {
 				color: var(--bg)
 			}
 		}
-	}
-}
 
-footer.projectActive {
-	& .footer-menu {
-		& li {
+		& li.footer-link-3 {
 			& .hl-dvd-toggle {
-				color: var(--bg)
+				color: var(--bg);
+
+				& svg {
+					fill: var(--bg);
+				}
 			}
 		}
 	}
 }
+
 
 @media only screen and (max-width: 768px) {
 	footer {
@@ -153,6 +158,13 @@ footer.projectActive {
 		justify-content: flex-end;
 		font-size: 1rem;
 
+	}
+
+	.dvd-placeholder {
+		width: 50px;
+		position: unset;
+		height: 20px;
+		bottom: unset;
 	}
 
 	.hl-dvd-toggle:hover {
