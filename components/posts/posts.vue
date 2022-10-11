@@ -154,6 +154,81 @@ h4.headline.projectActive {
   z-index: 20;
 }
 
+.project-bg {
+  animation: glitch 100ms ease-out;
+}
+
+@keyframes glitch {
+
+  2%,
+  64% {
+    transform: translate(200px, 0) skew(0deg);
+  }
+
+  4%,
+  60% {
+    transform: translate(-200px, 0) skew(300deg);
+  }
+
+  62% {
+    transform: translate(0, 0) skew(500deg);
+  }
+}
+
+.project-bg:before,
+.project-bg:after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+}
+
+.project-bg:before {
+  animation: glitchTop 1s linear infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+@keyframes glitchTop {
+
+  2%,
+  64% {
+    transform: translate(200px, -200px);
+  }
+
+  4%,
+  60% {
+    transform: translate(-200px, 200px);
+  }
+
+  62% {
+    transform: translate(130px, -100px) skew(-130deg);
+  }
+}
+
+.project-bg:after {
+  animation: glitchBotom 1.5s linear infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchBotom {
+
+
+  2%,
+  64% {
+    transform: translate(-200px, 200px);
+  }
+
+  4%,
+  60% {
+    transform: translate(200px, -200px);
+  }
+
+  62% {
+    transform: translate(-130px, 100px) skew(130deg);
+  }
+}
+
+
 .project:hover {
   & .headline {
     cursor: pointer;
