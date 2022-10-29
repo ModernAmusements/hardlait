@@ -1,7 +1,7 @@
 <template>
   <nav class="fixed z-10 top-0 inset-x-0" aria-label="Main Menu">
     <nuxt-link class="" to="/">
-      <img class="hl-logo" src="~/assets/hl-wordmark.svg" />
+      <img preload class="hl-logo" src="/hl-wordmark.svg" />
     </nuxt-link>
   </nav>
 </template>

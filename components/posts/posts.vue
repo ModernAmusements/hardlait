@@ -34,6 +34,9 @@
         <!-- blog -->
       </nuxt-link>
       <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }"></div>
+      <div class="hidden">
+        <img :src="`${post.cover}`" rel="preload" alt="">
+      </div>
     </div>
   </div>
   <!-- POSTS -->
@@ -76,6 +79,7 @@ export default {
     return {
       posts: [],
       loading: true,
+      hover: false,
     }
   },
   computed: {

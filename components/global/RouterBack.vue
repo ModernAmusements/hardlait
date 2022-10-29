@@ -1,6 +1,6 @@
 <template>
   <nuxt-link class="z-40" @click.native="to ? null : $router.go(-2)" :to="to ? to : '/'">
-    <slo>go back</slo>
+    <slot>go back</slot>
   </nuxt-link>
 </template>
 

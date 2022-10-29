@@ -1,19 +1,29 @@
 <script>
+import Preloader from '~/components/global/Preloader.vue';
 import Screen from '~/components/global/Screen.vue';
 export default {
   name: 'ColorModePicker',
   components: {
-    Screen
+    Screen,
+    Preloader
   },
   data() {
     return {
       hover: false,
     };
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+      setTimeout(() => this.$nuxt.$loading.finish(), 2000)
+    })
   }
 }
+
 </script>
 <template>
   <main class="homepage" :class="{ projectActive: hover }">
+    <Preloader />
     <!-- DVD -->
     <section class="">
       <Screen />
