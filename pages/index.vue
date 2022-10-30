@@ -55,7 +55,7 @@ export default {
         <h1 class="text-center uppercase">UWU</h1>
       </div>
     </section>
-    <Footer :class="{ projectActive: hover }" />
+    <Footer />
   </main>
 </template>
 <style lang="postcss" scoped>
@@ -71,12 +71,12 @@ h1 {
   display: flex;
   align-items: baseline;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 
 
 .homepage-hero {
-  z-index: 1;
   width: 100%;
   padding: 0.5rem;
   justify-content: flex-end;
@@ -89,12 +89,12 @@ h1 {
   justify-content: space-between;
 }
 
-.homepage-about.projectActive {
+/* .homepage-about.projectActive {
   & h1 {
     color: var(--bg)
   }
 
-}
+} */
 
 @media only screen and (max-width: 768px) {
   main.homepage {

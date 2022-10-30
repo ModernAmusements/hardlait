@@ -10,29 +10,29 @@
           {{ formatDate(post.createdAt) }}
         </h4>
       </div>
-      <nuxt-link :to="`/${postType}/${post.slug}`" class="">
-        <template v-if="postType === 'projects'">
-          <!-- Info  -->
-          <div class="post-info">
-            <p :style="{ color: `${post.color}` }" class="">{{ post.description }}</p>
-            <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
-              {{ post.category }}
-            </p>
+      <template v-if="postType === 'projects'">
+        <!-- Info  -->
+        <div class="post-info">
+          <p :style="{ color: `${post.color}` }" class="">{{ post.description }}</p>
+          <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
+            {{ post.category }}
+          </p>
+          <nuxt-link :to="`/${postType}/${post.slug}`" class="">
             <p :style="{ color: `${post.color}` }" class="mt-0">- More</p>
-          </div>
-        </template>
-        <!-- blog -->
-        <template v-else class="bg-img" :style="{ backgroundImage: `url(${post.cover})` }">
-          <div class="flex justify-between align-baseline">
-            <h3 class="">{{ post.title }}</h3>
-            <h6 v-if="post.createdAt"
-              class="date self-start inline-block mt-0 py-1 px-2 bg-gray text-white text-base font-medium rounded-sm whitespace-no-wrap">
-              {{ formatDate(post.createdAt) }}</h6>
-          </div>
-          <p class="mt-2 subtitle">{{ post.description }}</p>
-        </template>
-        <!-- blog -->
-      </nuxt-link>
+          </nuxt-link>
+        </div>
+      </template>
+      <!-- blog -->
+      <template v-else class="bg-img" :style="{ backgroundImage: `url(${post.cover})` }">
+        <div class="flex justify-between align-baseline">
+          <h3 class="">{{ post.title }}</h3>
+          <h6 v-if="post.createdAt"
+            class="date self-start inline-block mt-0 py-1 px-2 bg-gray text-white text-base font-medium rounded-sm whitespace-no-wrap">
+            {{ formatDate(post.createdAt) }}</h6>
+        </div>
+        <p class="mt-2 subtitle">{{ post.description }}</p>
+      </template>
+      <!-- blog -->
       <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }"></div>
       <div class="hidden">
         <img :src="`${post.cover}`" rel="preload" alt="">

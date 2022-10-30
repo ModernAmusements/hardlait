@@ -1,6 +1,6 @@
 
 <template>
-	<footer class="w-full fixed left-0 bottom-0 text-white text-2xl">
+	<footer class="w-full fixed left-0 bottom-0 text-2xl">
 		<ul class="footer-menu">
 			<li class="footer-link-1">
 				<nuxt-link to="/#">Projects</nuxt-link>
@@ -43,6 +43,7 @@ export default {
 footer {
 	padding: 0.5rem;
 	z-index: 20;
+	mix-blend-mode: difference;
 
 	& .footer-menu {
 		display: grid;
@@ -94,20 +95,20 @@ footer {
 
 }
 
-footer.projectActive {
+footer {
 	& .footer-menu {
 		& li {
 			& a {
-				color: var(--bg)
+				color: var(--text)
 			}
 		}
 
 		& li.footer-link-3 {
 			& .hl-dvd-toggle {
-				color: var(--bg);
+				color: var(--text);
 
 				& svg {
-					fill: var(--bg);
+					fill: var(--text);
 				}
 			}
 		}

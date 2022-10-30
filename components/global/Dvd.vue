@@ -24,7 +24,7 @@ export default {
       dvdStyle: {
         width: `${DVD_LOGO_WIDTH}px`,
         height: `${DVD_LOGO_HEIGHT}px`,
-        fill: `rgb(0, 0, 0)`,
+        fill: `rgb(28, 26, 26)`,
         transform: 'translate(0px, 0px)'
       },
       dvdImageStyle: {
