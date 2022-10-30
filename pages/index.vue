@@ -81,20 +81,16 @@ h1 {
   padding: 0.5rem;
   justify-content: flex-end;
   z-index: 20;
+  mix-blend-mode: difference;
 }
 
 .homepage-about {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  mix-blend-mode: difference;
 }
 
-/* .homepage-about.projectActive {
-  & h1 {
-    color: var(--bg)
-  }
-
-} */
 
 @media only screen and (max-width: 768px) {
   main.homepage {

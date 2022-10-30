@@ -119,9 +119,7 @@ export default {
   padding: 0.5rem 0.5rem 0 0.5rem;
 }
 
-h4.headline.projectActive {
-  color: var(--bg)
-}
+/* project color cms */
 
 .project-bg {
   display: none;
@@ -143,8 +141,9 @@ h4.headline.projectActive {
 }
 
 .headline {
-  color: var(--text);
   z-index: 20;
+  cursor: pointer;
+  color: var(--bg);
 }
 
 .date {
@@ -235,8 +234,7 @@ h4.headline.projectActive {
 
 .project:hover {
   & .headline {
-    cursor: pointer;
-    color: white;
+    color: var(--text);
   }
 
   & .date {
