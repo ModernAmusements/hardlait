@@ -34,9 +34,8 @@
       </template>
       <!-- blog -->
       <!-- HERO -->
-      <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }"></div>
-      <div class="hidden">
-        <img :src="`${post.cover}`" rel="preload">
+      <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }">
+        <img class="hidden" :src="`${post.cover}`" rel="preload">
       </div>
       <!-- HERO -->
     </div>
