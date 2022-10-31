@@ -17,8 +17,8 @@
           <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
             {{ post.category }}
           </p>
-          <nuxt-link :to="`/${postType}/${post.slug}`" class="">
-            <p :style="{ color: `${post.color}` }" class="mt-0">- More</p>
+          <nuxt-link :to="`/${postType}/${post.slug}`">
+            <p :style="{ color: `${post.color}` }" class="mt-0">[+] More</p>
           </nuxt-link>
         </div>
       </template>

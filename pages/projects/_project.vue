@@ -1,31 +1,31 @@
 <template>
   <main>
     <section v-if="post">
-
       <article class="work-subpage">
-
-        <div class="post-category">
-          <h6 :style="{ color: `${post.color}` }"
-            class="inline my-2 px-2 mr-1 bg-white  text-sm font-medium rounded-sm">
-            {{ post.category }}
-          </h6>
+        <div class="headline-date">
+          <h1 class="headline mr-2" :style="{ color: `${post.color}` }">
+            {{ post.title }}
+          </h1>
+          <h4 :style="{ color: `${post.color}` }" v-if="post.createdAt" class="date mt-0">
+            {{ formatDate(post.createdAt) }}
+          </h4>
         </div>
-        <div class="project-title">
-          <p :style="{ color: `${post.color}` }">{{ post.title }}</p>
-        </div>
-
-        <div class="post-info z-20">
+        <!-- Info  -->
+        <div class="post-info">
           <p :style="{ color: `${post.color}` }" class="">{{ post.description }}</p>
           <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
             {{ post.category }}
           </p>
+        </div>
+        <div class="post-info">
           <router-back class="block text-white" />
+          <p :style="{ color: `${post.color}` }" class="mt-0">[+] More</p>
         </div>
 
 
 
-        <div class="work-subpage-img">
 
+        <div class="work-subpage-img">
           <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }"></div>
         </div>
 
@@ -51,6 +51,13 @@ export default {
     }
     return { post };
   },
+  methods: {
+    formatDate(dateString) {
+      const date = new Date(dateString)
+      const options = { year: 'numeric' }
+      return date.toLocaleDateString('en', options)
+    },
+  }
 }
 </script>
 
@@ -72,10 +79,42 @@ nav {
 }
 
 .work-subpage {
-  padding: 0.5rem;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
 
   & .project-title {
     z-index: 20;
+  }
+}
+
+.headline-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.headline {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.date {
+  z-index: 20;
+}
+
+.post-info {
+  display: flex;
+  z-index: 20;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .work-subpage {
+    width: 100%;
   }
 }
 </style>
