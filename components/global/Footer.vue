@@ -44,13 +44,11 @@ footer {
 	padding: 0.5rem;
 	z-index: 20;
 
-
 	& .footer-menu {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
 		font-size: 1rem;
 		align-items: flex-end;
-
 
 		& li.trademark {
 			grid-column: 5 / 6;
@@ -89,26 +87,20 @@ footer {
 	}
 }
 
-
-.nuxt-link-exact-active {
-	@apply text-primary;
-
-}
-
-footer {
+footer.projectActive {
 	& .footer-menu {
 		& li {
 			& a {
-				color: var(--text)
+				color: var(--bg)
 			}
 		}
 
 		& li.footer-link-3 {
 			& .hl-dvd-toggle {
-				color: var(--text);
+				color: var(--bg);
 
 				& svg {
-					fill: var(--text);
+					fill: var(--bg);
 				}
 			}
 		}

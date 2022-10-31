@@ -82,11 +82,6 @@ footer {
 
 
 
-.nuxt-link-exact-active {
-	@apply text-primary;
-
-}
-
 footer {
 	& .footer-menu {
 		& li {

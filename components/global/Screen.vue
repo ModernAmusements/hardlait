@@ -30,7 +30,7 @@ export default {
         position: 'absolute',
       },
       ScreenStyle: {
-        backgroundColor: '#fafafa',
+        backgroundColor: 'transparent',
         width: `${TV_SCREEN_WIDTH}px`,
         height: `${TV_SCREEN_HEIGHT}px`
       },

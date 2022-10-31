@@ -1,23 +1,14 @@
 <script>
-import Preloader from '~/components/global/Preloader.vue';
 import Screen from '~/components/global/Screen.vue';
 export default {
-  name: 'ColorModePicker',
   components: {
-    Screen,
-    Preloader
+    Screen
   },
   data() {
     return {
       hover: false,
     };
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.$nuxt.$loading.start()
-      setTimeout(() => this.$nuxt.$loading.finish(), 2000)
-    })
-  }
 }
 
 </script>
@@ -35,7 +26,6 @@ export default {
         @mouseleave.native="hover = false" />
     </section>
     <!-- Works -->
-    <!-- About -->
     <section class="homepage-hero self-start flex flex-col flex-1 items-between">
       <div class="homepage-about" :class="{ projectActive: hover }">
         <h1 class="text-center uppercase">ART</h1>
@@ -56,8 +46,7 @@ export default {
         <h1 class="text-center uppercase">UWU</h1>
       </div>
     </section>
-    <!-- About -->
-    <Footer />
+    <Footer :class="{ projectActive: hover }" />
   </main>
 </template>
 <style lang="postcss" scoped>
@@ -79,20 +68,25 @@ h1 {
 
 
 .homepage-hero {
+  z-index: 1;
   width: 100%;
   padding: 0.5rem;
   justify-content: flex-end;
   z-index: 20;
-
 }
 
 .homepage-about {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-
 }
 
+.homepage-about.projectActive {
+  & h1 {
+    color: var(--bg)
+  }
+
+}
 
 @media only screen and (max-width: 768px) {
   main.homepage {
