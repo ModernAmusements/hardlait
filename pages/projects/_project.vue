@@ -17,6 +17,8 @@
             {{ post.category }}
           </p>
         </div>
+
+
         <div class="post-info">
           <router-back class="block text-white" />
           <p :style="{ color: `${post.color}` }" class="mt-0">[+] More</p>
@@ -25,16 +27,20 @@
 
 
 
-        <div class="work-subpage-img">
-          <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }"></div>
-        </div>
+
 
         <nuxt-content :document="post" />
-        <div v-if="post.gallery" class="nuxt-content">
-          <img v-for="image in post.gallery" class="image" :key="image.id" :src="image">
-        </div>
 
       </article>
+
+      <div v-if="post.gallery" class="nuxt-content">
+        <img v-for="image in post.gallery" class="image" :key="image.id" :src="image">
+        <img :src="post.cover" alt="">
+      </div>
+      <div class="nuxt-content">
+        <img :src="post.cover" alt="">
+      </div>
+
     </section>
     <FooterDvdOff />
   </main>
@@ -61,10 +67,12 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 nav {
-  padding: 0.5rem;
+  position: fixed;
 }
+
+
 
 .project-bg {
   display: flex;
@@ -83,6 +91,7 @@ nav {
   display: flex;
   flex-direction: column;
   width: 25%;
+  position: fixed;
 
   & .project-title {
     z-index: 20;
@@ -109,6 +118,57 @@ nav {
   display: flex;
   z-index: 20;
   justify-content: space-between;
+}
+
+.nuxt-content {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  max-width: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  & img {
+    display: flex;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    inset: 0;
+    margin-top: 0;
+    border-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+img:nth-child(1) {
+  left: 0vw;
+  width: 77.777vw;
+}
+
+img:nth-child(2) {
+  left: 77vw;
+}
+
+img:nth-child(3) {
+  left: 177vw;
+}
+
+img:nth-child(4) {
+  left: 100vw;
+}
+
+img:nth-child(5) {
+  left: 100vw;
+}
+
+img:nth-child(6) {
+  left: 100vw;
 }
 
 @media only screen and (max-width: 768px) {
