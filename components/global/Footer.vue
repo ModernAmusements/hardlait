@@ -3,10 +3,10 @@
 	<footer class="w-full fixed left-0 bottom-0 text-2xl">
 		<ul class="footer-menu">
 			<li class="footer-link-1">
-				<nuxt-link to="/#">Projects</nuxt-link>
+				<nuxt-link to="/">Projects</nuxt-link>
 			</li>
 			<li class="footer-link-2">
-				<nuxt-link to="/#">About</nuxt-link>
+				<nuxt-link to="/about">About</nuxt-link>
 			</li>
 			<li class="footer-link-3">
 				<div class="text-center hl-dvd-toggle">
@@ -43,7 +43,7 @@ export default {
 footer {
 	padding: 0.5rem;
 	z-index: 20;
-	mix-blend-mode: difference;
+
 
 	& .footer-menu {
 		display: grid;

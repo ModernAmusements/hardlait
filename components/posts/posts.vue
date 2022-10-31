@@ -33,10 +33,12 @@
         <p class="mt-2 subtitle">{{ post.description }}</p>
       </template>
       <!-- blog -->
+      <!-- HERO -->
       <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }"></div>
       <div class="hidden">
-        <img :src="`${post.cover}`" rel="preload" alt="">
+        <img :src="`${post.cover}`" rel="preload">
       </div>
+      <!-- HERO -->
     </div>
   </div>
   <!-- POSTS -->
@@ -143,7 +145,6 @@ export default {
 .headline {
   z-index: 20;
   cursor: pointer;
-  color: var(--bg);
 }
 
 .date {
@@ -234,7 +235,7 @@ export default {
 
 .project:hover {
   & .headline {
-    color: var(--text);
+    color: var(--bg);
   }
 
   & .date {
@@ -242,12 +243,8 @@ export default {
   }
 
   & .project-bg {
-    transition: all 0.5s ease;
     display: flex;
   }
-}
-
-.project:hover {
 
   & .post-info {
     display: flex;

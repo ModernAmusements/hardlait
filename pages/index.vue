@@ -35,6 +35,7 @@ export default {
         @mouseleave.native="hover = false" />
     </section>
     <!-- Works -->
+    <!-- About -->
     <section class="homepage-hero self-start flex flex-col flex-1 items-between">
       <div class="homepage-about" :class="{ projectActive: hover }">
         <h1 class="text-center uppercase">ART</h1>
@@ -55,6 +56,7 @@ export default {
         <h1 class="text-center uppercase">UWU</h1>
       </div>
     </section>
+    <!-- About -->
     <Footer />
   </main>
 </template>
@@ -81,14 +83,14 @@ h1 {
   padding: 0.5rem;
   justify-content: flex-end;
   z-index: 20;
-  mix-blend-mode: difference;
+
 }
 
 .homepage-about {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  mix-blend-mode: difference;
+
 }
 
 
