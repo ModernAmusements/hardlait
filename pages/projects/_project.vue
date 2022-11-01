@@ -2,6 +2,7 @@
   <main>
     <section v-if="post">
       <article class="work-subpage">
+        <!-- Title  -->
         <div class="headline-date">
           <h1 class="headline mr-2" :style="{ color: `${post.color}` }">
             {{ post.title }}
@@ -10,6 +11,7 @@
             {{ formatDate(post.createdAt) }}
           </h4>
         </div>
+        <!-- Title  -->
         <!-- Info  -->
         <div class="post-info">
           <p :style="{ color: `${post.color}` }" class="">{{ post.description }}</p>
@@ -17,7 +19,7 @@
             {{ post.category }}
           </p>
         </div>
-
+        <!-- Info  -->
 
         <div class="post-info">
           <router-back class="block text-white" />
@@ -25,20 +27,17 @@
         </div>
 
 
-
-
-
-
         <nuxt-content :document="post" />
 
       </article>
 
-      <div v-if="post.gallery" class="nuxt-content">
-        <img v-for="image in post.gallery" class="image" :key="image.id" :src="image">
-        <img :src="post.cover" alt="">
-      </div>
-      <div class="nuxt-content">
-        <img :src="post.cover" alt="">
+
+      <div class="work-subpage-img">
+        <div class="work-subpage-img-scroll">
+          <img class="project-bg" :src="post.cover">
+          <img class="project-bg" v-for="image in post.gallery" :key="image.id" :src="image"
+            :style="{ backgroundImage: `url(${image})` }">
+        </div>
       </div>
 
     </section>
@@ -68,30 +67,13 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-nav {
-  position: fixed;
-}
-
-
-
-.project-bg {
-  display: flex;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  inset: 0;
-}
-
 .work-subpage {
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   width: 25%;
   position: fixed;
+  z-index: 21;
 
   & .project-title {
     z-index: 20;
@@ -103,6 +85,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
+  padding-top: 1rem;
 }
 
 .headline {
@@ -120,61 +103,60 @@ nav {
   justify-content: space-between;
 }
 
-.nuxt-content {
-  display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  max-width: 0;
-  margin-top: 0;
-  margin-bottom: 0;
+.work-subpage-img {
 
-  & img {
+  overflow: auto;
+  white-space: nowrap;
+  background: transparent;
+  height: 100vh;
+  width: 100vw;
+
+  & .work-subpage-img-scroll {
     display: flex;
+    flex-direction: row;
+
+  }
+
+  & .project-bg {
+    display: inline-block;
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    position: absolute;
     width: 100vw;
     height: 100vh;
     z-index: -1;
     inset: 0;
-    margin-top: 0;
-    border-radius: 0;
-    margin-left: 0;
-    margin-right: 0;
   }
 }
 
-img:nth-child(1) {
-  left: 0vw;
-  width: 77.777vw;
-}
 
-img:nth-child(2) {
-  left: 77vw;
-}
 
-img:nth-child(3) {
-  left: 177vw;
-}
 
-img:nth-child(4) {
-  left: 100vw;
-}
-
-img:nth-child(5) {
-  left: 100vw;
-}
-
-img:nth-child(6) {
-  left: 100vw;
-}
 
 @media only screen and (max-width: 768px) {
 
   .work-subpage {
     width: 100%;
+  }
+
+  .work-subpage-img {
+
+    overflow: auto;
+    white-space: nowrap;
+    background: transparent;
+    height: 100vh;
+    width: 100vw;
+
+    & .work-subpage-img-scroll {
+      display: flex;
+      flex-direction: column;
+
+    }
+
+    & .project-bg {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 </style>
