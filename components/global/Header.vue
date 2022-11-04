@@ -16,16 +16,14 @@ export default {
 nav {
   display: flex;
   justify-content: space-between;
-  font-size: 0.5rem;
   padding: 0.5rem;
-  flex-direction: row-reverse;
+  align-items: flex-start;
 }
 
 
 @media only screen and (max-width: 768px) {
   nav {
     flex-direction: column;
-    align-items: end;
   }
 }
 </style>

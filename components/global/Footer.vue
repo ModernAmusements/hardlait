@@ -1,6 +1,6 @@
 
 <template>
-	<footer class="w-full fixed left-0 bottom-0 text-2xl">
+	<footer class="w-full fixed left-0 bottom-0">
 		<ul class="footer-menu">
 			<li class="footer-link-1">
 				<nuxt-link to="/">Projects</nuxt-link>
@@ -47,7 +47,6 @@ footer {
 	& .footer-menu {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
-		font-size: 1rem;
 		align-items: flex-end;
 
 		& li.trademark {
@@ -70,13 +69,11 @@ footer {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	font-size: 1rem;
 	cursor: crosshair;
 	z-index: 100;
 	color: var(--text);
 
 	& .info {
-		font-size: 9px;
 		display: none
 	}
 }
@@ -112,9 +109,8 @@ footer.projectActive {
 	footer {
 		& .footer-menu {
 			display: grid;
-			grid-template-rows: repeat(3, 1.5rem);
+			grid-template-rows: repeat(3, 1rem);
 			grid-template-columns: auto;
-			font-size: 1rem;
 			align-items: flex-end;
 
 			& li.trademark {
@@ -126,7 +122,6 @@ footer.projectActive {
 				grid-row: 3;
 				padding-top: 0.5rem;
 				transform: rotate(180deg);
-				font-size: 9px;
 				width: 25px;
 				height: 90px;
 			}
@@ -149,7 +144,6 @@ footer.projectActive {
 		flex-direction: row-reverse;
 		align-items: center;
 		justify-content: flex-end;
-		font-size: 1rem;
 
 	}
 

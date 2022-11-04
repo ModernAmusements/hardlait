@@ -30,7 +30,6 @@ export default {
 	background: rgba(255, 255, 255, 0.8);
 	text-align: center;
 	padding-top: 200px;
-	font-size: 30px;
 	font-family: sans-serif;
 }
 </style>

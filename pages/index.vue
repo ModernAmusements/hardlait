@@ -22,7 +22,7 @@ export default {
     <!-- DVD -->
     <!-- Works -->
     <section class="projects-homepage">
-      <posts class="projects-layout" post-type="projects" :amount="10" @mouseover.native="hover = true"
+      <posts class="projects-layout" post-type="projects" :amount="99" @mouseover.native="hover = true"
         @mouseleave.native="hover = false" />
     </section>
     <!-- Works -->
@@ -56,6 +56,7 @@ h1 {
 
 .projects-homepage {
   z-index: 10;
+  width: fit-content;
 }
 
 .projects-layout {
@@ -63,16 +64,18 @@ h1 {
   align-items: baseline;
   justify-content: flex-start;
   flex-wrap: wrap;
+  padding-top: 0.5rem;
 }
 
 
 
 .homepage-hero {
-  z-index: 1;
   width: 100%;
   padding: 0.5rem;
   justify-content: flex-end;
-  z-index: 20;
+  z-index: 21;
+  font-size: 2.25rem;
+  line-height: 2rem;
 }
 
 .homepage-about {
@@ -95,6 +98,8 @@ h1 {
 
   .homepage-hero {
     justify-content: end;
+    font-size: 1rem;
+    line-height: 1rem;
   }
 
   .projects-layout {

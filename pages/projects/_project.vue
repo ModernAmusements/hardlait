@@ -90,7 +90,6 @@ export default {
 
 .headline {
   cursor: pointer;
-  font-size: 20px;
 }
 
 .date {

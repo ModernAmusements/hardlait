@@ -117,7 +117,7 @@ export default {
 </script>
 <style lang="postcss" scoped>
 .project {
-  padding: 0.5rem 0.5rem 0 0.5rem;
+  padding: 0rem 0.5rem 0 0.5rem;
 }
 
 /* project color cms */

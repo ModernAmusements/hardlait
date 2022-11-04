@@ -52,6 +52,7 @@ h1 {
 
 .projects-homepage {
 	z-index: 10;
+	width: fit-content;
 }
 
 .projects-layout {
@@ -59,6 +60,7 @@ h1 {
 	align-items: baseline;
 	justify-content: flex-start;
 	flex-wrap: wrap;
+	padding-top: 0.5rem;
 }
 
 
@@ -68,7 +70,8 @@ h1 {
 	padding: 0.5rem;
 	justify-content: flex-start;
 	z-index: 20;
-
+	font-size: 2.25rem;
+	line-height: 2rem;
 }
 
 .homepage-about {
@@ -86,6 +89,8 @@ h1 {
 
 	.homepage-hero {
 		justify-content: flex-start;
+		font-size: 1rem;
+		line-height: 1rem;
 	}
 
 	.projects-layout {
