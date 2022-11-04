@@ -20,10 +20,11 @@
         </div>
         <nuxt-link class="show-more" :to="`/${postType}/${post.slug}`">
           <p :style="{ color: `${post.color}` }" class="mt-0">
-            <label class="hl-show-more-label">
+            <label class="hl-show-more-label" :class="{ red: isRed }" @click="toggleRed">
               <span class="hl-show-more-dash hl-show-more-dash-bottom">
                 <span class="hl-show-more-dash-span hl-show-more-dash-span-bottom"></span>
               </span>
+
             </label>
             More
           </p>
@@ -88,6 +89,9 @@ export default {
       posts: [],
       loading: true,
       hover: false,
+      message: 'Hello World!',
+      isRed: false,
+      color: 'green'
     }
   },
   computed: {
@@ -118,11 +122,21 @@ export default {
         .limit(amount)
         .fetch()
         .catch((err) => console.error(err) || []);
+    },
+    toggleRed() {
+      this.isRed = !this.isRed
+    },
+    toggleColor() {
+      this.color = this.color === 'green' ? 'blue' : 'green'
     }
   },
 }
 </script>
 <style lang="postcss" scoped>
+.red {
+  color: red;
+}
+
 .hl-show-more-label {
   display: block;
   position: absolute;
@@ -137,11 +151,10 @@ export default {
 .hl-show-more-dash {
   position: absolute;
   z-index: 3;
-  top: 10px;
+  top: 14px;
   left: 0px;
   width: 30px;
   height: 30px;
-  -webkit-transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
   transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
@@ -160,16 +173,18 @@ export default {
 
 .hl-show-more-dash-span-bottom {
   bottom: 14px;
-  top: 11px;
+  top: 7px;
   left: 5px;
   height: 2px;
-
-  -webkit-transform: translateY(3px) scaleX(.88235);
   transform: translateY(3px) scaleX(.88235);
-  -webkit-transition: -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
-  transition: -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
   transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
-  transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s, -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+}
+
+.hl-show-more-label.red {
+  & .hl-show-more-dash-span-bottom {
+    transform: rotate(90deg);
+    top: 9px;
+  }
 }
 
 .project {
