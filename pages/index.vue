@@ -97,7 +97,7 @@ h1 {
   }
 
   .homepage-hero {
-    justify-content: end;
+    justify-content: flex-end;
     font-size: 1rem;
     line-height: 1rem;
   }

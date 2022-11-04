@@ -124,6 +124,7 @@ footer.projectActive {
 				transform: rotate(180deg);
 				width: 25px;
 				height: 90px;
+				white-space: nowrap;
 			}
 		}
 	}
