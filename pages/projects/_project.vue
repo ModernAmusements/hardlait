@@ -25,7 +25,7 @@
           <!-- <router-back class="block text-white" /> -->
           <div class="show-more">
             <p :style="{ color: `${post.color}` }" class="mt-0">
-              <label class="hl-show-more-label" :class="{ red: isRed }" @click="toggleRed">
+              <label class="hl-show-more-label" :class="{ show: isVisible }" @click="toggleVisible">
                 <span class="hl-show-more-dash hl-show-more-dash-bottom">
                   <span class="hl-show-more-dash-span hl-show-more-dash-span-bottom"></span>
                 </span>
@@ -34,7 +34,7 @@
               More
             </p>
           </div>
-          <div :style="{ color: `${post.color}` }" :class="{ red: isRed }" class="post-project mt-10">
+          <div :style="{ color: `${post.color}` }" :class="{ show: isVisible }" class="post-project mt-10">
             With the creative direction of Mouthwash, my job was to setup ways to distort the image directly in 3D using
             the asset created by the team at SG. Using Octane’s powerful universal camera, we were able to stack FX
             without too much post-process.
@@ -73,8 +73,7 @@ export default {
   },
   data() {
     return {
-      isRed: false,
-      color: 'green'
+      isVisible: false,
     }
   },
   methods: {
@@ -83,12 +82,9 @@ export default {
       const options = { year: 'numeric' }
       return date.toLocaleDateString('en', options)
     },
-    toggleRed() {
-      this.isRed = !this.isRed
+    toggleVisible() {
+      this.isVisible = !this.isVisible
     },
-    toggleColor() {
-      this.color = this.color === 'green' ? 'blue' : 'green'
-    }
   }
 }
 </script>
@@ -98,7 +94,7 @@ export default {
   display: none;
 }
 
-.post-project.red {
+.post-project.show {
   display: block;
 }
 

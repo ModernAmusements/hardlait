@@ -20,7 +20,7 @@
         </div>
         <nuxt-link class="show-more" :to="`/${postType}/${post.slug}`">
           <p :style="{ color: `${post.color}` }" class="mt-0">
-            <label class="hl-show-more-label" :class="{ red: isRed }" @click="toggleRed">
+            <label class="hl-show-more-label" :class="{ show: isVisible }" @click="toggleVisible">
               <span class="hl-show-more-dash hl-show-more-dash-bottom">
                 <span class="hl-show-more-dash-span hl-show-more-dash-span-bottom"></span>
               </span>
@@ -89,9 +89,7 @@ export default {
       posts: [],
       loading: true,
       hover: false,
-      message: 'Hello World!',
-      isRed: false,
-      color: 'green'
+      isVisible: false,
     }
   },
   computed: {
@@ -123,12 +121,9 @@ export default {
         .fetch()
         .catch((err) => console.error(err) || []);
     },
-    toggleRed() {
-      this.isRed = !this.isRed
+    toggleVisible() {
+      this.isVisible = !this.isVisible
     },
-    toggleColor() {
-      this.color = this.color === 'green' ? 'blue' : 'green'
-    }
   },
 }
 </script>
