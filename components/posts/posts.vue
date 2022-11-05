@@ -42,8 +42,8 @@
       </template>
       <!-- blog -->
       <!-- HERO -->
-      <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }">
-        <img class="hidden" :src="`${post.cover}`" rel="preload">
+      <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }" :src="`${post.cover}`">
+        <nuxt-img class="hidden" :src="`${post.cover}`" rel="preload" :placeholder="[960, 540, 10]" />
       </div>
       <!-- HERO -->
     </div>
@@ -96,7 +96,7 @@ export default {
     placeholderClasses() {
       const classes = ['w-full', 'w-2/3', 'w-5/6'];
       return [...Array.from({ length: this.amount }, (v, i) => classes[i % classes.length])]; // repeats classes after one another
-    }
+    },
   },
   async mounted() {
     this.loading = true;
@@ -139,6 +139,8 @@ export default {
 
 /* project color cms */
 
+
+
 .project-bg {
   display: none;
   background-position: 50%;
@@ -149,6 +151,23 @@ export default {
   height: 100vh;
   z-index: -1;
   inset: 0;
+  filter: blur(30px);
+  transform: scale(1.1);
+}
+
+.project-bg.is-loaded {
+  filter: none;
+  /* remove the blur on fullres image */
+  transition: filter 300s;
+  transform: scale(1);
+}
+
+
+.project-bg>img {
+  display: block;
+  width: 100%;
+  opacity: 0;
+  /* visually hide the img element */
 }
 
 .headline-date {

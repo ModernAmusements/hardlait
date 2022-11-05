@@ -96,7 +96,6 @@ export default {
 
 .post-project.show {
   display: block;
-  position: absolute;
 }
 
 
@@ -159,6 +158,10 @@ export default {
     flex-direction: column;
     grid-column: 1 / 6;
     grid-row: 2;
+  }
+
+  .post-project.show {
+    position: absolute;
   }
 
 }

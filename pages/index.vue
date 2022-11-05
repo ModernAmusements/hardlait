@@ -101,6 +101,7 @@ h1 {
     justify-content: flex-end;
     font-size: 1rem;
     line-height: 1rem;
+    padding-top: 0rem;
   }
 
   .projects-layout {
