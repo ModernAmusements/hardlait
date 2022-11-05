@@ -1,6 +1,7 @@
 <template>
   <main>
-    <section v-if="post">
+    <HeaderProject />
+    <section class="layout-subpage" v-if="post">
       <article class="work-subpage">
         <!-- Title  -->
         <div class="headline-date">
@@ -40,19 +41,12 @@
             without too much post-process.
           </div>
         </div>
-
-
         <nuxt-content :document="post" />
-
       </article>
-
-
-      <div class="work-subpage-img">
-        <div class="work-subpage-img-scroll">
-          <img class="project-bg" :src="post.cover">
-          <img class="project-bg" v-for="image in post.gallery" :key="image.id" :src="image"
-            :style="{ backgroundImage: `url(${image})` }">
-        </div>
+      <div class="project-bg" :src="post.cover" :style="{ backgroundImage: `url(${post.cover})` }">
+      </div>
+      <div class="project-bg" v-for="image in post.gallery" :key="image.id" :src="image"
+        :style="{ backgroundImage: `url(${image})` }">
       </div>
 
     </section>
@@ -90,12 +84,19 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.layout-subpage {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
 .post-project {
   display: none;
 }
 
 .post-project.show {
   display: block;
+  position: absolute;
 }
 
 
@@ -103,13 +104,7 @@ export default {
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-  width: 25%;
-  position: fixed;
-  z-index: 21;
-
-  & .project-title {
-    z-index: 20;
-  }
+  grid-column: 2 / 3;
 }
 
 .headline-date {
@@ -117,7 +112,7 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
-  padding-top: 1rem;
+  padding-top: 0.5rem;
 }
 
 .headline {
@@ -134,30 +129,22 @@ export default {
   justify-content: space-between;
 }
 
-.work-subpage-img {
 
-  overflow: auto;
-  white-space: nowrap;
-  background: transparent;
-  height: 100vh;
+.project {
+  padding: 0rem 0.5rem 0 0.5rem;
+}
+
+/* project color cms */
+
+.project-bg {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
   width: 100vw;
-
-  & .work-subpage-img-scroll {
-    display: flex;
-    flex-direction: row;
-
-  }
-
-  & .project-bg {
-    display: inline-block;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    inset: 0;
-  }
+  height: 100vh;
+  z-index: -1;
+  inset: 0;
 }
 
 
@@ -167,27 +154,12 @@ export default {
 @media only screen and (max-width: 768px) {
 
   .work-subpage {
-    width: 100%;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / 6;
+    grid-row: 2;
   }
 
-  .work-subpage-img {
-
-    overflow: auto;
-    white-space: nowrap;
-    background: transparent;
-    height: 100vh;
-    width: 100vw;
-
-    & .work-subpage-img-scroll {
-      display: flex;
-      flex-direction: column;
-
-    }
-
-    & .project-bg {
-      width: 100%;
-      height: auto;
-    }
-  }
 }
 </style>

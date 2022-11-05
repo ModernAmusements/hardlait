@@ -14,6 +14,7 @@ export default {
 </script>
 <template>
   <main class="homepage" :class="{ projectActive: hover }">
+    <Header />
     <Preloader />
     <!-- DVD -->
     <section class="">
@@ -72,10 +73,10 @@ h1 {
 .homepage-hero {
   width: 100%;
   padding: 0.5rem;
-  justify-content: flex-end;
-  z-index: 21;
+  justify-content: center;
   font-size: 2.25rem;
   line-height: 2rem;
+  padding-top: 20rem;
 }
 
 .homepage-about {

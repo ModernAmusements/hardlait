@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed z-10 top-0 inset-x-0" aria-label="Main Menu">
+  <nav class="fixed z-10 top-0 inset-x-0 default-header" aria-label="Main Menu">
     <nuxt-link class="" to="/">
       <img preload class="hl-logo" src="/hl-wordmark.svg" />
     </nuxt-link>
@@ -12,18 +12,6 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem;
-  align-items: flex-start;
-}
+<style lang="postcss">
 
-
-@media only screen and (max-width: 768px) {
-  nav {
-    flex-direction: column;
-  }
-}
 </style>

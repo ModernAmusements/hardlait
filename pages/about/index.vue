@@ -9,6 +9,7 @@ export default {
 </script>
 <template>
 	<main class="homepage">
+		<Header />
 		<Preloader />
 		<!-- DVD -->
 		<section class="">
