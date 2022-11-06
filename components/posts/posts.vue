@@ -43,7 +43,6 @@
       <!-- blog -->
       <!-- HERO -->
       <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }" :src="`${post.cover}`">
-        <img class="hidden" :src="`${post.cover}`" rel="preload" />
       </div>
       <!-- HERO -->
     </div>
