@@ -46,7 +46,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/vue-content-placeholders.js', '~/plugins/fast-blurhash.js'],
+  plugins: ['~/plugins/vue-content-placeholders.js'],
   /*
    ** Nuxt.js dev-modules
    */
