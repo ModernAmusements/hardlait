@@ -31,6 +31,7 @@ export default {
         name: 'description',
         content: SITE_INFO.sitedescription || process.env.npm_package_description || '',
       },
+      { name: 'theme_color', content: '#fe5550' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon/favicon.ico' }],
     __dangerouslyDisableSanitizers: ['noscript'],
@@ -38,7 +39,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#F43425' },
+  loading: { color: '#fe5550' },
   /*
    ** Global CSS
    */
@@ -119,6 +120,7 @@ export default {
       lang: process.env.lang,
       ogHost: process.env.URL,
       ogImage: '/preview.jpg',
+      theme_color: '#fe5550',
     },
   },
 }
