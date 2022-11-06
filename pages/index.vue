@@ -15,7 +15,6 @@ export default {
 <template>
   <main class="homepage" :class="{ projectActive: hover }">
     <Header />
-    <Preloader />
     <!-- DVD -->
     <section class="">
       <Screen />

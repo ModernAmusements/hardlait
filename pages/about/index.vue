@@ -10,7 +10,6 @@ export default {
 <template>
 	<main class="homepage">
 		<Header />
-		<Preloader />
 		<!-- DVD -->
 		<section class="">
 			<Screen />

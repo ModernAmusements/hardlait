@@ -36,10 +36,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon/favicon.ico' }],
     __dangerouslyDisableSanitizers: ['noscript'],
   },
-  /*
-   ** Customize the progress-bar color
-   */
-  loading: { color: '#fe5550' },
+  loading: '~/components/loading.vue',
   /*
    ** Global CSS
    */
@@ -51,7 +48,9 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa', '@nuxt/image'],
+  // buildModules: ['@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa', '@nuxt/image'],
+  buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa', '@nuxt/image'],
+
   /*
    ** Nuxt.js modules
    */

@@ -42,12 +42,15 @@
       </template>
       <!-- blog -->
       <!-- HERO -->
-      <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }" :src="`${post.cover}`">
+      <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }">
+        <img rel="preload" class="project-bg hidden" :src="`${post.cover}`"
+          :style="{ backgroundImage: `url(${post.cover})` }">
       </div>
       <!-- HERO -->
     </div>
   </div>
   <!-- POSTS -->
+
   <div v-else-if="loading" class="cards">
     <div v-for="placeholder in placeholderClasses" :key="placeholder.id" class="card">
       <content-placeholders :rounded="true" :class="placeholder">
