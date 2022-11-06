@@ -73,6 +73,7 @@ h1 {
 	z-index: 20;
 	font-size: 2.25rem;
 	line-height: 2rem;
+	z-index: 19;
 }
 
 .homepage-about {

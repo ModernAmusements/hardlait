@@ -77,6 +77,7 @@ h1 {
   font-size: 2.25rem;
   line-height: 2rem;
   padding-top: 20rem;
+  z-index: 19;
 }
 
 .homepage-about {

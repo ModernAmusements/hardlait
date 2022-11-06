@@ -50,6 +50,13 @@
       </div>
 
     </section>
+    <section class="homepage-hero self-start flex flex-col flex-1 items-between">
+      <div class="homepage-about">
+        <h1 :style="{ color: `${post.color}` }" class="uppercase">{{ post.description }}</h1>
+        <h1 :style="{ color: `${post.color}` }" class="uppercase">{{ post.category }}</h1>
+      </div>
+
+    </section>
     <FooterDvdOff />
   </main>
 </template>
@@ -84,10 +91,26 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.homepage-hero {
+  width: 100%;
+  padding: 0.5rem;
+  justify-content: center;
+  font-size: 2.25rem;
+  line-height: 2rem;
+  padding-top: 20rem;
+  z-index: 19;
+}
+
+.homepage-about {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
 .layout-subpage {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 30px);
 }
 
 .post-project {
@@ -162,6 +185,10 @@ export default {
 
   .post-project.show {
     position: absolute;
+  }
+
+  .homepage-about {
+    font-size: 1rem;
   }
 
 }
