@@ -26,7 +26,7 @@ export default {
         @mouseleave.native="hover = false" />
     </section>
     <!-- Works -->
-    <section class="homepage-hero self-start flex flex-col flex-1 items-between">
+    <section class="homepage-hero">
       <div class="homepage-about" :class="{ projectActive: hover }">
         <h1 class="text-center uppercase">ART</h1>
         <h1 class="text-center uppercase">DIRECTOR</h1>
@@ -75,8 +75,10 @@ h1 {
   justify-content: center;
   font-size: 2.25rem;
   line-height: 2rem;
-  padding-top: 20rem;
   z-index: 19;
+  bottom: 20%;
+  left: 0px;
+  position: fixed;
 }
 
 .homepage-about {
@@ -93,9 +95,7 @@ h1 {
 }
 
 @media only screen and (max-width: 768px) {
-  main.homepage {
-    padding-bottom: 10rem !important;
-  }
+
 
   .homepage-hero {
     justify-content: flex-end;

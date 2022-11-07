@@ -84,9 +84,6 @@ h1 {
 
 
 @media only screen and (max-width: 768px) {
-	main.homepage {
-		padding-bottom: 10rem !important;
-	}
 
 	.homepage-hero {
 		justify-content: flex-start;

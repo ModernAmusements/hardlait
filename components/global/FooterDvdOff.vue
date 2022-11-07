@@ -117,9 +117,8 @@ footer {
 				grid-row: 3;
 				padding-top: 0.5rem;
 				transform: rotate(180deg);
-				width: 25px;
-				height: 90px;
 				white-space: nowrap;
+				font-size: 9px;
 			}
 		}
 	}

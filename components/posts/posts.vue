@@ -42,7 +42,7 @@
       </template>
       <!-- blog -->
       <!-- HERO -->
-      <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }">
+      <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }" :src="`${post.cover}`">
         <img rel="preload" class="hidden" :src="`${post.cover}`">
       </div>
       <!-- HERO -->
