@@ -14,12 +14,7 @@ export default {
 </script>
 <template>
   <main class="homepage" :class="{ projectActive: hover }">
-    <div class="loading-page">
-      <div class="preloading-text">
-        <p>Preloading</p>
-        <p>Preloading</p>
-      </div>
-    </div>
+
     <Header />
     <!-- DVD -->
     <section class="">
@@ -56,29 +51,6 @@ export default {
   </main>
 </template>
 <style lang="postcss" scoped>
-.loading-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg);
-  z-index: 100;
-  width: 100vw;
-  height: 100vh;
-  padding: .5rem;
-
-  & .preloading-text {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100vw;
-
-    & p {
-      margin-top: 0;
-    }
-  }
-
-}
-
 h1 {
   margin-top: 0;
 }

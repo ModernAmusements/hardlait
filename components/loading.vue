@@ -1,7 +1,29 @@
 <template lang="html">
-	<div class="loading-page" v-if="loading">
-		<p>Loading...</p>
-	</div>
+	<main>
+		<div class="loading-page" v-if="loading">
+			<div class="preloading-text-about-top">
+				<div class="about-text">
+					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
+					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
+					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
+					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
+				</div>
+			</div>
+			<div class="preloading-text">
+				<p>Preloading</p>
+				<p>Preloading</p>
+				<p>Preloading</p>
+			</div>
+			<div class="preloading-text-about-buttom">
+				<div class="about-text">
+					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
+					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
+					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
+					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
+				</div>
+			</div>
+		</div>
+	</main>
 </template>
   
 <script>
@@ -20,7 +42,61 @@ export default {
 }
 </script>
   
-<style scoped>
+<style lang="postcss" scoped>
+.loading-page {
+	display: flex !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	background-color: var(--bg) !important;
+	z-index: 100 !important;
+	width: 100vw !important;
+	height: 100vh !important;
+	flex-direction: column !important;
+	position: unset !important;
+	top: unset !important;
+	left: unset !important;
+	text-align: unset !important;
+	padding-top: unset !important;
+	font-size: unset !important;
+	font-family: 'On Diatype Standard' !important;
+
+	& .preloading-text {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100vw;
+		padding: .5rem;
+
+		& p {
+			margin-top: 0;
+		}
+	}
+
+	& .preloading-text-about-top,
+	& .preloading-text-about-buttom {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100vw;
+		padding: .5rem;
+
+		& .about-text {
+			overflow: hidden;
+			display: inline-flex;
+			white-space: nowrap;
+			overflow-x: hidden;
+			max-width: 100%;
+
+			& p {
+				margin-top: 0;
+				margin-right: .5rem;
+				transform: translateX(-6vw);
+			}
+		}
+	}
+
+}
+
 .loading-page {
 	position: fixed;
 	top: 0;
