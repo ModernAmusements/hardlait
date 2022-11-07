@@ -2,24 +2,32 @@
 	<main>
 		<div class="loading-page" v-if="loading">
 			<div class="preloading-text-about-top">
-				<div class="about-text">
-					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
-					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
-					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
-					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
+				<div class="about-text" v-for="(menuItem, index) in menuItems" :key="index">
+					<p class="aka">{{ menuItem.aka }}</p>
+					<p class="dash">{{ menuItem.dash }}</p>
+					<p class="name">{{ menuItem.name }}</p>
+					<p class="lastname">{{ menuItem.lastname }}</p>
+					<p class="dir">{{ menuItem.dir }}</p>
+					<p class="cgi">{{ menuItem.cgi }}</p>
 				</div>
 			</div>
-			<div class="preloading-text">
+			<div class="preloading-text move-right">
 				<p>Preloading</p>
 				<p>Preloading</p>
 				<p>Preloading</p>
+				<p>Preloading</p>
+				<p>Preloading</p>
+				<p>Preloading</p>
+
 			</div>
 			<div class="preloading-text-about-buttom">
-				<div class="about-text">
-					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
-					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
-					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
-					<p>HARDLAIT - NIKOLAS ARDELEY DIRECTOR CGI HARDLAIT </p>
+				<div class="about-text" v-for="(menuItem, index) in menuItems" :key="index">
+					<p class="aka">{{ menuItem.aka }}</p>
+					<p class="dash">{{ menuItem.dash }}</p>
+					<p class="name">{{ menuItem.name }}</p>
+					<p class="lastname">{{ menuItem.lastname }}</p>
+					<p class="dir">{{ menuItem.dir }}</p>
+					<p class="cgi">{{ menuItem.cgi }}</p>
 				</div>
 			</div>
 		</div>
@@ -28,6 +36,439 @@
   
 <script>
 export default {
+	props: {
+		menuItems: {
+			type: Array,
+			default: () => [
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+				{
+					aka: "HARDLAIT",
+					dash: "-",
+					name: "NIKOLAS",
+					lastname: "ARDELEY",
+					dir: "DIRECTOR",
+					cgi: "CGI",
+				},
+			],
+		},
+	},
 	data: () => ({
 		loading: false
 	}),
@@ -43,6 +484,40 @@ export default {
 </script>
   
 <style lang="postcss" scoped>
+@keyframes moveRight {
+	from {
+		transform: translateX(-1920px);
+	}
+
+	to {
+		transform: translateX(1920px);
+	}
+}
+
+@keyframes moveLeft {
+	from {
+		transform: translateX(1920px);
+	}
+
+	to {
+		transform: translateX(-1920px);
+	}
+}
+
+.move-right {
+	animation-duration: 4.5s;
+	animation-name: moveRight;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+.move-left {
+	animation-duration: 4.5s;
+	animation-name: moveRight;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
 .loading-page {
 	display: flex !important;
 	align-items: center !important;
@@ -74,23 +549,23 @@ export default {
 
 	& .preloading-text-about-top,
 	& .preloading-text-about-buttom {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
 		width: 100vw;
 		padding: .5rem;
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		overflow-x: hidden;
+		max-width: 100%;
 
 		& .about-text {
-			overflow: hidden;
+
 			display: inline-flex;
 			white-space: nowrap;
-			overflow-x: hidden;
-			max-width: 100%;
+
 
 			& p {
 				margin-top: 0;
 				margin-right: .5rem;
-				transform: translateX(-6vw);
+
 			}
 		}
 	}
