@@ -17,7 +17,6 @@
 				<p>Preloading</p>
 				<p>Preloading</p>
 				<p>Preloading</p>
-				<p>Preloading</p>
 
 			</div>
 			<div class="preloading-text-about-buttom">
