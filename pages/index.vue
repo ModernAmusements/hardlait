@@ -57,7 +57,7 @@ h1 {
 
 .projects-homepage {
   z-index: 10;
-  width: fit-content;
+  width: 100%;
 }
 
 .projects-layout {
