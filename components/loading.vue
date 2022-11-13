@@ -2,7 +2,7 @@
 	<main>
 		<div class="loading-page" v-if="loading">
 			<div class="preloading-text-about-top">
-				<span class="about-text" v-for="preLoadItem in 150">
+				<span class="about-text" v-for="preLoadItem in 150" :id="['row_top_' + preLoadItem]">
 					<p :id="preLoadItem.id_aka" class="aka">HARDLAIT</p>
 					<p :id="preLoadItem.id_dash" class="dash">-</p>
 					<p :id="preLoadItem.id_name" class="name">NIKOLAS</p>
@@ -13,13 +13,16 @@
 			</div>
 
 			<div class="preloading-text">
-				<p>PRELOADING</p>
-				<p>PRELOADING</p>
-				<p>PRELOADING</p>
-				<p>PRELOADING</p>
+				<!-- <div v-for="preLoadItem in 6" :id="['row_middle_' + preLoadItem]"> -->
+
+				<p v-anime="opa_1" class="preloading">PRELOADING</p>
+				<p v-anime="opa_2" class="preloading">PRELOADING</p>
+				<p v-anime="opa_3" class="preloading">PRELOADING</p>
+				<p v-anime="opa_4" class="preloading">PRELOADING</p>
+
 			</div>
 			<div class="preloading-text-about-buttom">
-				<span class="about-text" v-for="preLoadItem in 150">
+				<span class="about-text" v-for="preLoadItem in 150" :id="['row_buttom_' + preLoadItem]">
 					<p :id="preLoadItem.id_aka" class="aka">HARDLAIT</p>
 					<p :id="preLoadItem.id_dash" class="dash">-</p>
 					<p :id="preLoadItem.id_name" class="name">NIKOLAS</p>
@@ -36,8 +39,8 @@
 
 
 
-
 export default {
+
 	props: {
 		preLoadItems: {
 			type: Array,
@@ -62,6 +65,30 @@ export default {
 	},
 	data: () => ({
 		loading: false,
+		opa_1: {
+			opacity: [0, 1],
+			duration: 500,
+			easing: 'easeInOutSine',
+			delay: 500,
+		},
+		opa_2: {
+			opacity: [0, 1],
+			duration: 500,
+			easing: 'easeInOutSine',
+			delay: 1000,
+		},
+		opa_3: {
+			opacity: [0, 1],
+			duration: 500,
+			easing: 'easeInOutSine',
+			delay: 1500,
+		},
+		opa_4: {
+			opacity: [0, 1],
+			duration: 500,
+			easing: 'easeInOutSine',
+			delay: 2000,
+		},
 
 	}),
 
@@ -71,12 +98,23 @@ export default {
 		},
 		finish() {
 			this.loading = false
-		},
+		}
+
 	}
 }
 </script>
   
 <style lang="postcss" scoped>
+@keyframes slidein {
+	from {
+		transform: translateX(0%);
+	}
+
+	to {
+		transform: translateX(100%);
+	}
+}
+
 .loading-page {
 	display: flex !important;
 	align-items: center !important;
@@ -93,8 +131,6 @@ export default {
 	padding-top: unset !important;
 	font-family: 'On Diatype Standard' !important;
 	font-size: 16px !important;
-
-
 
 
 	& .preloading-text {
@@ -115,18 +151,23 @@ export default {
 	& .preloading-text-about-buttom {
 		display: grid;
 		grid-template-columns: repeat(6, 1fr);
-
+		align-items: start;
 
 		& .about-text {
 			display: flex;
+			animation: slidein 5s;
 
 
 			& p {
 				margin-top: 0;
 				margin-right: .5rem;
 
+
 			}
 		}
+
+
+
 
 	}
 
