@@ -103,6 +103,7 @@ export default {
   padding: 0;
   white-space: nowrap;
   overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 .homepage-hero {
