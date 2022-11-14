@@ -1,8 +1,15 @@
 <template>
   <main>
     <HeaderProject />
-    <section class="layout-subpage" v-if="post">
-      <article class="work-subpage">
+    <article class="post-images" ref="scroll_container" @mousewheel="scrollX" v-if="post">
+      <!-- <div class="project-bg" :src="post.cover" :style="{ backgroundImage: `url(${post.cover})` }">
+      </div> -->
+      <div class="project-bg" v-for="image in post.gallery" :key="image.id" :src="image"
+        :style="{ backgroundImage: `url(${image})` }">
+      </div>
+    </article>
+    <section class="layout-subpage">
+      <article class="work-subpage" v-if="post">
         <!-- Title  -->
         <div class="headline-date">
           <h1 class="headline mr-2" :style="{ color: `${post.color}` }">
@@ -43,14 +50,8 @@
         </div>
         <nuxt-content :document="post" />
       </article>
-      <div class="project-bg" :src="post.cover" :style="{ backgroundImage: `url(${post.cover})` }">
-      </div>
-      <div class="project-bg" v-for="image in post.gallery" :key="image.id" :src="image"
-        :style="{ backgroundImage: `url(${image})` }">
-      </div>
-
     </section>
-    <section class="homepage-hero self-start flex flex-col flex-1 items-between">
+    <section class="homepage-hero self-start flex flex-col flex-1 items-between" v-if="post">
       <div class="homepage-about">
         <h1 :style="{ color: `${post.color}` }" class="uppercase">{{ post.description }}</h1>
         <h1 :style="{ color: `${post.color}` }" class="uppercase">{{ post.category }}</h1>
@@ -62,6 +63,7 @@
 </template>
 
 <script>
+
 export default {
   async asyncData({ $content, params, error }) {
     let post;
@@ -86,11 +88,23 @@ export default {
     toggleVisible() {
       this.isVisible = !this.isVisible
     },
+    scrollX(e) {
+      this.$refs['scroll_container'].scrollLeft += e.deltaY;
+    },
   }
 }
 </script>
 
 <style lang="postcss" scoped>
+.post-images {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
 .homepage-hero {
   width: 100%;
   padding: 0.5rem;
@@ -111,6 +125,8 @@ export default {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 30px);
+  position: absolute;
+  width: 100%;
 }
 
 .post-project {
@@ -159,14 +175,12 @@ export default {
 /* project color cms */
 
 .project-bg {
-  background-position: 50%;
+  height: 100vh;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: absolute;
+  display: inline-block;
   width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  inset: 0;
 }
 
 
