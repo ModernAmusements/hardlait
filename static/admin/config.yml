@@ -76,7 +76,7 @@ collections:
     slug: '{{slug}}'
     preview_path: 'projects/{{slug}}'
     fields:
-      - { label: 'Contributors', name: 'contributors', widget: 'string' }
+      - { label: 'Contributors', name: 'contributors', widget: 'markdown', required: false }
       - {
           label: 'Created Date',
           name: 'createdAt',

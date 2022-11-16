@@ -62,7 +62,7 @@
           </p>
           <div class="person">
             <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
-              PERSON
+              {{ post.contributors }}
             </p>
             <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
               ONE
