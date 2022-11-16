@@ -16,6 +16,7 @@ title: Dior FW21
 gallery:
   - /img/dior2.jpg
   - /img/doir3.jpg
+  - /img/dior-2.jpg
 typed_list:
   - type: type_1_object
     string: Services Généraux
