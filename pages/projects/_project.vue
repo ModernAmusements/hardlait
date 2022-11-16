@@ -2,8 +2,12 @@
   <main>
     <HeaderProject />
     <article class="post-images" ref="scroll_container" @mousewheel="scrollX" v-if="post">
-      <!-- <div class="project-bg" :src="post.cover" :style="{ backgroundImage: `url(${post.cover})` }">
-      </div> -->
+      <section class="project-hero self-start flex flex-col flex-1 items-between" v-if="post">
+        <div class="homepage-about">
+          <h1 :style="{ color: `${post.color}` }" class="uppercase">{{ post.description }}</h1>
+          <h1 :style="{ color: `${post.color}` }" class="uppercase">{{ post.category }}</h1>
+        </div>
+      </section>
       <div class="project-bg" v-for="image in post.gallery" :key="image.id" :src="image"
         :style="{ backgroundImage: `url(${image})` }">
       </div>
@@ -50,13 +54,23 @@
         </div>
         <nuxt-content :document="post" />
       </article>
-    </section>
-    <section class="homepage-hero self-start flex flex-col flex-1 items-between" v-if="post">
-      <div class="homepage-about">
-        <h1 :style="{ color: `${post.color}` }" class="uppercase">{{ post.description }}</h1>
-        <h1 :style="{ color: `${post.color}` }" class="uppercase">{{ post.category }}</h1>
-      </div>
+      <article class="work-credits" v-if="post">
+        <!-- Info  -->
+        <div class="post-credits">
+          <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
+            CREDITS
+          </p>
+          <div class="person">
+            <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
+              PERSON
+            </p>
+            <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
+              ONE
+            </p>
+          </div>
+        </div>
 
+      </article>
     </section>
     <FooterDvdOff />
   </main>
@@ -106,7 +120,7 @@ export default {
   overflow-y: hidden;
 }
 
-.homepage-hero {
+.project-hero {
   width: 100%;
   padding: 0.5rem;
   justify-content: center;
@@ -114,7 +128,10 @@ export default {
   line-height: 2rem;
   padding-top: 20rem;
   z-index: 19;
+  position: absolute;
 }
+
+
 
 .homepage-about {
   display: flex;
@@ -125,7 +142,7 @@ export default {
 .layout-subpage {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 30px);
+  grid-template-rows: repeat(15, 30px);
   position: absolute;
   width: 100%;
 }
@@ -139,11 +156,34 @@ export default {
 }
 
 
-.work-subpage {
+.work-subpage,
+.work-credits {
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
+
+}
+
+.work-subpage {
   grid-column: 2 / 3;
+}
+
+.work-credits {
+  padding-top: 0.5rem;
+  grid-column: 5 / 6;
+  text-align: start;
+}
+
+.person {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-credits {
+  display: flex;
+  z-index: 20;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .headline-date {
@@ -206,5 +246,9 @@ export default {
     font-size: 1rem;
   }
 
+  .work-credits {
+    grid-column: 1 / 6;
+    grid-row: 15;
+  }
 }
 </style>
