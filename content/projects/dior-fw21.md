@@ -1,5 +1,8 @@
 ---
-contributors: Services Généraux
+contributors: |-
+  * Services Généraux
+  * P﻿erson
+  * P﻿erson
 createdAt: "2022"
 color: "#c1cad6"
 category: comercial
