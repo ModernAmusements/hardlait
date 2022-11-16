@@ -77,17 +77,17 @@ collections:
     preview_path: 'projects/{{slug}}'
     fields:
       - { label: 'Contributors', name: 'contributors', widget: 'markdown', required: false }
-      - name: 'authors'
-        label: 'Authors'
-        description: 'Author descriptions'
-        fields:
-          - name: authors
-            label: Authors
-            label_singular: 'Author'
-            widget: list
+      - label: 'Typed List'
+        name: 'typed_list'
+        widget: 'list'
+        types:
+          - label: 'Type 1 Object'
+            name: 'type_1_object'
+            widget: 'object'
             fields:
-              - { label: 'Name', name: 'name', widget: 'string', hint: 'First and Last' }
-              - { label: 'Description', name: 'description', widget: 'markdown' }
+              - { label: 'String', name: 'string', widget: 'string' }
+              - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+              - { label: 'Text', name: 'text', widget: 'text' }
       - {
           label: 'Created Date',
           name: 'createdAt',
