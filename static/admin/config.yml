@@ -76,18 +76,17 @@ collections:
     slug: '{{slug}}'
     preview_path: 'projects/{{slug}}'
     fields:
-      - { label: 'Contributors', name: 'contributors', widget: 'markdown', required: false }
-      - label: 'Typed List'
-        name: 'typed_list'
+      - label: 'Contributors List'
+        name: 'contributors_list'
         widget: 'list'
         types:
-          - label: 'Type 1 Object'
-            name: 'type_1_object'
+          - label: 'Contributor'
+            name: 'contributors'
             widget: 'object'
             fields:
-              - { label: 'String', name: 'string', widget: 'string' }
-              - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-              - { label: 'Text', name: 'text', widget: 'text' }
+              - { label: 'Name', name: 'name', widget: 'string' }
+              - { label: 'Show', name: 'show', widget: 'boolean' }
+              - { label: 'Role', name: 'role', widget: 'text' }
       - {
           label: 'Created Date',
           name: 'createdAt',
