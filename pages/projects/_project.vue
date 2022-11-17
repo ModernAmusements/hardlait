@@ -61,8 +61,9 @@
             CREDITS
           </p>
           <div class="person">
-            <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
-              {{ post.testimonials }}
+            <p :style="{ color: `${post.color}` }" class="inline-block category mt-0" v-for="name in post.testimonials"
+              :key="name.id">
+              {{ post.name }} - {{ post.role }}
             </p>
             <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
               ONE

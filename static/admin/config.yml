@@ -76,17 +76,17 @@ collections:
     slug: '{{slug}}'
     preview_path: 'projects/{{slug}}'
     fields:
-      - label: 'Testimonials'
-        name: 'testimonials'
+      - label: 'Credits'
+        name: 'credits'
         widget: 'list'
         summary: '{{fields.quote}} - {{fields.author.name}}'
         fields:
-          - { label: Quote, name: quote, widget: string, default: 'Everything is awesome!' }
-          - label: Author
-            name: author
+          - { label: Role, name: role, widget: string, default: 'CGI' }
+          - label: Name
+            name: name
             widget: object
             fields:
-              - { label: Name, name: name, widget: string, default: 'Emmet' }
+              - { label: Name, name: name, widget: string, default: 'Nikolas Hardlait' }
       - {
           label: 'Created Date',
           name: 'createdAt',
