@@ -62,7 +62,7 @@
           </p>
           <div class="person">
             <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
-              {{ post.quote }}
+              {{ post.testimonials }}
             </p>
             <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
               ONE
