@@ -1,4 +1,5 @@
 ---
+color: "#c1cad6"
 contributors_list:
   - type: contributors
     name: Person
@@ -24,3 +25,7 @@ contributors: |-
 
   P﻿erson
 ---
+
+# L﻿orem Ipsum
+
+this is where I'll place some text to see what's up
