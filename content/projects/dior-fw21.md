@@ -1,4 +1,5 @@
 ---
+color: "#c1cad6"
 contributors_list:
   - type: contributors
     name: Person
@@ -8,7 +9,6 @@ contributors_list:
     name: Person
     show: true
     role: Art Direction
-color: "#c1cad6"
 authors: Services Généraux P﻿erson P﻿erson
 createdAt: "2022"
 category: comercial
@@ -26,6 +26,13 @@ typed_list:
     string: P﻿erson
     boolean: true
     text: Test
+testimonials:
+  - quote: Everything is awesome!
+    author:
+      name: Emmet
+  - quote: Everything is awesome!
+    author:
+      name: Emmet
 cover: /img/sg_dior_blacksunglasses_splitscreen_ice.png
 contributors: |-
   Services Généraux
@@ -34,3 +41,6 @@ contributors: |-
 
   P﻿erson
 ---
+# L﻿orem Ipsum
+
+this is where I'll place some text to see what's up
