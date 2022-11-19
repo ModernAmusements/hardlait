@@ -2,7 +2,7 @@
   <!-- POSTS -->
   <div v-if="posts.length > 0" class="z-20">
     <div class="project" v-for="(post, index) in posts" :key="index">
-      <div class="headline-date">
+      <div class="headline-date mt-0">
         <h4 class="headline mr-2" :class="{ projectActive: hover }">
           {{ post.title }}
         </h4>

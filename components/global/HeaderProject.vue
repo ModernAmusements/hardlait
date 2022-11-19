@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed z-10 top-0 inset-x-0 project-header" aria-label="Main Menu">
+  <nav class=" z-10 top-0 inset-x-0 project-header" aria-label="Main Menu">
     <nuxt-link class="" to="/">
       Hardlait
     </nuxt-link>
@@ -24,6 +24,7 @@ nav {
   justify-content: space-between;
   padding: 0.5rem;
   align-items: flex-start;
+  position: absolute;
 }
 
 

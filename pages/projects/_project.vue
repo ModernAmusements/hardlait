@@ -2,16 +2,18 @@
   <main>
     <HeaderProject />
     <article class="post-images" ref="scroll_container" @mousewheel="scrollX" v-if="post">
-      <section class="project-hero self-start flex flex-col flex-1 items-between" v-if="post">
-        <div class="homepage-about">
-          <h1 :style="{ color: `${post.color}` }" class="uppercase">{{ post.description }}</h1>
-          <h1 :style="{ color: `${post.color}` }" class="uppercase">{{ post.category }}</h1>
-        </div>
-      </section>
       <div class="project-bg" v-for="image in post.gallery" :key="image.id" :src="image"
         :style="{ backgroundImage: `url(${image})` }">
       </div>
+      <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }">
+      </div>
     </article>
+    <section class="project-hero self-start flex flex-col flex-1 items-between" v-if="post">
+      <div class="homepage-about">
+        <h1 :style="{ color: `${post.color}` }" class="uppercase">{{ post.description }}</h1>
+        <h1 :style="{ color: `${post.color}` }" class="uppercase">{{ post.category }}</h1>
+      </div>
+    </section>
     <section class="layout-subpage">
       <article class="work-subpage" v-if="post">
         <!-- Title  -->
@@ -46,13 +48,10 @@
               More
             </p>
           </div>
-          <div :style="{ color: `${post.color}` }" :class="{ show: isVisible }" class="post-project mt-10">
-            With the creative direction of Mouthwash, my job was to setup ways to distort the image directly in 3D using
-            the asset created by the team at SG. Using Octane’s powerful universal camera, we were able to stack FX
-            without too much post-process.
+          <div :class="{ show: isVisible }" class="post-project">
+            <nuxt-content :style="{ color: `${post.color}` }" :document="post" />
           </div>
         </div>
-        <nuxt-content :document="post" />
       </article>
       <article class="work-credits" v-if="post">
         <!-- Info  -->
@@ -109,6 +108,20 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.nuxt-content {
+  color: var(--bg) !important;
+
+  & p {
+    color: var(--bg) !important;
+  }
+}
+
+.text-area-1 {
+
+  display: inline-flex;
+
+}
+
 .post-images {
   width: 100%;
   height: 100%;
@@ -117,6 +130,7 @@ export default {
   white-space: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
+  background-color: var(--text);
 }
 
 .project-hero {
@@ -125,11 +139,14 @@ export default {
   justify-content: center;
   font-size: 2.25rem;
   line-height: 2rem;
-  padding-top: 20rem;
-  z-index: 19;
+  top: 80vh;
   position: absolute;
-}
 
+  & h1 {
+    white-space: break-spaces;
+    line-height: initial;
+  }
+}
 
 
 .homepage-about {
@@ -141,14 +158,11 @@ export default {
 .layout-subpage {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(15, 30px);
+  grid-template-rows: repeat(4, 30px);
   position: absolute;
   width: 100%;
 }
 
-.post-project {
-  display: none;
-}
 
 .post-project.show {
   display: block;
@@ -223,6 +237,26 @@ export default {
   width: 100vw;
 }
 
+.project-bg:nth-of-type(2) {
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  width: 100vw;
+  transform: translateX(-15vw);
+}
+
+.project-bg:nth-of-type(3) {
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  width: 100vw;
+  transform: translateX(-15vw);
+}
+
 
 
 
@@ -237,6 +271,10 @@ export default {
     grid-row: 2;
   }
 
+  .layout-subpage {
+    grid-template-rows: repeat(4, 30px);
+  }
+
   .post-project.show {
     position: absolute;
   }
@@ -247,7 +285,8 @@ export default {
 
   .work-credits {
     grid-column: 1 / 6;
-    grid-row: 15;
+    position: absolute;
+    top: 30rem;
   }
 }
 </style>
