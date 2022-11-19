@@ -4,8 +4,10 @@ credits:
     name: Nikolas Hardlait
   - role: CGI
     name: Nikolas Hardlait
-createdAt: '2022'
-color: '#c1cad6'
+  - role: CGI
+    name: Nikolas Hardlait
+createdAt: "2022"
+color: "#c1cad6"
 category: comercial
 title: Dior FW21
 cover: /img/sg_dior_blacksunglasses_splitscreen_ice.png
