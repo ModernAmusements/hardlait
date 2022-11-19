@@ -1,19 +1,12 @@
 <template>
   <main>
     <HeaderProject />
-    <article class="post-images" ref="scroll_container" @mousewheel="scrollX" v-if="post">
-      <div class="project-bg" v-for="image in post.gallery" :key="image.id" :src="image"
-        :style="{ backgroundImage: `url(${image})` }">
-      </div>
-      <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }">
-      </div>
-    </article>
-    <section class="project-hero self-start flex flex-col flex-1 items-between" v-if="post">
+    <!-- <section class="project-hero self-start flex flex-col flex-1 items-between" v-if="post">
       <div class="homepage-about">
         <h1 :style="{ color: `${post.color}` }" class="uppercase">{{ post.description }}</h1>
         <h1 :style="{ color: `${post.color}` }" class="uppercase">{{ post.category }}</h1>
       </div>
-    </section>
+    </section> -->
     <section class="layout-subpage">
       <article class="work-subpage" v-if="post">
         <!-- Title  -->
@@ -70,6 +63,13 @@
 
       </article>
     </section>
+    <article class="post-images" ref="scroll_container" @mousewheel="scrollX" v-if="post">
+      <div class="project-bg" v-for="image in post.gallery" :key="image.id" :src="image"
+        :style="{ backgroundImage: `url(${image})` }">
+      </div>
+      <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }">
+      </div>
+    </article>
     <FooterDvdOff />
   </main>
 </template>
@@ -145,6 +145,7 @@ export default {
   & h1 {
     white-space: break-spaces;
     line-height: initial;
+    word-spacing: 3rem;
   }
 }
 
@@ -237,25 +238,6 @@ export default {
   width: 100vw;
 }
 
-.project-bg:nth-of-type(2) {
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: inline-block;
-  width: 100vw;
-  transform: translateX(-15vw);
-}
-
-.project-bg:nth-of-type(3) {
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: inline-block;
-  width: 100vw;
-  transform: translateX(-15vw);
-}
 
 
 
@@ -283,10 +265,16 @@ export default {
     font-size: 1rem;
   }
 
+  .project-bg {
+    background-size: contain;
+    display: inline-flex;
+  }
+
   .work-credits {
     grid-column: 1 / 6;
     position: absolute;
     top: 30rem;
+    width: 100vw;
   }
 }
 </style>
