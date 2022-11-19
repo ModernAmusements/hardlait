@@ -6,6 +6,13 @@ testimonials:
   - quote: Everything is awesome!
     author:
       name: Emmet
+credits:
+  - role: CGI
+    name:
+      name: Nikolas Hardlait
+  - role: CGI
+    name:
+      name: Nikolas Hardlait
 createdAt: "2022"
 color: "#c1cad6"
 category: comercial
