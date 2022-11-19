@@ -76,13 +76,6 @@ collections:
     slug: '{{slug}}'
     preview_path: 'projects/{{slug}}'
     fields:
-      - label: 'Credits'
-        name: 'credits'
-        widget: 'list'
-        summary: '{{fields.quote}} - {{fields.author.name}}'
-        fields:
-          - { label: Role, name: role, default: 'CGI' }
-          - { label: Name, name: name, default: 'Nikolas Hardlait' }
       - {
           label: 'Created Date',
           name: 'createdAt',
@@ -109,6 +102,13 @@ collections:
       - { label: 'Description Homepage', name: 'description', widget: 'string', required: false }
       - { label: 'Cover Image', name: 'cover', widget: 'image', required: false, allow_multiple: false }
       - { label: 'Content Detail Page', name: 'body', widget: 'markdown', required: false }
+      - label: 'Credits'
+        name: 'credits'
+        widget: 'list'
+        summary: '{{fields.quote}} - {{fields.author.name}}'
+        fields:
+          - { label: Role, name: role, default: 'CGI' }
+          - { label: Name, name: name, default: 'Nikolas Hardlait' }
       - {
           label: 'Gallery',
           name: 'gallery',
