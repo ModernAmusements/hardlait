@@ -77,6 +77,23 @@
 <script>
 
 export default {
+  head() {
+    return {
+      title: this.post.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.post.description
+        },
+        {
+          hid: 'ogImage',
+          name: 'ogImage',
+          content: this.post.cover
+        }
+      ]
+    }
+  },
   async asyncData({ $content, params, error }) {
     let post;
     try {
