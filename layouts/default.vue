@@ -7,9 +7,9 @@
 export default {
   mounted() {
     this.$nextTick(() => {
-      this.$nuxt.$loading.start()
+      this.$nuxt.$loading.animateWords()
 
-      setTimeout(() => this.$nuxt.$loading.finish(), 5000) // 4500
+
     })
   }
 }

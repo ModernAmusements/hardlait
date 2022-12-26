@@ -1,176 +1,88 @@
 <template>
-	<main>
-		<div class="loading-page" v-if="loading">
-			<div class="preloading-text-about-top">
-				<span class="about-text" v-for="preLoadItem in 150" :id="['row_top_' + preLoadItem]">
-					<p :id="preLoadItem.id_aka" class="aka">HARDLAIT</p>
-					<p :id="preLoadItem.id_dash" class="dash">-</p>
-					<p :id="preLoadItem.id_name" class="name">NIKOLAS</p>
-					<p :id="preLoadItem.id_lastname" class="lastname">ARDELEY</p>
-					<p :id="preLoadItem.id_dir" class="dir">DIRECTOR</p>
-					<p :id="preLoadItem.id_cgi" class="cgi">CGI</p>
-				</span>
-			</div>
-
-			<div class="preloading-text">
-				<!-- <div v-for="preLoadItem in 6" :id="['row_middle_' + preLoadItem]"> -->
-
-				<p v-anime="opa_1" class="preloading">PRELOADING</p>
-				<p v-anime="opa_2" class="preloading">PRELOADING</p>
-				<p v-anime="opa_3" class="preloading">PRELOADING</p>
-				<p v-anime="opa_4" class="preloading">PRELOADING</p>
-
-			</div>
-			<div class="preloading-text-about-buttom">
-				<span class="about-text" v-for="preLoadItem in 150" :id="['row_buttom_' + preLoadItem]">
-					<p :id="preLoadItem.id_aka" class="aka">HARDLAIT</p>
-					<p :id="preLoadItem.id_dash" class="dash">-</p>
-					<p :id="preLoadItem.id_name" class="name">NIKOLAS</p>
-					<p :id="preLoadItem.id_lastname" class="lastname">ARDELEY</p>
-					<p :id="preLoadItem.id_dir" class="dir">DIRECTOR</p>
-					<p :id="preLoadItem.id_cgi" class="cgi">CGI</p>
-				</span>
-			</div>
+	<div v-if="loading" id="preloader">
+		<div v-for="(row, index) in rows" :key="index" class="row">
+			<div v-for="(word, wordIndex) in row" :key="wordIndex" class="word">{{ word }}</div>
 		</div>
-	</main>
+	</div>
 </template>
   
 <script>
-
-
-
 export default {
+	name: 'Preloader',
+	data() {
+		return {
+			loading: true,
+			words: new Array(5000).fill(0).map((_, i) => ['-', 'NIKOLAS', 'ARDELEY', 'DIRECTOR', 'CGI'][i % 5]),
+		};
+	},
+	computed: {
+		rows() {
+			const screenWidth = window.innerWidth;
+			const wordsPerRow = Math.ceil(screenWidth / 20); // assume each word is 20px wide
+			const rows = [];
+			let row = [];
 
-	props: {
-		preLoadItems: {
-			type: Array,
-			default: () => [
-				{
-					id_aka: "aka",
-					id_dash: "dash",
-					id_name: "name",
-					id_lastname: "lastname",
-					id_dir: "dir",
-					id_cgi: "cgi",
-					aka: "HARDLAIT",
-					dash: "-",
-					name: "NIKOLAS",
-					lastname: "ARDELEY",
-					dir: "DIRECTOR",
-					cgi: "CGI",
-				},
+			for (let i = 0; i < this.words.length; i += 1) {
+				row.push(this.words[i]);
+				if (row.length === wordsPerRow || i === this.words.length - 1) {
+					rows.push(row);
+					row = [];
+				}
+			}
 
-			],
+			return rows;
 		},
 	},
-	data: () => ({
-		loading: false,
-		opa_1: {
-			opacity: [0, 1],
-			duration: 500,
-			easing: 'easeInOutSine',
-			delay: 500,
-		},
-		opa_2: {
-			opacity: [0, 1],
-			duration: 500,
-			easing: 'easeInOutSine',
-			delay: 1000,
-		},
-		opa_3: {
-			opacity: [0, 1],
-			duration: 500,
-			easing: 'easeInOutSine',
-			delay: 1500,
-		},
-		opa_4: {
-			opacity: [0, 1],
-			duration: 500,
-			easing: 'easeInOutSine',
-			delay: 2000,
-		},
-
-	}),
-
+	mounted() {
+		this.animateWords();
+		setTimeout(() => {
+			this.loading = false;
+		}, 5000); // set the animation to end after 3 seconds
+	},
 	methods: {
-		start() {
-			this.loading = true
-		},
-		finish() {
-			this.loading = false
-		}
+		animateWords() {
+			if (this.$el) {
+				const words = this.$el.querySelectorAll('.word');
+				let index = 0;
 
-	}
-}
-</script>
-  
-<style lang="postcss" scoped>
-@keyframes slidein {
-	from {
-		transform: translateX(0%);
-	}
+				const animate = () => {
+					const word = words[index];
+					// get random values for x and y coordinates
+					const x = Math.floor(Math.random() * window.innerWidth);
+					const y = Math.floor(Math.random() * window.innerHeight);
+					word.style.opacity = 1;
+					word.style.transform = `translate(${x}px, ${y}px)`;
 
-	to {
-		transform: translateX(100%);
-	}
-}
+					index += 1;
+					if (index < words.length) {
+						setTimeout(animate, 0);
+					} else {
+						this.loading = false;
+					}
+				};
 
-.loading-page {
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-	background-color: var(--bg) !important;
-	z-index: 100 !important;
-	height: 100vh !important;
-	overflow: hidden;
-	flex-direction: column !important;
-	position: unset !important;
-	top: unset !important;
-	left: unset !important;
-	text-align: unset !important;
-	padding-top: unset !important;
-	font-family: 'On Diatype Standard' !important;
-	font-size: 16px !important;
-
-
-	& .preloading-text {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		width: 100vw;
-
-
-		& p {
-			margin-top: 0;
-		}
-	}
-
-
-
-	& .preloading-text-about-top,
-	& .preloading-text-about-buttom {
-		display: grid;
-		grid-template-columns: repeat(6, 1fr);
-		align-items: start;
-
-		& .about-text {
-			display: flex;
-			animation: slidein 5s;
-
-
-			& p {
-				margin-top: 0;
-				margin-right: .5rem;
-
-
+				animate();
 			}
-		}
+		},
+	},
+};
+</script>
 
+<style>
+#preloader {
+	position: absolute;
+	background-color: var(--bg);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	z-index: 100;
+}
 
-
-
-	}
-
-
+.word {
+	opacity: 0;
+	transform: translateX(-50px);
+	transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 </style>
