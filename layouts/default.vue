@@ -8,8 +8,6 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.$nuxt.$loading.animateWords()
-
-
     })
   }
 }
