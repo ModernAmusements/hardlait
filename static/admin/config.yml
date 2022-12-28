@@ -90,7 +90,6 @@ collections:
           - label: 'Image Grid'
             name: 'image_grid'
             widget: object
-            summary: '{{fields.header}}'
             fields:
               - { label: Alt, name: alt, widget: string, default: 'Default Alt Info' }
               - { label: 'Show', name: 'toggle_hide_show', widget: 'boolean', default: true }
@@ -98,7 +97,7 @@ collections:
               - label: Images
                 name: images
                 widget: list
-                field: { label: Image, name: image, widget: image, max: 9, min: 4 }
+                field: { label: Image, name: image, widget: image, max: 9, min: 2 }
 
           - label: 'Text Block'
             name: 'text_block'
@@ -117,7 +116,6 @@ collections:
           - label: 'Full Screen Image'
             name: 'fl_image'
             widget: object
-            summary: '{{fields.header}}'
             fields:
               - { label: 'Show', name: 'toggle_hide_show', widget: 'boolean', default: true }
               - { label: Header, name: header, widget: string, default: 'Full Screen Image' }

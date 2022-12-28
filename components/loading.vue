@@ -38,7 +38,7 @@ export default {
 		this.animateWords();
 		setTimeout(() => {
 			this.loading = false;
-		}, 5000);
+		}, 100);
 	},
 	methods: {
 		animateWords() {

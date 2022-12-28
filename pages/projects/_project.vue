@@ -20,7 +20,7 @@
         </div>
         <!-- Title  -->
         <!-- Info  -->
-        <div class="post-info">
+        <div class="post-info" v-if="post">
           <p :style="{ color: `${post.color}` }" class="">{{ post.description }}</p>
           <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
             {{ post.category }}
@@ -64,8 +64,16 @@
       </article>
     </section>
     <article class="post-images" ref="scroll_container" @mousewheel="scrollX" v-if="post">
-      <div class="project-bg" v-for="image in post.gallery" :key="image.id" :src="image"
-        :style="{ backgroundImage: `url(${image})` }">
+      <div>
+        <template v-for="layoutSection in layoutSections">
+          <template v-if="layoutSection.type === 'image_grid'">
+            <div class="image-grid">
+              <template v-for="image in layoutSection.images">
+                <img :src="image" :alt="layoutSection.alt" class="image-grid__item" />
+              </template>
+            </div>
+          </template>
+        </template>
       </div>
       <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }">
       </div>
@@ -103,9 +111,11 @@ export default {
     }
     return { post };
   },
+  // other component properties and methods go here
   data() {
     return {
       isVisible: false,
+      layoutSections: []
     }
   },
   methods: {
