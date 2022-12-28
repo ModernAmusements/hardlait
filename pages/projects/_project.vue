@@ -64,19 +64,21 @@
       </article>
     </section>
     <article class="post-images" ref="scroll_container" @mousewheel="scrollX" v-if="post">
-      <div>
-        <template v-for="layoutSection in post.layout_sections">
-          <template v-if="layoutSection.type === 'image_grid'">
-            <div class="image-grid">
-              <template v-for="image in layoutSection.images">
-                <img :src="image" :alt="layoutSection.alt" class="image-grid__item" />
-              </template>
-            </div>
+      <template>
+        <div class="image-grid-container">
+          <template v-for="layoutSection in post.layout_sections">
+            <template v-if="layoutSection.type === 'image_grid'">
+              <div class="grid-2x2">
+                <template v-for="image in layoutSection.images">
+                  <img :src="image" :alt="layoutSection.alt" class="image-grid-item" />
+                </template>
+              </div>
+            </template>
           </template>
-        </template>
-      </div>
-      <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }">
-      </div>
+        </div>
+        <div class="post-cover-img" :style="{ backgroundImage: `url(${post.cover})` }">
+        </div>
+      </template>
     </article>
     <FooterDvdOff />
   </main>
@@ -127,9 +129,9 @@ export default {
     toggleVisible() {
       this.isVisible = !this.isVisible
     },
-    scrollX(e) {
-      this.$refs['scroll_container'].scrollLeft += e.deltaY;
-    },
+    scrollX(event) {
+      this.$refs.scroll_container.scrollLeft += event.deltaY;
+    }
   }
 }
 </script>
@@ -150,15 +152,45 @@ export default {
 }
 
 .post-images {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.image-grid-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-2x2 {
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
-  white-space: nowrap;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  background-color: var(--text);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(50%, 1fr));
 }
+
+
+.grid-2x2 {
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.post-cover-img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+}
+
 
 .project-hero {
   width: 100%;
