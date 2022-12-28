@@ -49,7 +49,7 @@ export default {
    ** Nuxt.js dev-modules
    */
   // buildModules: ['@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa', '@nuxt/image'],
-  buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa', '@nuxt/image', 'nuxt-animejs'],
+  buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/svg'],
 
   /*
    ** Nuxt.js modules
