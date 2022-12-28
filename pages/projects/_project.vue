@@ -65,7 +65,7 @@
     </section>
     <article class="post-images" ref="scroll_container" @mousewheel="scrollX" v-if="post">
       <div>
-        <template v-for="layoutSection in layoutSections">
+        <template v-for="layoutSection in post.layout_sections">
           <template v-if="layoutSection.type === 'image_grid'">
             <div class="image-grid">
               <template v-for="image in layoutSection.images">

@@ -10,7 +10,6 @@ export default {
   generate: {
     fallback: true,
   },
-  // ? The env Property: https://nuxtjs.org/api/configuration-env/
   env: {
     url:
       process.env.NODE_ENV === 'production'
