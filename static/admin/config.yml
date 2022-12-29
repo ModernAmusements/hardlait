@@ -91,7 +91,7 @@ collections:
             name: 'image_grid'
             widget: object
             fields:
-              - { label: 'Slug', name: 'slug', widget: 'string', pattern: '[a-z][a-z0-9-]*', unique: true }
+              - { label: 'Slug', name: 'slug', widget: 'string', unique: true }
               - { label: Alt, name: alt, widget: string, default: 'Default Alt Info' }
               - { label: 'Show', name: 'toggle_hide_show', widget: 'boolean', default: true }
               - {
