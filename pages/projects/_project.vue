@@ -67,7 +67,7 @@
         <div class="image-grid-container">
           <template v-for="layoutSection in post.layout_sections">
             <template v-if="layoutSection.type === 'image_grid'">
-              <div class="grid-2x2">
+              <div :class="layoutSection.template">
                 <template v-for="image in layoutSection.images">
                   <img :src="image" :alt="layoutSection.alt" class="image-grid-item" />
                 </template>

@@ -91,9 +91,23 @@ collections:
             name: 'image_grid'
             widget: object
             fields:
+              - {
+                  label: 'Slug',
+                  name: 'slug',
+                  widget: 'string',
+                  pattern: '[a-z][a-z0-9-]*',
+                  required: true,
+                  unique: true,
+                }
               - { label: Alt, name: alt, widget: string, default: 'Default Alt Info' }
               - { label: 'Show', name: 'toggle_hide_show', widget: 'boolean', default: true }
-              - { label: Template, name: template, widget: string, default: 'image_grid.html' }
+              - {
+                  label: Template,
+                  name: template,
+                  widget: string,
+                  default: '.grid-2x2',
+                  options: ['.grid-2x2', '.grid-3x3', '.grid-6x6'],
+                }
               - label: Images
                 name: images
                 widget: list
