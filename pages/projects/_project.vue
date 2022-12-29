@@ -27,7 +27,6 @@
           </p>
         </div>
         <!-- Info  -->
-
         <div class="post-info">
           <!-- <router-back class="block text-white" /> -->
           <div class="show-more">
@@ -36,7 +35,6 @@
                 <span class="hl-show-more-dash hl-show-more-dash-bottom">
                   <span class="hl-show-more-dash-span hl-show-more-dash-span-bottom"></span>
                 </span>
-
               </label>
               More
             </p>
@@ -53,17 +51,18 @@
             CREDITS
           </p>
           <div class="person">
-
             <p :style="{ color: `${post.color}` }" class="inline-block category mt-0" v-for="name in post.credits"
               :key="name.id" :src="name">
               {{ name.name }}
             </p>
           </div>
         </div>
-
       </article>
     </section>
-    <article class="post-images" ref="scroll_container" @mousewheel="scrollX" v-if="post">
+    <article class="post-images scrollable-container" ref="scroll_container" @mousewheel="scrollX" v-if="post">
+      <div class="post-cover-img">
+        <img :src="post.cover" />
+      </div>
       <template>
         <div class="image-grid-container">
           <template v-for="layoutSection in post.layout_sections">
@@ -76,16 +75,12 @@
             </template>
           </template>
         </div>
-        <div class="post-cover-img" :style="{ backgroundImage: `url(${post.cover})` }">
-        </div>
       </template>
     </article>
     <FooterDvdOff />
   </main>
 </template>
-
 <script>
-
 export default {
   head() {
     return {
@@ -130,12 +125,12 @@ export default {
       this.isVisible = !this.isVisible
     },
     scrollX(event) {
-      this.$refs.scroll_container.scrollLeft += event.deltaY;
+      const container = this.$refs.scroll_container;
+      container.scrollLeft += event.deltaY;
     }
   }
 }
 </script>
-
 <style lang="postcss" scoped>
 .nuxt-content {
   color: var(--bg) !important;
@@ -146,18 +141,21 @@ export default {
 }
 
 .text-area-1 {
-
   display: inline-flex;
-
 }
 
 .post-images {
   overflow-x: scroll;
   white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 250vw;
+  background: black;
+  position: absolute;
 }
 
 .image-grid-container {
-  position: absolute;
+  position: relative;
   top: 0;
   right: 0;
   bottom: 0;
@@ -175,7 +173,6 @@ export default {
   grid-template-rows: repeat(auto-fill, minmax(50%, 1fr));
 }
 
-
 .grid-2x2 {
   & img {
     width: 100%;
@@ -185,12 +182,21 @@ export default {
 }
 
 .post-cover-img {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover
-}
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
 
 .project-hero {
   width: 100%;
@@ -208,7 +214,6 @@ export default {
   }
 }
 
-
 .homepage-about {
   display: flex;
   align-items: baseline;
@@ -223,18 +228,15 @@ export default {
   width: 100%;
 }
 
-
 .post-project.show {
   display: block;
 }
-
 
 .work-subpage,
 .work-credits {
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-
 }
 
 .work-subpage {
@@ -281,13 +283,11 @@ export default {
   justify-content: space-between;
 }
 
-
 .project {
   padding: 0rem 0.5rem 0 0.5rem;
 }
 
 /* project color cms */
-
 .project-bg {
   height: 100vh;
   background-position: center;
@@ -297,13 +297,7 @@ export default {
   width: 100vw;
 }
 
-
-
-
-
-
 @media only screen and (max-width: 768px) {
-
   .work-subpage {
     padding: 0 0.5rem;
     display: flex;
