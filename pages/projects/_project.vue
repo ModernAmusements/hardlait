@@ -154,15 +154,14 @@ export default {
   position: absolute;
 }
 
-.image-grid-container {
+.image-grid-container,
+.post-cover-img {
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  inset: 0;
 }
 
 .grid-2x2 {
@@ -171,9 +170,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(50%, 1fr));
-}
 
-.grid-2x2 {
   & img {
     width: 100%;
     height: 100%;
@@ -182,20 +179,9 @@ export default {
 }
 
 .post-cover-img {
-  position: relative;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  background-position: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
-
-  & img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 }
 
 .project-hero {
