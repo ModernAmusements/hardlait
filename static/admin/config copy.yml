@@ -1,0 +1,102 @@
+site_url: https://hardlait.netlify.app/
+logo_url: https://hardlait.netlify.app/icon.png
+
+publish_mode: editorial_workflow
+backend:
+  name: git-gateway
+  branch: main
+  squash_merges: true
+
+# used together with `npx netlify-cms-proxy-server`. https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
+local_backend: true
+
+media_folder: static/img
+public_folder: /img
+
+# Docs: https://www.netlifycms.org/docs/configuration-options/#collections
+collections:
+  - label: 'Site settings'
+    name: 'site'
+    files:
+      - label: 'Info'
+        name: 'info'
+        file: 'content/site/info.json'
+        format: 'json'
+        editor:
+          preview: false
+        fields:
+          - { label: Site Name, name: sitename, widget: string, hint: 'This is used for the site title' }
+          - {
+              label: Site Description,
+              name: sitedescription,
+              widget: string,
+              hint: 'This is used as descriptive text for links that link to this site',
+            }
+          - {
+              label: Site Language,
+              name: sitelang,
+              widget: string,
+              pattern: ['^[a-z]{2}([-])?([A-Za-z]{2})?$', 'Must match "xx" or "xx-XX" syntax (ex. "en" or "sv-SE")'],
+            }
+          - { label: Site Email, name: siteemail, widget: string, required: false }
+  - name: 'projects'
+    label: 'Projects'
+    label_singular: 'Project'
+    folder: 'content/projects'
+    create: true
+    format: 'frontmatter'
+    slug: '{{slug}}'
+    preview_path: 'projects/{{slug}}'
+    fields:
+      - {
+          label: 'Created Date',
+          name: 'createdAt',
+          widget: 'datetime',
+          format: 'YYYY',
+          date_format: 'YYYY',
+          time_format: false,
+        }
+      - { label: 'Color', name: 'color', widget: 'color', enableAlpha: true, allowInput: true }
+
+      - {
+          label: 'Project Category',
+          name: 'category',
+          widget: 'select',
+          default: 'comercial',
+          options:
+            [
+              { label: 'Comercial', value: 'comercial' },
+              { label: 'Personal', value: 'personal' },
+              { label: 'Other', value: 'other' },
+            ],
+        }
+      - label: 'Cover Image'
+        name: 'cover_image'
+        widget: 'image'
+        allow_multiple: false
+        media_library:
+          config:
+            multiple: false
+          type: 'images'
+          label: 'Select Cover Image'
+
+      - label: 'Upload Sections'
+        name: 'upload_sections'
+        widget: 'list'
+        fields:
+          - label: 'Section Title'
+            name: 'title'
+            widget: 'string'
+          - label: 'Images'
+            name: 'images'
+            widget: 'image'
+            allow_multiple: true
+            media_library:
+              config:
+                multiple: true
+              type: 'images'
+              label: 'Select Images'
+
+      - label: 'Text'
+        name: 'text'
+        widget: 'text'
