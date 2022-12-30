@@ -20,14 +20,13 @@
         </div>
         <!-- Title  -->
         <!-- Info  -->
-        <div class="post-info">
+        <div class="post-info" v-if="post">
           <p :style="{ color: `${post.color}` }" class="">{{ post.description }}</p>
           <p :style="{ color: `${post.color}` }" class="inline-block category mt-0">
             {{ post.category }}
           </p>
         </div>
         <!-- Info  -->
-
         <div class="post-info">
           <!-- <router-back class="block text-white" /> -->
           <div class="show-more">
@@ -36,7 +35,6 @@
                 <span class="hl-show-more-dash hl-show-more-dash-bottom">
                   <span class="hl-show-more-dash-span hl-show-more-dash-span-bottom"></span>
                 </span>
-
               </label>
               More
             </p>
@@ -53,29 +51,48 @@
             CREDITS
           </p>
           <div class="person">
-
             <p :style="{ color: `${post.color}` }" class="inline-block category mt-0" v-for="name in post.credits"
               :key="name.id" :src="name">
               {{ name.name }}
             </p>
           </div>
         </div>
-
       </article>
     </section>
-    <article class="post-images" ref="scroll_container" @mousewheel="scrollX" v-if="post">
-      <div class="project-bg" v-for="image in post.gallery" :key="image.id" :src="image"
-        :style="{ backgroundImage: `url(${image})` }">
+    <article class="post-images scrollable-container" ref="scroll_container" @mousewheel="scrollX" v-if="post">
+      <template>
+        <template v-for="layoutSection in post.layout_sections">
+          <template v-if="layoutSection.type === 'image_grid'">
+            <div class="image-grid-container">
+              <div :class="layoutSection.class">
+                <template v-for="image in layoutSection.images">
+                  <img :src="image" :alt="layoutSection.alt" class="image-grid-item" />
+                </template>
+              </div>
+            </div>
+          </template>
+        </template>
+      </template>
+      <div class="post-cover-img">
+        <img :src="post.cover" />
       </div>
-      <div class="project-bg" :style="{ backgroundImage: `url(${post.cover})` }">
-      </div>
+      <template v-for="layoutSection in post.layout_sections">
+        <template v-if="layoutSection.type === 'text_block'">
+          <div class="text-container">
+            <div :class="layoutSection.class">
+              <template v-if="layoutSection.text">
+                <p>{{ layoutSection.text }}</p>
+              </template>
+            </div>
+          </div>
+        </template>
+      </template>
+
     </article>
     <FooterDvdOff />
   </main>
 </template>
-
 <script>
-
 export default {
   head() {
     return {
@@ -103,9 +120,11 @@ export default {
     }
     return { post };
   },
+  // other component properties and methods go here
   data() {
     return {
       isVisible: false,
+      layoutSections: []
     }
   },
   methods: {
@@ -117,13 +136,13 @@ export default {
     toggleVisible() {
       this.isVisible = !this.isVisible
     },
-    scrollX(e) {
-      this.$refs['scroll_container'].scrollLeft += e.deltaY;
-    },
+    scrollX(event) {
+      const container = this.$refs.scroll_container;
+      container.scrollLeft += event.deltaY;
+    }
   }
 }
 </script>
-
 <style lang="postcss" scoped>
 .nuxt-content {
   color: var(--bg) !important;
@@ -134,20 +153,69 @@ export default {
 }
 
 .text-area-1 {
-
   display: inline-flex;
+}
 
+
+.text-project {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25vw;
+  height: 100vh;
+
+  & p {
+    color: var(--bg)
+  }
 }
 
 .post-images {
+  overflow-x: scroll;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 250vw;
+  background: black;
+  position: absolute;
+}
+
+.image-grid-container,
+.post-cover-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  inset: 0;
+}
+
+.grid-2x2,
+.grid-4x4 {
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
-  white-space: nowrap;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  background-color: var(--text);
+  display: grid;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.grid-2x2 {
+  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(50%, 1fr));
+}
+
+.grid-4x4 {
+  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(50%, 1fr));
+}
+
+.post-cover-img {
+  background-position: 50%;
+  display: flex;
+  align-items: center;
 }
 
 .project-hero {
@@ -166,7 +234,6 @@ export default {
   }
 }
 
-
 .homepage-about {
   display: flex;
   align-items: baseline;
@@ -181,18 +248,15 @@ export default {
   width: 100%;
 }
 
-
 .post-project.show {
   display: block;
 }
-
 
 .work-subpage,
 .work-credits {
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-
 }
 
 .work-subpage {
@@ -239,13 +303,11 @@ export default {
   justify-content: space-between;
 }
 
-
 .project {
   padding: 0rem 0.5rem 0 0.5rem;
 }
 
 /* project color cms */
-
 .project-bg {
   height: 100vh;
   background-position: center;
@@ -255,13 +317,7 @@ export default {
   width: 100vw;
 }
 
-
-
-
-
-
 @media only screen and (max-width: 768px) {
-
   .work-subpage {
     padding: 0 0.5rem;
     display: flex;
