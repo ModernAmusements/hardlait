@@ -14,6 +14,15 @@ layout_sections:
       - /img/hl-p-1.jpg
       - /img/hl-p-1.jpg
     slug: Grid 2x2
+  - type: image_grid
+    toggle_hide_show: true
+    class: grid-4x4
+    slug: Grid 4x4
+    images:
+      - /img/hl-p-1.jpg
+      - /img/hl-p-1.jpg
+      - /img/hl-p-1.jpg
+      - /img/hl-p-1.jpg
 credits:
   - role: CGI
     name: Nikolas Hardlait
