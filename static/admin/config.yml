@@ -92,14 +92,13 @@ collections:
             widget: object
             fields:
               - { label: 'Slug', name: 'slug', widget: 'string', unique: true }
-              - { label: Alt, name: alt, widget: string, default: 'Default Alt Info' }
-              - { label: 'Show', name: 'toggle_hide_show', widget: 'boolean', default: true }
+              - { label: 'Padding', name: 'toggle_hide_show', widget: 'boolean', default: true }
               - {
-                  label: Template,
-                  name: template,
+                  label: Class,
+                  name: class,
                   widget: string,
-                  default: '.grid-2x2',
-                  options: ['.grid-2x2', '.grid-3x3', '.grid-6x6'],
+                  default: 'grid-2x2',
+                  options: ['grid-2x2', 'grid-4x4', 'grid-6x6'],
                 }
               - label: Images
                 name: images
@@ -110,8 +109,9 @@ collections:
             name: 'text_block'
             widget: object
             fields:
-              - { label: 'Show', name: 'toggle_hide_show', widget: 'boolean', default: true }
-              - { label: Template, name: template, widget: string, default: 'text_block.html' }
+              - { label: 'Slug', name: 'slug', widget: 'string', unique: true }
+              - { label: 'Padding', name: 'toggle_hide_show', widget: 'boolean', default: true }
+              - { label: Class, name: class, widget: string, default: 'text-project' }
               - {
                   label: 'Align Content',
                   name: 'align',
@@ -119,7 +119,8 @@ collections:
                   options: ['left', 'center', 'right'],
                   default: 'Center',
                 }
-              - { label: Text Block, name: text, widget: text, default: 'HL Project XY' }
+              - { label: Text Block, name: text, widget: 'string', default: 'HL Project XY' }
+
           - label: 'Full Screen Image'
             name: 'fl_image'
             widget: object

@@ -2,9 +2,8 @@ import postcssPresetEnv from 'postcss-preset-env'
 import postcssEasingGradients from 'postcss-easing-gradients'
 import * as SITE_INFO from './content/site/info.json'
 import { COLOR_MODE_FALLBACK } from './utils/globals.js'
-
 export default {
-  target: 'static',
+  target: 'server',
   components: true,
   ssr: false,
   generate: {
@@ -49,7 +48,6 @@ export default {
    */
   // buildModules: ['@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa', '@nuxt/image'],
   buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/svg'],
-
   /*
    ** Nuxt.js modules
    */
@@ -107,18 +105,18 @@ export default {
       },
     },
   },
-  pwa: {
-    icon: {
-      source: 'static/icon.png',
-      filename: 'icon.png',
-    },
-    manifest: { name: SITE_INFO.sitename || process.env.npm_package_name || '', lang: process.env.lang },
-    meta: {
-      name: SITE_INFO.sitename || process.env.npm_package_name || '',
-      lang: process.env.lang,
-      ogHost: process.env.URL,
-      ogImage: '/preview.jpg',
-      theme_color: '#fe5550',
-    },
-  },
+  // pwa: {
+  //   icon: {
+  //     source: 'static/icon.png',
+  //     filename: 'icon.png',
+  //   },
+  //   manifest: { name: SITE_INFO.sitename || process.env.npm_package_name || '', lang: process.env.lang },
+  //   meta: {
+  //     name: SITE_INFO.sitename || process.env.npm_package_name || '',
+  //     lang: process.env.lang,
+  //     ogHost: process.env.URL,
+  //     ogImage: '/preview.jpg',
+  //     theme_color: '#fe5550',
+  //   },
+  // },
 }

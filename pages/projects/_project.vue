@@ -60,22 +60,34 @@
       </article>
     </section>
     <article class="post-images scrollable-container" ref="scroll_container" @mousewheel="scrollX" v-if="post">
-      <div class="post-cover-img">
-        <img :src="post.cover" />
-      </div>
       <template>
-        <div class="image-grid-container">
-          <template v-for="layoutSection in post.layout_sections">
-            <template v-if="layoutSection.type === 'image_grid'">
-              <div :class="layoutSection.template">
+        <template v-for="layoutSection in post.layout_sections">
+          <template v-if="layoutSection.type === 'image_grid'">
+            <div class="image-grid-container">
+              <div :class="layoutSection.class">
                 <template v-for="image in layoutSection.images">
                   <img :src="image" :alt="layoutSection.alt" class="image-grid-item" />
                 </template>
               </div>
-            </template>
+            </div>
           </template>
-        </div>
+        </template>
       </template>
+      <div class="post-cover-img">
+        <img :src="post.cover" />
+      </div>
+      <template v-for="layoutSection in post.layout_sections">
+        <template v-if="layoutSection.type === 'text_block'">
+          <div class="text-container">
+            <div :class="layoutSection.class">
+              <template v-if="layoutSection.text">
+                <p>{{ layoutSection.text }}</p>
+              </template>
+            </div>
+          </div>
+        </template>
+      </template>
+
     </article>
     <FooterDvdOff />
   </main>
@@ -144,6 +156,19 @@ export default {
   display: inline-flex;
 }
 
+
+.text-project {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25vw;
+  height: 100vh;
+
+  & p {
+    color: var(--bg)
+  }
+}
+
 .post-images {
   overflow-x: scroll;
   white-space: nowrap;
@@ -164,18 +189,27 @@ export default {
   inset: 0;
 }
 
-.grid-2x2 {
+.grid-2x2,
+.grid-4x4 {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(50%, 1fr));
 
   & img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+}
+
+.grid-2x2 {
+  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(50%, 1fr));
+}
+
+.grid-4x4 {
+  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(50%, 1fr));
 }
 
 .post-cover-img {
