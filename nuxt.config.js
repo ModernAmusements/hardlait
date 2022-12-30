@@ -46,8 +46,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  // buildModules: ['@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa', '@nuxt/image'],
-  buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/svg'],
+  buildModules: ['@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa', '@nuxt/image'],
   /*
    ** Nuxt.js modules
    */
@@ -105,18 +104,18 @@ export default {
       },
     },
   },
-  // pwa: {
-  //   icon: {
-  //     source: 'static/icon.png',
-  //     filename: 'icon.png',
-  //   },
-  //   manifest: { name: SITE_INFO.sitename || process.env.npm_package_name || '', lang: process.env.lang },
-  //   meta: {
-  //     name: SITE_INFO.sitename || process.env.npm_package_name || '',
-  //     lang: process.env.lang,
-  //     ogHost: process.env.URL,
-  //     ogImage: '/preview.jpg',
-  //     theme_color: '#fe5550',
-  //   },
-  // },
+  pwa: {
+    icon: {
+      source: 'static/icon.png',
+      filename: 'icon.png',
+    },
+    manifest: { name: SITE_INFO.sitename || process.env.npm_package_name || '', lang: process.env.lang },
+    meta: {
+      name: SITE_INFO.sitename || process.env.npm_package_name || '',
+      lang: process.env.lang,
+      ogHost: process.env.URL,
+      ogImage: '/preview.jpg',
+      theme_color: '#fe5550',
+    },
+  },
 }
