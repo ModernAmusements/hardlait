@@ -5,7 +5,7 @@ category:
   - personal
 title: TEST
 description: TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST
-cover: /img/hl-p-5.jpg
+cover: /img/hl-d-f-img.jpg
 layout_sections:
   - type: image_grid
     toggle_hide_show: true
@@ -13,7 +13,7 @@ layout_sections:
     slug: 1. Grid
     images:
       - /img/hl-d-f-img.jpg
-      - /img/hl-p-5.jpg
+      - /img/hl-d-f-img.jpg
 credits:
   - role: CGI
     name: Nikolas Hardlait
