@@ -8,7 +8,7 @@ description: TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST
 cover: /img/hl-p-5.jpg
 layout_sections:
   - type: image_grid
-    toggle_hide_show: false
+    toggle_hide_show: true
     class: grid-2x2
     slug: 1. Grid
     images:
