@@ -3,7 +3,7 @@ import postcssEasingGradients from 'postcss-easing-gradients'
 import * as SITE_INFO from './content/site/info.json'
 import { COLOR_MODE_FALLBACK } from './utils/globals.js'
 export default {
-  target: 'server',
+  target: 'static',
   components: true,
   ssr: false,
   generate: {
