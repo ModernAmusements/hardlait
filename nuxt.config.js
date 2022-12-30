@@ -46,7 +46,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa'],
+  buildModules: ['@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxtjs/svg'],
   /*
    ** Nuxt.js modules
    */
@@ -102,20 +102,6 @@ export default {
       options: {
         sameSite: 'lax',
       },
-    },
-  },
-  pwa: {
-    icon: {
-      source: 'static/icon.png',
-      filename: 'icon.png',
-    },
-    manifest: { name: SITE_INFO.sitename || process.env.npm_package_name || '', lang: process.env.lang },
-    meta: {
-      name: SITE_INFO.sitename || process.env.npm_package_name || '',
-      lang: process.env.lang,
-      ogHost: process.env.URL,
-      ogImage: '/preview.jpg',
-      theme_color: '#fe5550',
     },
   },
 }
