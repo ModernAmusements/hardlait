@@ -5,7 +5,7 @@ category:
   - personal
 title: TEST
 description: TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST
-cover: /img/hl-p-5.jpg
+cover: /img/hl-d-f-img.jpg
 layout_sections:
   - type: image_grid
     toggle_hide_show: true
