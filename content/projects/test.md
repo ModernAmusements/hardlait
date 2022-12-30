@@ -13,7 +13,7 @@ layout_sections:
     slug: 1. Grid
     images:
       - /img/hl-d-f-img.jpg
-      - /img/hl-p-5.jpg
+      - /img/hl-d-f-img.jpg
 credits:
   - role: CGI
     name: Nikolas Hardlait
