@@ -10,6 +10,8 @@ backend:
 # used together with `npx netlify-cms-proxy-server`. https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
 local_backend: true
 
+allowed_hosts: ['192.168.0.1']
+
 media_folder: static/img
 public_folder: /img
 
@@ -39,34 +41,6 @@ collections:
               pattern: ['^[a-z]{2}([-])?([A-Za-z]{2})?$', 'Must match "xx" or "xx-XX" syntax (ex. "en" or "sv-SE")'],
             }
           - { label: Site Email, name: siteemail, widget: string, required: false }
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
-    create: true
-    format: 'frontmatter'
-    slug: '{{fields.createdAt}}-{{slug}}'
-    # editor:
-    #   preview: true
-    fields:
-      - {
-          label: 'Created Date',
-          name: 'createdAt',
-          widget: 'datetime',
-          format: 'YYYY',
-          date_format: 'YYYY',
-          time_format: false,
-        }
-      - label: 'Work Count'
-        name: 'workCount'
-        widget: 'number'
-        default: 2
-        value_type: 'int'
-        min: 1
-        max: 101
-        step: 2
-      - { label: 'Title', name: 'title', widget: 'string', required: true }
-      - { label: 'Description', name: 'description', widget: 'string', required: false }
-      - { label: 'Body', name: 'body', widget: 'markdown', required: false }
   - name: 'projects'
     label: 'Projects'
     label_singular: 'Project'
@@ -84,24 +58,81 @@ collections:
           date_format: 'YYYY',
           time_format: false,
         }
-      - { label: 'Color', name: 'color', widget: 'color', enableAlpha: true, allowInput: true }
+      - { label: 'Project Color', name: 'color', widget: 'color', enableAlpha: true, allowInput: true }
 
       - {
           label: 'Project Category',
           name: 'category',
           widget: 'select',
           default: 'comercial',
+          multiple: true,
           options:
             [
               { label: 'Comercial', value: 'comercial' },
               { label: 'Personal', value: 'personal' },
-              { label: 'Personal On Going', value: 'personalOnGoing' },
+              { label: 'Other', value: 'other' },
             ],
         }
       - { label: 'Title', name: 'title', widget: 'string', required: true }
-      - { label: 'Description Homepage', name: 'description', widget: 'string', required: false }
-      - { label: 'Cover Image', name: 'cover', widget: 'image', required: false, allow_multiple: false }
-      - { label: 'Content Detail Page', name: 'body', widget: 'markdown', required: false }
+      - {
+          label: 'Intro Description',
+          name: 'description',
+          widget: 'string',
+          required: true,
+          pattern: ['.{20,}', 'Short Intro Displayed on Homepage'],
+        }
+      - { label: 'Cover Image', name: 'cover', widget: 'image', required: true, allow_multiple: false }
+      - label: 'HL Layout System'
+        name: 'layout_sections'
+        widget: 'list'
+        minimize_collapsed: true
+        types:
+          - label: 'Image Grid'
+            name: 'image_grid'
+            widget: object
+            fields:
+              - { label: 'Slug', name: 'slug', widget: 'string', unique: true }
+              - { label: 'Padding', name: 'toggle_hide_show', widget: 'boolean', default: true }
+              - {
+                  label: Class,
+                  name: class,
+                  widget: string,
+                  default: 'grid-2x2',
+                  options: ['grid-2x2', 'grid-4x4', 'grid-6x6'],
+                }
+              - label: Images
+                name: images
+                widget: list
+                field: { label: Image, name: image, widget: image, max: 9, min: 2 }
+
+          - label: 'Text Block'
+            name: 'text_block'
+            widget: object
+            fields:
+              - { label: 'Slug', name: 'slug', widget: 'string', unique: true }
+              - { label: 'Padding', name: 'toggle_hide_show', widget: 'boolean', default: true }
+              - { label: Class, name: class, widget: string, default: 'text-project' }
+              - {
+                  label: 'Align Content',
+                  name: 'align',
+                  widget: 'select',
+                  options: ['left', 'center', 'right'],
+                  default: 'Center',
+                }
+              - { label: Text Block, name: text, widget: 'string', default: 'HL Project XY' }
+
+          - label: 'Full Screen Image'
+            name: 'fl_image'
+            widget: object
+            fields:
+              - { label: 'Show', name: 'toggle_hide_show', widget: 'boolean', default: true }
+              - { label: Header, name: header, widget: string, default: 'Full Screen Image' }
+              - { label: Template, name: template, widget: string, default: 'image_fullscreen.html' }
+              - label: Images
+                name: images
+                widget: list
+                field: { label: Image, name: image, widget: image, max: 1, min: 1 }
+      - { label: 'Long Project Description', name: 'body', widget: 'markdown', required: false }
       - label: 'Credits'
         name: 'credits'
         widget: 'list'
@@ -109,11 +140,3 @@ collections:
         fields:
           - { label: Role, name: role, default: 'CGI' }
           - { label: Name, name: name, default: 'Nikolas Hardlait' }
-      - {
-          label: 'Gallery',
-          name: 'gallery',
-          widget: 'list',
-          required: false,
-          summary: '{{fields.image}}',
-          field: { label: 'Image', name: 'image', widget: 'image' },
-        }
