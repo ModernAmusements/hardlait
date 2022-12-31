@@ -50,7 +50,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxt/content', 'nuxt-purgecss'],
+  modules: ['@nuxt/content'],
   /*
    ** Build configuration
    */
@@ -84,15 +84,7 @@ export default {
     cssPath: '~/assets/css/main.pcss',
     exposeConfig: false, // enables `import { theme } from '~tailwind.config'`
   },
-  purgeCSS: {
-    mode: 'postcss',
-    // ? Safelisting docs: https://purgecss.com/safelisting.html
-    safelist: {
-      // standard: [],
-      deep: [/dark/, /light/, /btn/, /icon/, /main/],
-      greedy: [/^card/, /image$/, /title$/, /^nuxt-content/, /code/, /pre/, /token/, /^vue-content-placeholders/],
-    },
-  },
+
   colorMode: {
     classSuffix: 'dark',
     preference: 'system', // default value of $colorMode.preference
