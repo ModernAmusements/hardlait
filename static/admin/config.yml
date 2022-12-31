@@ -82,35 +82,47 @@ collections:
           pattern: ['.{20,}', 'Short Intro Displayed on Homepage'],
         }
       - { label: 'Cover Image', name: 'cover', widget: 'image', required: true, allow_multiple: false }
+      ##########################################################################################
       - label: 'HL Layout System'
         name: 'layout_sections'
         widget: 'list'
-        minimize_collapsed: true
         types:
           - label: 'Image Grid'
             name: 'image_grid'
             widget: object
             fields:
               - { label: 'Slug', name: 'slug', widget: 'string', unique: true }
-              - { label: 'Padding', name: 'toggle_hide_show', widget: 'boolean', default: true }
+              - {
+                  label: Object Fit,
+                  name: object_fit,
+                  widget: 'select',
+                  default: 'cover',
+                  required: false,
+                  options: [{ label: 'cover', value: 'cover' }, { label: 'contain', value: 'contain' }],
+                }
               - {
                   label: Class,
                   name: class,
-                  widget: string,
+                  widget: 'select',
                   default: 'grid-2x2',
-                  options: ['grid-2x2', 'grid-4x4', 'grid-6x6'],
+                  options:
+                    [
+                      { label: 'grid-2x2', value: 'grid-2x2' },
+                      { label: 'grid-4x4', value: 'grid-4x4' },
+                      { label: 'grid-6x6', value: 'grid-6x6' },
+                    ],
                 }
               - label: Images
                 name: images
                 widget: list
                 field: { label: Image, name: image, widget: image, max: 9, min: 2 }
-
+          ##########################################################################################
           - label: 'Text Block'
             name: 'text_block'
             widget: object
+            summary: '{{fields.text}}'
             fields:
               - { label: 'Slug', name: 'slug', widget: 'string', unique: true }
-              - { label: 'Padding', name: 'toggle_hide_show', widget: 'boolean', default: true }
               - { label: Class, name: class, widget: string, default: 'text-project' }
               - {
                   label: 'Align Content',
@@ -120,23 +132,23 @@ collections:
                   default: 'Center',
                 }
               - { label: Text Block, name: text, widget: 'string', default: 'HL Project XY' }
-
+          ##########################################################################################
           - label: 'Full Screen Image'
             name: 'fl_image'
             widget: object
             fields:
-              - { label: 'Show', name: 'toggle_hide_show', widget: 'boolean', default: true }
-              - { label: Header, name: header, widget: string, default: 'Full Screen Image' }
-              - { label: Template, name: template, widget: string, default: 'image_fullscreen.html' }
+              - { label: 'Slug', name: 'slug', widget: 'string', unique: true }
               - label: Images
                 name: images
                 widget: list
                 field: { label: Image, name: image, widget: image, max: 1, min: 1 }
+      ##########################################################################################
       - { label: 'Long Project Description', name: 'body', widget: 'markdown', required: false }
+      ##########################################################################################
       - label: 'Credits'
         name: 'credits'
         widget: 'list'
-        summary: '{{fields.quote}} - {{fields.author.name}}'
+        summary: '{{fields.name}} - {{fields.role}}'
         fields:
           - { label: Role, name: role, default: 'CGI' }
           - { label: Name, name: name, default: 'Nikolas Hardlait' }

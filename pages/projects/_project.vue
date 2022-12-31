@@ -62,11 +62,21 @@
     <article class="post-images scrollable-container" ref="scroll_container" @mousewheel="scrollX" v-if="post">
       <template>
         <template v-for="layoutSection in post.layout_sections">
+          <template v-if="layoutSection.type === 'text_block'">
+            <div class="text-container">
+              <div :class="layoutSection.class">
+                <template v-if="layoutSection.text">
+                  <p>{{ layoutSection.text }}</p>
+                </template>
+              </div>
+            </div>
+          </template>
           <template v-if="layoutSection.type === 'image_grid'">
             <div class="image-grid-container">
               <div :class="layoutSection.class">
                 <template v-for="image in layoutSection.images">
-                  <img :src="image" :alt="layoutSection.alt" class="image-grid-item" />
+                  <img :src="image" :alt="layoutSection.alt" :class="layoutSection.object_fit"
+                    class="image-grid-item" />
                 </template>
               </div>
             </div>
@@ -76,18 +86,6 @@
       <div class="post-cover-img">
         <img :src="post.cover" />
       </div>
-      <template v-for="layoutSection in post.layout_sections">
-        <template v-if="layoutSection.type === 'text_block'">
-          <div class="text-container">
-            <div :class="layoutSection.class">
-              <template v-if="layoutSection.text">
-                <p>{{ layoutSection.text }}</p>
-              </template>
-            </div>
-          </div>
-        </template>
-      </template>
-
     </article>
     <FooterDvdOff />
   </main>
@@ -152,6 +150,69 @@ export default {
   }
 }
 
+.text-project {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25vw;
+  height: 100vh;
+
+  & p {
+    color: var(--bg);
+  }
+}
+
+.post-images {
+  overflow-x: scroll;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  background: black;
+  position: absolute;
+}
+
+.image-grid-container,
+.post-cover-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  inset: 0;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+.contain {
+  object-fit: contain;
+}
+
+.grid-2x2,
+.grid-4x4 {
+  width: 100%;
+  height: 100%;
+  display: grid;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.grid-2x2 {
+  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(50%, 1fr));
+}
+
+.grid-4x4 {
+  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(50%, 1fr));
+}
+
+
 .text-area-1 {
   display: inline-flex;
 }
@@ -204,7 +265,7 @@ export default {
 }
 
 .work-subpage {
-  grid-column: 2 / 3;
+  grid-column: 2 / 4;
 }
 
 .work-credits {
