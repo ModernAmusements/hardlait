@@ -13,7 +13,7 @@ export default {
 	data() {
 		return {
 			loading: true,
-			words: new Array(500).fill(0).map((_, i) => ['-', 'NIKOLAS', 'ARDELEY', 'DIRECTOR', 'CGI'][i % 5]),
+			words: new Array(1000).fill(0).map((_, i) => ['-', 'NIKOLAS', 'ARDELEY', 'DIRECTOR', 'CGI'][i % 5]),
 		};
 	},
 	computed: {
@@ -38,23 +38,30 @@ export default {
 		this.animateWords();
 		setTimeout(() => {
 			this.loading = false;
-		}, 100);
+		}, 5000);
 	},
 	methods: {
 		animateWords() {
 			const words = this.$refs.words;
 			let index = 0;
+			let prevX = window.innerWidth / 2;
+			let prevY = window.innerHeight / 2;
 
 			const animate = () => {
 				const word = words[index];
 				// add a check to ensure that `word` is not undefined
 				if (word) {
-					// calculate x and y coordinates based on the current index
-					let x = Math.floor(Math.random() * window.innerWidth);
-					let y = Math.floor(Math.random() * window.innerHeight);
+					// calculate x and y offsets based on the current index
+					const offsetX = Math.floor(Math.random() * 500) - 25;
+					const offsetY = Math.floor(Math.random() * 500) - 25;
+					// calculate the new x and y coordinates based on the previous position and the offsets
+					let x = prevX + offsetX;
+					let y = prevY + offsetY;
 					// wrap x and y around the screen dimensions
 					x %= window.innerWidth;
 					y %= window.innerHeight;
+					prevX = x;
+					prevY = y;
 					word.style.opacity = 1;
 					word.style.transform = `translate(${x}px, ${y}px)`;
 				}
@@ -76,7 +83,6 @@ export default {
 				top: 0,
 				left: 0,
 				opacity: 0,
-				transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
 			};
 		},
 	},
