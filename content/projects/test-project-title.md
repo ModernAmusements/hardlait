@@ -10,8 +10,13 @@ layout_sections:
   - type: text_block
     toggle_hide_show: true
     class: text-project
-    align: center
-    text: Text 2
+    align: left
+    text: As the film progresses, we discover bags, jackets, the iconic Dior saddle
+      bag. Windswept icicle formations reveal details about their shapes,
+      sometimes their colors or materials. The ice keeps on reducing, now only a
+      thin sparkling veil of frost is left, coating its surface with tiny
+      crystals. Finally, all the frost vanishes, and the flower, and the
+      collection reveals it’s true form.
     slug: Text 2
   - type: image_grid
     toggle_hide_show: true
