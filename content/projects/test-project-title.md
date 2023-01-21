@@ -2,7 +2,7 @@
 createdAt: "2022"
 color: "#ff0000"
 category:
-  - personal
+  - comercial
 title: DIOR FW21
 description: Objects from the Dior Men 2021 Winter Collection
 cover: /img/hl-d-f-img.jpg
