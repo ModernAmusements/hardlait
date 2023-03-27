@@ -22,7 +22,7 @@
     "@nuxt/image": "^0.7.1",
     "@nuxtjs/color-mode": "^2.1.1",
     "@nuxtjs/svg": "^0.4.0",
-    "@nuxtjs/tailwindcss": "^4.2.1",
+    "@nuxtjs/tailwindcss": "^6.6.4",
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
